@@ -1,0 +1,49 @@
+<table class="table table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Código Barra</th>
+        <th>Código Proveedor</th>
+        <th>Proveedor</th>
+        <th class="right">Cant.</th>
+        <th class="right">Precio</th>
+        <th class="center"></th>
+    </tr>
+    {% for article in articles %}
+        {% for artProv in article.getArticuloProveedors %}
+            <tr>
+                <td id="nombre_{{ article.id }}">{{ article.nombre }}</td>
+                <td>{{ article.codigoBarra }}</td>
+                <td>{{ article.codigoProveedor }}</td>
+                <td>{{ artProv.proveedor.nombre }}</td>
+                <td class="right"><strong>{{ article.cantidad }}</strong></td>
+                <td class="right"><strong>$ {{ article.precioVenta }}</strong></td>
+                <td class="center">
+                    <button class="btn btn-info" onclick=""><i class="icon-file icon-white"></i></button>
+                    <button class="btn btn-primary" onclick""><i class="icon-pencil icon-white"></i></button>
+                    <button class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-success shopping" id="{{ article.id }}"><i class="icon-shopping-cart icon-white"></i></button>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+    <script type="text/javascript">
+        $('.shopping').click(function() {
+            var quantity = prompt('Cantidad de "' + $('#nombre_'+this.id).text() + '" a agregar:');
+
+            var url  = '{{ path('DNTWorkshopBundle_ajax_buy') }}';
+            var data = {
+                "id_article": this.id,
+                "quantity":   quantity
+            };
+
+            $.post(url, data, function(data) {
+                if (data.error == 1) {
+                    alert('Debe ingresar un número entero.');
+                } else if (data.error == 2) {
+                    alert('No existe cantidad suficiente de este artículo para realizar la venta.');
+                }
+            });
+        });
+    </script>
+</table>

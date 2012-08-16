@@ -1,0 +1,30 @@
+factura:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Factura:index" }
+
+factura_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DNTWorkshopBundle:Factura:show" }
+
+factura_new:
+    pattern:  /new
+    defaults: { _controller: "DNTWorkshopBundle:Factura:new" }
+
+factura_create:
+    pattern:  /create
+    defaults: { _controller: "DNTWorkshopBundle:Factura:create" }
+    requirements: { _method: post }
+
+factura_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DNTWorkshopBundle:Factura:edit" }
+
+factura_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DNTWorkshopBundle:Factura:update" }
+    requirements: { _method: post }
+
+factura_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DNTWorkshopBundle:Factura:delete" }
+    requirements: { _method: post }

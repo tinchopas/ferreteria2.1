@@ -1,0 +1,42 @@
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
+
+{% block subtitle %}Busqueda de proveedor{% endblock %}
+
+{% block content %}
+    <br />
+    <h2>Buscar Proveedor</h2>
+    <br />
+    <form method="get" action="{{ path('DNTWorkshopBundle_buscarProveedor') }}" class="well form-inline right" novalidate="novalidate">
+        <div class="row">
+            <div class="span4">
+                {{ form_label(form.nombre) }}:
+                {{ form_widget(form.nombre, { 'attr' : { 'class' : 'input-medium search-query' }}) }}
+            </div>
+            <div class="span4">
+                {{ form_label(form.apellido) }}:
+                {{ form_widget(form.apellido, { 'attr' : { 'class' : 'input-medium search-query' }}) }}
+            </div>
+            <div class="span4">
+                {{ form_label(form.direccion, 'Dirección') }}:
+                {{ form_widget(form.direccion, { 'attr' : { 'class' : 'input-medium search-query' }}) }}
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn">Buscar</button>
+        </div>
+    </form>
+    {% if suppliers %}
+        <h3>Resultados de la búsqueda</h3>
+        <br />
+        {% include 'DNTWorkshopBundle:Default:supplier_table.html.twig' %}
+    {% elseif app.request.query.has('supplierSearch') %}
+        <p>No se encontraron resultados</p>
+    {% endif %}
+
+    {% javascripts
+        '@DNTWorkshopBundle/Resources/public/js/ajax_delete.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}

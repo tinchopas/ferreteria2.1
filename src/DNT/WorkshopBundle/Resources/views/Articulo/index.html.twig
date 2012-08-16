@@ -1,0 +1,52 @@
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
+
+{% block subtitle %}Catalogo de Articulos{% endblock %}
+{% block content %}
+
+
+<h1>Catalogo de Articulos</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Costo</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <!--th>Imagen</th-->
+            <th>Codigobarra</th>
+            <th>Proveedor</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.cantidad }}</td>
+            <td>{{ entity.costo }}</td>
+            <td>{{ entity.precioVenta }}</td>
+            <td>{{ entity.descripcion }}</td>
+            {# <td>{{ entity.imagen }}</td> #}
+            <td>{{ entity.codigoBarra }}</td>
+            <td>{{ entity.codigoProveedor }}</td>
+            <td>
+                <button class="btn btn-info" onclick="location='{{ path('articulo_show', { 'id': entity.id }) }}'"><i class="icon-file icon-white"></i></button>
+                <button class="btn btn-primary" onclick="location='{{ path('articulo_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
+                <button type="submit" class="btn btn-danger" onclick="delete_item('{{ path('articulo_delete', { 'id': entity.id }) }}', 'Are you sure you want to delete this item?')"><i class="icon-trash icon-white"></i></button>
+           </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<button class="btn btn-success" onclick="location='{{ path('articulo_new') }}'"><i class="icon-plus icon-white"></i> Añadir nuevo articulo</button>
+
+{% javascripts
+    '@DNTWorkshopBundle/Resources/public/js/ajax_delete.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% endblock %}
+

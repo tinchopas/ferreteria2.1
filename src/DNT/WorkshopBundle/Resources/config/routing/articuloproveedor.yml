@@ -1,0 +1,30 @@
+articuloproveedor:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:ArticuloProveedor:index" }
+
+articuloproveedor_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DNTWorkshopBundle:ArticuloProveedor:show" }
+
+articuloproveedor_new:
+    pattern:  /new
+    defaults: { _controller: "DNTWorkshopBundle:ArticuloProveedor:new" }
+
+articuloproveedor_create:
+    pattern:  /create
+    defaults: { _controller: "DNTWorkshopBundle:ArticuloProveedor:create" }
+    requirements: { _method: post }
+
+articuloproveedor_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DNTWorkshopBundle:ArticuloProveedor:edit" }
+
+articuloproveedor_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DNTWorkshopBundle:ArticuloProveedor:update" }
+    requirements: { _method: post }
+
+articuloproveedor_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DNTWorkshopBundle:ArticuloProveedor:delete" }
+    requirements: { _method: post }

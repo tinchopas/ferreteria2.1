@@ -1,0 +1,54 @@
+DNT\WorkshopBundle\Entity\Proveedor:
+  type: entity
+  table: proveedor
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: id
+      generator:
+        strategy: IDENTITY
+    nombre:
+      type: string
+      length: 250
+      fixed: false
+      nullable: false
+    apellido:
+      type: string
+      length: 250
+      fixed: false
+      nullable: false
+    direccion:
+      type: string
+      length: 250
+      fixed: false
+      nullable: true
+    telefono:
+      type: string
+      length: 250
+      fixed: false
+      nullable: true
+    dolar:
+      type: float
+      nullable: true
+    creado:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: create
+    modificado:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: update
+  oneToMany:
+    ArticuloProveedors:
+      targetEntity: ArticuloProveedor
+      mappedBy: proveedor
+      cascade: [ "remove" ]
+
+  lifecycleCallbacks: {  }

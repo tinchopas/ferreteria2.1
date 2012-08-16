@@ -1,0 +1,43 @@
+DNT\WorkshopBundle\Entity\Regla:
+  type: entity
+  table: regla
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: id
+      generator:
+        strategy: IDENTITY
+    operando:
+      type: string
+      length: 10
+      fixed: true
+      nullable: false
+    valor:
+      type: float
+      nullable: false
+    creado:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: create
+    modificado:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: update
+  oneToOne:
+    id_proveedor:
+      targetEntity: Proveedor
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        id_proveedor:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

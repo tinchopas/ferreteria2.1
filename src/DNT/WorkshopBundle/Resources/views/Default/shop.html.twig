@@ -1,0 +1,57 @@
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
+
+{% block subtitle %}Venta{% endblock %}
+
+{% block content %}
+    <br />
+    <h2>Venta de artículos</h2>
+    <br />
+    <table class="table table-striped">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Código Barra</th>
+            <th class="right">Precio Unitario</th>
+            <th class="right">Cantidad</th>
+            <th class="right">Precio Total</th>
+        </tr>
+        {% set total = 0 %}
+        {% for article in articles %}
+            <tr class="shoprow">
+                <td id="nombre_{{ article.id }}">{{ article.nombre }}</td>
+                <td>{{ article.descripcion }}</td>
+                <td>{{ article.codigoBarra }}</td>
+                <td class="right"><strong>$ {{ article.precioVenta }}</strong></td>
+                <td class="right"><strong>{{ attribute(quantity, article.id) }}</strong></td>
+                <td class="right"><strong>$ {{ article.precioVenta * attribute(quantity, article.id) }}</strong></td>
+                {% set total = total + (article.precioVenta * attribute(quantity, article.id)) %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5" class="right"><strong>Total:</strong></td>
+            <td id="total" class="right"><strong>${{ total }}</strong></td>
+        </tr>
+    </table>
+    {% if articles %}
+        <div id="btnbox" class="right">
+            <button class="btn btn-danger" id="clean"><i class="icon-refresh icon-white"></i> Nueva Venta</button>
+            <button class="btn btn-success" id="submit"><i class="icon-shopping-cart icon-white"></i> Confirmar Venta</button>
+        </div>
+        <script type="text/javascript">
+            $('#clean').click(function() {
+                if (confirm("¿Está seguro que desea comenzar una nueva venta?")) {
+                    var url = '{{ path('DNTWorkshopBundle_ajax_cleanbuy') }}';
+
+                    $.post(url, null, function(data) {
+                        $('.shoprow').remove();
+                        $('#btnbox').remove();
+                        $('#total').text('<strong>$0</strong>');
+                    });
+                }
+            });
+            $('#submit').click(function() {
+                location.href = '{{ path('DNTWorkshopBundle_submitbuy') }}';
+            });
+        </script>
+    {% endif %}
+{% endblock %}

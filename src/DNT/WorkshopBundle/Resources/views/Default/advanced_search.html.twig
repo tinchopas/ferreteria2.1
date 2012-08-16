@@ -1,0 +1,49 @@
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
+
+{% block subtitle %}Busqueda Avanzada{% endblock %}
+
+{% block content %}
+    <br />
+    <h2>Buscar Producto</h2>
+    <br />
+    <form method="get" action="{{ path('DNTWorkshopBundle_advanced') }}" class="well form-inline right" novalidate="novalidate">
+        <div class="row">
+            <div class="span4">
+                {{ form_label(form.articulo) }}:
+                {{ form_widget(form.articulo, { 'attr' : { 'class' : 'input-medium search-query' }}) }}
+            </div>
+            <div class="span4">
+                {{ form_label(form.proveedor) }}:
+                {{ form_widget(form.proveedor, { 'attr' : { 'class' : 'input-medium search-query' }}) }}
+            </div>
+            <div class="span4">
+                {{ form_label(form.cantidad_min, 'Cantidad Mínima') }}:
+                {{ form_widget(form.cantidad_min, { 'attr' : { 'class' : 'input-mini search-query' }}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4">
+                {{ form_label(form.descripcion) }}:
+                {{ form_widget(form.descripcion, { 'attr' : { 'class' : 'input-medium search-query' }}) }}
+            </div>
+            <div class="span4">
+                {{ form_label(form.codproveedor, 'Código Proveedor') }}:
+                {{ form_widget(form.codproveedor, { 'attr' : { 'class' : 'input-medium search-query' }}) }}
+            </div>
+            <div class="span4">
+                {{ form_label(form.cantidad_max, 'Cantidad Máxima') }}:
+                {{ form_widget(form.cantidad_max, { 'attr' : { 'class' : 'input-mini search-query' }}) }}
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn">Buscar</button>
+        </div>
+    </form>
+    {% if articles %}
+        <h3>Resultados de la búsqueda</h3>
+        <br />
+        {% include 'DNTWorkshopBundle:Default:article_table.html.twig' %}
+    {% elseif app.request.query.has('advancedSearch') %}
+        <p>No se encontraron resultados</p>
+    {% endif %}
+{% endblock %}

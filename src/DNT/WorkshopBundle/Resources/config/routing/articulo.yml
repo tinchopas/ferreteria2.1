@@ -1,0 +1,30 @@
+articulo:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:index" }
+
+articulo_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:show" }
+
+articulo_new:
+    pattern:  /new
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:new" }
+
+articulo_create:
+    pattern:  /create
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:create" }
+    requirements: { _method: post }
+
+articulo_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:edit" }
+
+articulo_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:update" }
+    requirements: { _method: post }
+
+articulo_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:delete" }
+    requirements: { _method: post }

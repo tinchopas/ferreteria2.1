@@ -1,0 +1,30 @@
+regla:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Regla:index" }
+
+regla_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DNTWorkshopBundle:Regla:show" }
+
+regla_new:
+    pattern:  /new
+    defaults: { _controller: "DNTWorkshopBundle:Regla:new" }
+
+regla_create:
+    pattern:  /create
+    defaults: { _controller: "DNTWorkshopBundle:Regla:create" }
+    requirements: { _method: post }
+
+regla_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DNTWorkshopBundle:Regla:edit" }
+
+regla_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DNTWorkshopBundle:Regla:update" }
+    requirements: { _method: post }
+
+regla_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DNTWorkshopBundle:Regla:delete" }
+    requirements: { _method: post }

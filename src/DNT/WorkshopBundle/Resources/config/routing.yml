@@ -1,0 +1,63 @@
+
+RiotSignupBundle_root:
+    pattern:  /
+    defaults: { _controller: DNTWorkshopBundle:SimpleSearch:root}
+DNTWorkshopBundle_homepage:
+    pattern:  /busqueda_simple
+    defaults: { _controller: DNTWorkshopBundle:SimpleSearch:index }
+DNTWorkshopBundle_advanced:
+    pattern:  /busqueda_avanzada
+    defaults: { _controller: DNTWorkshopBundle:AdvancedSearch:index }
+DNTWorkshopBundle_buscarProveedor:
+    pattern:  /busqueda_proveedor
+    defaults: { _controller: DNTWorkshopBundle:ProveedorSearch:index }
+DNTWorkshopBundle_shop:
+    pattern:  /venta
+    defaults: { _controller: DNTWorkshopBundle:Shop:index }
+DNTWorkshopBundle_submitbuy:
+    pattern:  /confirmarventa
+    defaults: { _controller: DNTWorkshopBundle:Shop:submitBuy }
+
+### Ajax
+DNTWorkshopBundle_ajax_buy:
+    pattern:  /ajax/buy
+    defaults: { _controller: DNTWorkshopBundle:Ajax:buyArticle }
+DNTWorkshopBundle_ajax_cleanbuy:
+    pattern:  /ajax/cleanbuy
+    defaults: { _controller: DNTWorkshopBundle:Ajax:cleanBuy }
+
+### Login
+login:
+    pattern:  /login
+    defaults: { _controller: DNTWorkshopBundle:Login:login }
+login_check:
+    pattern:  /login_check
+
+### ABMs
+DNTWorkshopBundle_client:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/cliente.yml"
+    prefix:   /cliente
+DNTWorkshopBundle_articulo:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/articulo.yml"
+    prefix:   /articulo
+DNTWorkshopBundle_categoria:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+DNTWorkshopBundle_factura:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/factura.yml"
+    prefix:   /factura
+DNTWorkshopBundle_pedido:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/pedido.yml"
+    prefix:   /pedido
+DNTWorkshopBundle_proveedor:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/proveedor.yml"
+    prefix:   /proveedor
+DNTWorkshopBundle_regla:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/regla.yml"
+    prefix:   /regla
+DNTWorkshopBundle_renglon:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/renglon.yml"
+    prefix:   /renglon
+DNTWorkshopBundle_articuloproveedor:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/articuloproveedor.yml"
+    prefix:   /articuloproveedor

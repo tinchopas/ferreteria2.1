@@ -1,0 +1,16 @@
+parameters:
+#    dnt_workshop.example.class: DNT\WorkshopBundle\Example
+    ruleDefinition:
+        "multiply": "Multiplicación"
+        "divide": "División"
+        "sub": "Resta"
+        "sum": "Suma"
+        "percent": "Porcentaje"
+services:
+#    dnt_workshop.example:
+#        class: %dnt_workshop.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+#
+    rule_manager_service:
+        class: DNT\WorkshopBundle\Services\RuleManagerService
+        arguments: [%ruleDefinition%]

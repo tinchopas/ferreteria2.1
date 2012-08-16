@@ -1,0 +1,30 @@
+pedido:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Pedido:index" }
+
+pedido_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DNTWorkshopBundle:Pedido:show" }
+
+pedido_new:
+    pattern:  /new
+    defaults: { _controller: "DNTWorkshopBundle:Pedido:new" }
+
+pedido_create:
+    pattern:  /create
+    defaults: { _controller: "DNTWorkshopBundle:Pedido:create" }
+    requirements: { _method: post }
+
+pedido_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DNTWorkshopBundle:Pedido:edit" }
+
+pedido_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DNTWorkshopBundle:Pedido:update" }
+    requirements: { _method: post }
+
+pedido_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DNTWorkshopBundle:Pedido:delete" }
+    requirements: { _method: post }

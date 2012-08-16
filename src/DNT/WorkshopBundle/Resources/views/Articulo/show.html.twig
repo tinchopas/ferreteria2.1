@@ -1,0 +1,60 @@
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
+
+{% block subtitle %}Articulos{% endblock %}
+{% block content %}
+
+<h1>Articulo</h1>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+            <table class="table table-striped table-condensed">
+                <tbody>
+                    <tr>
+                        <th>Nombre</th>
+                        <td>{{ entity.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cantidad</th>
+                        <td>{{ entity.cantidad }}</td>
+                    </tr>
+                    <tr>
+                        <th>Costo</th>
+                        <td>{{ entity.costo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Precioventa</th>
+                        <td>{{ entity.precioVenta }}</td>
+                    </tr>
+                    <tr>
+                        <th>Descripcion</th>
+                        <td>{{ entity.descripcion }}</td>
+                    </tr>
+                    <tr>
+                        <th>Codigobarra</th>
+                        <td>{{ entity.codigoBarra }}</td>
+                    </tr>
+                    <tr>
+                        <th>Codigoproveedor</th>
+                        <td>{{ entity.codigoProveedor }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{# Este comentario es para cuando este soportado el agregado de imagenes.
+        <div class="span2">
+            <tr>
+                <td> <img src="{{ entity.imagen }}"</img> </td>
+            </tr>
+        </div>
+#}
+    </div>
+</div>
+
+
+<button class="btn btn-info" onclick="location='{{ path('articulo') }}'"><i class="icon-arrow-left icon-white"></i></button>
+<button class="btn btn-primary" onclick="location='{{ path('articulo_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
+<button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
+
+{% endblock %}
+

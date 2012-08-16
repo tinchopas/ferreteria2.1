@@ -1,0 +1,20 @@
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
+
+{% block subtitle %}Busqueda Simple{% endblock %}
+
+{% block content %}
+    <br />
+    <h2>Buscar Producto</h2>
+    <br />
+    <form method="get" action="{{ path('DNTWorkshopBundle_homepage') }}" class="well form-search">
+        <input type="text" name="codigo" class="input-xxlarge search-query">
+        <button type="submit" class="btn">Buscar</button>
+    </form>
+    {% if articles %}
+        <h3>Resultados de la búsqueda</h3>
+        <br />
+        {% include 'DNTWorkshopBundle:Default:article_table.html.twig' %}
+    {% elseif app.request.query.has('codigo') %}
+        <p>No se encontraron resultados</p>
+    {% endif %}
+{% endblock %}

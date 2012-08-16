@@ -1,0 +1,30 @@
+renglon:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Renglon:index" }
+
+renglon_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DNTWorkshopBundle:Renglon:show" }
+
+renglon_new:
+    pattern:  /new
+    defaults: { _controller: "DNTWorkshopBundle:Renglon:new" }
+
+renglon_create:
+    pattern:  /create
+    defaults: { _controller: "DNTWorkshopBundle:Renglon:create" }
+    requirements: { _method: post }
+
+renglon_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DNTWorkshopBundle:Renglon:edit" }
+
+renglon_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DNTWorkshopBundle:Renglon:update" }
+    requirements: { _method: post }
+
+renglon_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DNTWorkshopBundle:Renglon:delete" }
+    requirements: { _method: post }

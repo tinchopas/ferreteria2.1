@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Dirección</th>
+        <th>Telefono</th>
+        <th>Dolar</th>
+
+        <th class="center">Acciones</th>
+    </tr>
+    {% for supplier in suppliers %}
+            <tr>
+                <td id="nombre_{{ supplier.id }}">{{ supplier.nombre }}</td>
+                <td>{{ supplier.apellido }}</td>
+                <td>{{ supplier.direccion }}</td>
+                <td>{{ supplier.telefono }}</td>
+                <td>{{ supplier.dolar }}</td>
+                <td class="center">
+                    <button class="btn btn-info" onclick="location='{{ path('proveedor_show', { 'id': supplier.id }) }}'"><i class="icon-file icon-white"></i></button>
+                    <button class="btn btn-primary" onclick="location='{{ path('proveedor_edit', { 'id': supplier.id }) }}'"><i class="icon-pencil icon-white"></i></button>
+                    <button class="btn btn-danger" onclick="delete_item('{{ path('proveedor_delete', { 'id': supplier.id }) }}', 'Are you sure you want to delete this item?')"><i class="icon-trash icon-white"></i></button>
+                </td>
+            </tr>
+    {% endfor %}
+</table>

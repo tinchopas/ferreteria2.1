@@ -1,0 +1,30 @@
+clients:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Cliente:index" }
+
+clients_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DNTWorkshopBundle:Cliente:show" }
+
+clients_new:
+    pattern:  /new
+    defaults: { _controller: "DNTWorkshopBundle:Cliente:new" }
+
+clients_create:
+    pattern:  /create
+    defaults: { _controller: "DNTWorkshopBundle:Cliente:create" }
+    requirements: { _method: post }
+
+clients_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DNTWorkshopBundle:Cliente:edit" }
+
+clients_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DNTWorkshopBundle:Cliente:update" }
+    requirements: { _method: post }
+
+clients_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DNTWorkshopBundle:Cliente:delete" }
+    requirements: { _method: post }

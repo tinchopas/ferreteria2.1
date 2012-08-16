@@ -1,0 +1,61 @@
+{% extends 'DNTWorkshopBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div>
+                <link type="text/css" rel="stylesheet" href="{{ asset('css/layout.css') }}" />
+		        <script type="text/javascript" src="{{ asset('js/jquery-1.js') }}"></script>
+		        <script type="text/javascript" src="{{ asset('js/fouces_002.js') }}"></script>
+		        <div id="contenedorGeneral">
+		            <ul class="menuright">
+		                <li>
+		                    <a href="#" onclick="javascript:odioIe6(this)">Buscar Producto</a>
+		                    <ul style="display: none;" class="menuinterno">
+		                        <li><a href="{{ path('DNTWorkshopBundle_homepage') }}">Búsqueda Simple</a></li>
+		                        <li><a href="{{ path('DNTWorkshopBundle_advanced') }}">Búsqueda Avanzada</a></li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="{{ path('DNTWorkshopBundle_buscarProveedor') }}" >Buscar Proveedor</a>
+		                </li>
+		                <li>
+		                    <a href="#" onclick="javascript:odioIe6(this)">Caja</a>
+		                    <ul style="display: none;" class="menuinterno">
+		                        <li><a href="{{ path('DNTWorkshopBundle_shop') }}">Ventas</a></li>
+		                        <li><a href="">Pedidos</a></li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#" onclick="javascript:odioIe6(this)">Administrar Articulos</a>
+		                    <ul style="display: none;" class="menuinterno">
+		                        <li><a href="{{ path('articulo') }}">Listar Catálogo</a></li>
+		                        <li><a href="{{ path('articulo_new') }}">Agregar Articulo</a></li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#" onclick="javascript:odioIe6(this)">Administrar Proveedores</a>
+		                    <ul style="display: none;" class="menuinterno">
+		                        <li><a href="{{ path('proveedor') }}">Listar Proveedores</a></li>
+		                        <li><a href="{{ path('proveedor_new') }}">Agregar Proveedor</a></li>
+		                    </ul>
+		                </li>
+		                <li>
+    	                    <a href="#" onclick="javascript:odioIe6(this)">Administrar Reglas</a>
+		                    <ul style="display: none;" class="menuinterno">
+		                        <li><a href="{{ path('regla') }}">Listar Reglas</a></li>
+		                        <li><a href="{{ path('regla_new') }}">Agregar Regla</a></li>
+		                    </ul>
+		                </li>
+    	                <li>
+		                    <a href="index.html">Desconectarse</a>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+            <div class="span9">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

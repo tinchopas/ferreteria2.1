@@ -1,0 +1,35 @@
+DNT\WorkshopBundle\Entity\ArticuloProveedor:
+  type: entity
+  table: articuloProveedor
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    creado:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: create
+    modificado:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: update
+  manyToOne:
+    proveedor:
+      targetEntity: Proveedor
+      inversedBy: articuloProveedors
+      joinColumn:
+        name: id_proveedor
+        referencedColumnName: id
+    articulo:
+      targetEntity: Articulo
+      inversedBy: articuloProveedors
+      joinColumn:
+        name: id_articulo
+        referencedColumnName: id
+  lifecycleCallbacks: {  }

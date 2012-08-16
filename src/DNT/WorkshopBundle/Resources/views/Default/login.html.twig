@@ -1,0 +1,26 @@
+{% extends 'DNTWorkshopBundle::base.html.twig' %}
+
+{% block subtitle %}Login{% endblock %}
+
+{% block body %}
+    <div class="loginbox">
+        <img src="{{ asset('img/login.png') }}" alt="" />
+        <form action="{{ path('login_check') }}" method="post">
+            <div class="login">
+                <label for="username"></label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Ingrese el nombre de usuario..." />
+            </div>
+            <div class="login">
+                <label for="password"></label>
+                <input type="password" id="password" name="_password" placeholder="Ingrese la contraseña..." />
+            </div>
+            <div class="login">
+                <div class="error">{% if error %}{{ error.message }}{% endif %}</div>
+                <button class="btn btn-primary" type="submit">
+                    <i class="icon-share-alt icon-white"></i>
+                    Ingresar
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
