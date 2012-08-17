@@ -27,8 +27,7 @@ class ArticuloType extends AbstractType
             ->add('descripcion','textarea', array(
                 'label' => 'Descripcion')
             )
-            ->add('imagen', 'file', array(
-                'label' => 'Imagen')
+            ->add('imagen', new ImagenType()
             )
             ->add('codigoBarra','number', array(
                 'label' => 'Codigo')
@@ -48,6 +47,12 @@ class ArticuloType extends AbstractType
             ))
         ;
     }
+
+    /*
+            ->add('imagen', 'file', array(
+                'label' => 'Imagen')
+            )
+    */
 
     public function getDefaultOptions(array $options)
     {

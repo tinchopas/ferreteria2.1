@@ -42,7 +42,7 @@ class Articulo
     private $descripcion;
 
     /**
-     * @var text $imagen
+     * @var Imagen $imagen
      */
     private $imagen;
 

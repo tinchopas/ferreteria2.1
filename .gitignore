@@ -7,3 +7,4 @@ app/bootstrap.php.cache
 src/DNT/WorkshopBundle/Resources/config/doctrine/metadata/
 vendor/*
 web/bundles/*
+web/uploads/*

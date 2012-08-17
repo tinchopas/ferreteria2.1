@@ -32,9 +32,6 @@ DNT\WorkshopBundle\Entity\Articulo:
     descripcion:
       type: text
       nullable: true
-    imagen:
-      type: text
-      nullable: true
     codigoBarra:
       type: string
       length: 250
@@ -62,6 +59,13 @@ DNT\WorkshopBundle\Entity\Articulo:
       gedmo:
         timestampable:
           on: update
+  oneToOne:
+    imagen:
+      targetEntity: Imagen
+      cascade: [ "persist" ]
+      joinColumn:
+        name: imagen_id
+        referencedColumnName: id
   oneToMany:
     ArticuloProveedors:
       targetEntity: ArticuloProveedor
