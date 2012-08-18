@@ -18,7 +18,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setCosto(26.90);
         $Articulo->setPrecioVenta(35.90);
         $Articulo->setDescripcion('Destornillador grande');
-        $Articulo->setImagen('Imagen');
+//        $Articulo->setImagen('Imagen');
         $Articulo->setCodigoBarra('23452345');
         $Articulo->setCodigoProveedor('256434563');
         //$Articulo->setEliminado(0);
@@ -32,7 +32,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setCosto(26.90);
         $Articulo->setPrecioVenta(35.90);
         $Articulo->setDescripcion('Skils 13mm');
-        $Articulo->setImagen('Imagen');
+//        $Articulo->setImagen('Imagen');
         $Articulo->setCodigoBarra('123412341');
         $Articulo->setCodigoProveedor('234523452');
         //$Articulo->setEliminado(0);
@@ -46,7 +46,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setCosto(51.90);
         $Articulo->setPrecioVenta(68.90);
         $Articulo->setDescripcion('Alba 1 lt');
-        $Articulo->setImagen('Imagen');
+//        $Articulo->setImagen('Imagen');
         $Articulo->setCodigoBarra('123412345123');
         $Articulo->setCodigoProveedor('234234244');
         //$Articulo->setEliminado(0);
