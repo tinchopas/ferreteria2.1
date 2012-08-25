@@ -27,6 +27,11 @@ class LoadArticuloProveedor extends AbstractFixture implements OrderedFixtureInt
         $ArticuloProveedor->setProveedor($manager->merge($this->getReference('Proveedor.Martin')));
         $manager->persist($ArticuloProveedor);
 
+        $ArticuloProveedor = new ArticuloProveedor();
+        $ArticuloProveedor->setArticulo($manager->merge($this->getReference('Articulo.Alicate')));
+        $ArticuloProveedor->setProveedor($manager->merge($this->getReference('Proveedor.Javier')));
+        $manager->persist($ArticuloProveedor);
+
         $manager->flush();
     }
 

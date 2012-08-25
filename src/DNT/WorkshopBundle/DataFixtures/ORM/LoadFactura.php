@@ -13,24 +13,19 @@ class LoadFactura extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $Factura = new Factura();
-        $Factura->setNroFactura('23452345443');
-
+        $Factura->setNroFactura('00001');
+        $this->addReference('Factura.00001', $Factura);
         $manager->persist($Factura);
 
         $Factura = new Factura();
-        $Factura->setNroFactura('00000234233423');
-
-        $manager->persist($Factura);
-
-        $Factura = new Factura();
-        $Factura->setNroFactura('0000123423');
-
+        $Factura->setNroFactura('00002');
+        $this->addReference('Factura.00002', $Factura);
         $manager->persist($Factura);
 
         $manager->flush();
     }
 
     public function getOrder() {
-        return 8;
+        return 7;
     }
 }

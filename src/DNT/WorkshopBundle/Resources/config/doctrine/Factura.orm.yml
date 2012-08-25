@@ -38,4 +38,8 @@ DNT\WorkshopBundle\Entity\Factura:
         id_cliente:
           referencedColumnName: id
       orphanRemoval: false
+  oneToMany:
+    Renglones:
+      targetEntity: Renglon
+      mappedBy: Factura
   lifecycleCallbacks: {  }

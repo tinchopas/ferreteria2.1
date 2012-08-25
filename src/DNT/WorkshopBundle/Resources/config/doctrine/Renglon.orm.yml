@@ -40,22 +40,22 @@ DNT\WorkshopBundle\Entity\Renglon:
         timestampable:
           on: update
   manyToOne:
-    idFactura:
+    Factura:
       targetEntity: Factura
       cascade: {  }
       mappedBy: null
       inversedBy: null
       joinColumns:
-        id_factura:
+        Factura:
           referencedColumnName: id
       orphanRemoval: false
-    id_articulo:
+    Articulo:
       targetEntity: Articulo
       cascade: {  }
       mappedBy: null
       inversedBy: null
       joinColumns:
-        id_articulo:
+        Articulo:
           referencedColumnName: id
       orphanRemoval: false
   lifecycleCallbacks: {  }

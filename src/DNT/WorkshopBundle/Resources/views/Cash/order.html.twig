@@ -1,0 +1,48 @@
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
+
+{% block subtitle %}Pedidos{% endblock %}
+
+{% block content %}
+    <br />
+    <h2>Pedidos a Proveedores</h2>
+    <br />
+    {% for providerName, value in articles %}
+        <div>
+            <div class="clearfix provider">
+                <strong>{{ providerName }}</strong>
+                <button class="btn btn-mini btn-success"><i class="icon-arrow-down icon-white"></i> <span>Mostrar Artículos</span></button>
+            </div>
+            <table class="table table-striped" style="display:none">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Código Barra</th>
+                    <th>Descripción</th>
+                    <th class="right">Cantidad</th>
+                </tr>
+                {% for article in value %}
+                    <tr>
+                        <td>{{ article.nombre }}</td>
+                        <td>{{ article.codigoBarra }}</td>
+                        <td>{{ article.descripcion }}</td>
+                        <td class="right"><strong>{{ attribute(quantity, article.id) }}</strong></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+
+    <script type="text/javascript">
+        $('.provider').find('button').click(function() {
+            var btnText  = $(this).find('span');
+            var btnImage = $(this).find('i');
+
+            btnImage.toggleClass('icon-arrow-up');
+            btnImage.toggleClass('icon-arrow-down');
+
+            var text = btnText.text() == 'Mostrar Artículos' ? 'Ocultar Artículos' : 'Mostrar Artículos';
+            btnText.text(text);
+
+            $(this).parent().parent().find('table').toggle('fast');
+        });
+    </script>
+{% endblock %}

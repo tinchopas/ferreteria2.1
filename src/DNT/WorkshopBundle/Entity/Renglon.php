@@ -43,12 +43,12 @@ class Renglon
     /**
      * @var DNT\WorkshopBundle\Entity\Factura
      */
-    private $idFactura;
+    private $Factura;
 
     /**
      * @var DNT\WorkshopBundle\Entity\Articulo
      */
-    private $id_articulo;
+    private $Articulo;
 
 
     /**
@@ -162,42 +162,42 @@ class Renglon
     }
 
     /**
-     * Set idFactura
+     * Set Factura
      *
-     * @param DNT\WorkshopBundle\Entity\Factura $idFactura
+     * @param DNT\WorkshopBundle\Entity\Factura $factura
      */
-    public function setIdFactura(\DNT\WorkshopBundle\Entity\Factura $idFactura)
+    public function setFactura(\DNT\WorkshopBundle\Entity\Factura $Factura)
     {
-        $this->idFactura = $idFactura;
+        $this->Factura = $Factura;
     }
 
     /**
-     * Get idFactura
+     * Get Factura
      *
-     * @return DNT\WorkshopBundle\Entity\Factura 
+     * @return DNT\WorkshopBundle\Entity\Factura
      */
-    public function getIdFactura()
+    public function getFactura()
     {
-        return $this->idFactura;
+        return $this->Factura;
     }
 
     /**
-     * Set id_articulo
+     * Set Articulo
      *
-     * @param DNT\WorkshopBundle\Entity\Articulo $idArticulo
+     * @param DNT\WorkshopBundle\Entity\Articulo $Articulo
      */
-    public function setIdArticulo(\DNT\WorkshopBundle\Entity\Articulo $idArticulo)
+    public function setArticulo(\DNT\WorkshopBundle\Entity\Articulo $Articulo)
     {
-        $this->id_articulo = $idArticulo;
+        $this->Articulo = $Articulo;
     }
 
     /**
-     * Get id_articulo
+     * Get Articulo
      *
      * @return DNT\WorkshopBundle\Entity\Articulo 
      */
-    public function getIdArticulo()
+    public function getArticulo()
     {
-        return $this->id_articulo;
+        return $this->Articulo;
     }
 }

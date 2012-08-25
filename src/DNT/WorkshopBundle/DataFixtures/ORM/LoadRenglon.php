@@ -13,30 +13,41 @@ class LoadRenglon extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $Renglon = new Renglon();
-        $Renglon->setCantidad(80);
-        $Renglon->setPrecioArticulo(23.9);
-        $Renglon->setPrecioTotal(28.9);
-
+        $Renglon->setCantidad(1);
+        $Renglon->setPrecioArticulo(23.90);
+        $Renglon->setPrecioTotal(23.90);
+        $Renglon->setArticulo($manager->merge($this->getReference('Articulo.Taladro')));
+        $Renglon->setFactura($manager->merge($this->getReference('Factura.00001')));
         $manager->persist($Renglon);
 
         $Renglon = new Renglon();
-        $Renglon->setCantidad(50);
-        $Renglon->setPrecioArticulo(53.9);
-        $Renglon->setPrecioTotal(78.9);
-
+        $Renglon->setCantidad(2);
+        $Renglon->setPrecioArticulo(53.90);
+        $Renglon->setPrecioTotal(107.80);
+        $Renglon->setArticulo($manager->merge($this->getReference('Articulo.Pintura')));
+        $Renglon->setFactura($manager->merge($this->getReference('Factura.00001')));
         $manager->persist($Renglon);
 
         $Renglon = new Renglon();
-        $Renglon->setCantidad(60);
-        $Renglon->setPrecioArticulo(33.9);
-        $Renglon->setPrecioTotal(48.9);
+        $Renglon->setCantidad(1);
+        $Renglon->setPrecioArticulo(33.90);
+        $Renglon->setPrecioTotal(33.90);
+        $Renglon->setArticulo($manager->merge($this->getReference('Articulo.Alicate')));
+        $Renglon->setFactura($manager->merge($this->getReference('Factura.00001')));
+        $manager->persist($Renglon);
 
+        $Renglon = new Renglon();
+        $Renglon->setCantidad(3);
+        $Renglon->setPrecioArticulo(60.00);
+        $Renglon->setPrecioTotal(180.00);
+        $Renglon->setArticulo($manager->merge($this->getReference('Articulo.Taladro')));
+        $Renglon->setFactura($manager->merge($this->getReference('Factura.00002')));
         $manager->persist($Renglon);
 
         $manager->flush();
     }
 
     public function getOrder() {
-        return 7;
+        return 8;
     }
 }

@@ -12,11 +12,17 @@ DNTWorkshopBundle_buscarProveedor:
     pattern:  /busqueda_proveedor
     defaults: { _controller: DNTWorkshopBundle:ProveedorSearch:index }
 DNTWorkshopBundle_shop:
-    pattern:  /venta
+    pattern:  /carrito
     defaults: { _controller: DNTWorkshopBundle:Shop:index }
 DNTWorkshopBundle_submitbuy:
-    pattern:  /confirmarventa
+    pattern:  /confirmarcarrito
     defaults: { _controller: DNTWorkshopBundle:Shop:submitBuy }
+DNTWorkshopBundle_orders:
+    pattern:  /pedidos
+    defaults: { _controller: DNTWorkshopBundle:Order:index }
+DNTWorkshopBundle_sales:
+    pattern:  /ventas
+    defaults: { _controller: DNTWorkshopBundle:Shop:sales }
 
 ### Ajax
 DNTWorkshopBundle_ajax_buy:
@@ -25,6 +31,9 @@ DNTWorkshopBundle_ajax_buy:
 DNTWorkshopBundle_ajax_cleanbuy:
     pattern:  /ajax/cleanbuy
     defaults: { _controller: DNTWorkshopBundle:Ajax:cleanBuy }
+DNTWorkshopBundle_ajax_order:
+    pattern:  /ajax/order
+    defaults: { _controller: DNTWorkshopBundle:Ajax:orderArticle }
 
 ### Login
 login:

@@ -109,3 +109,15 @@ TABLE TD.right, TABLE TH.right {
 TABLE TD.center, TABLE TH.center {
     text-align: center;
 }
+
+DIV.provider {
+    margin: 25px 0px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    border-bottom: dotted 1px #666;
+}
+
+DIV.provider BUTTON {
+    float: right;
+}
+

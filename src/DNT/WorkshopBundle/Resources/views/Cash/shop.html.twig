@@ -1,10 +1,10 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-{% block subtitle %}Venta{% endblock %}
+{% block subtitle %}Carrito de compras{% endblock %}
 
 {% block content %}
     <br />
-    <h2>Venta de artículos</h2>
+    <h2>Carrito de compras</h2>
     <br />
     <table class="table table-striped">
         <tr>
@@ -18,7 +18,7 @@
         {% set total = 0 %}
         {% for article in articles %}
             <tr class="shoprow">
-                <td id="nombre_{{ article.id }}">{{ article.nombre }}</td>
+                <td>{{ article.nombre }}</td>
                 <td>{{ article.descripcion }}</td>
                 <td>{{ article.codigoBarra }}</td>
                 <td class="right"><strong>$ {{ article.precioVenta }}</strong></td>
@@ -32,6 +32,7 @@
             <td id="total" class="right"><strong>${{ total }}</strong></td>
         </tr>
     </table>
+
     {% if articles %}
         <div id="btnbox" class="right">
             <button class="btn btn-danger" id="clean"><i class="icon-refresh icon-white"></i> Nueva Venta</button>
@@ -45,7 +46,7 @@
                     $.post(url, null, function(data) {
                         $('.shoprow').remove();
                         $('#btnbox').remove();
-                        $('#total').text('<strong>$0</strong>');
+                        $('#total').find('strong').text('$0');
                     });
                 }
             });

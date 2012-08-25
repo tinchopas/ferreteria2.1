@@ -35,6 +35,16 @@ class Factura
      */
     private $idCliente;
 
+    /**
+     * @var DNT\WorkshopBundle\Entity\Renglon
+     */
+    private $Renglones;
+
+
+    public function __construct()
+    {
+        $this->Renglones = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -124,5 +134,25 @@ class Factura
     public function getIdCliente()
     {
         return $this->idCliente;
+    }
+
+    /**
+     * Add Renglon
+     *
+     * @param DNT\WorkshopBundle\Entity\Renglon $renglon
+     */
+    public function addRenglon(\DNT\WorkshopBundle\Entity\Renglon $renglon)
+    {
+        $this->Renglones[] = $renglon;
+    }
+
+    /**
+     * Get Renglones
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getRenglones()
+    {
+        return $this->Renglones;
     }
 }

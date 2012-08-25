@@ -5,6 +5,7 @@ namespace DNT\WorkshopBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
+use DNT\WorkshopBundle\Entity\Articulo;
 use DNT\WorkshopBundle\Entity\Factura;
 use DNT\WorkshopBundle\Entity\Renglon;
 
@@ -26,7 +27,7 @@ class ShopController extends Controller
         }
 
         // Render the view.
-        return $this->render('DNTWorkshopBundle:Default:shop.html.twig', array(
+        return $this->render('DNTWorkshopBundle:Cash:shop.html.twig', array(
             'articles' => $articles,
             'quantity' => $shop,
         ));
@@ -54,8 +55,8 @@ class ShopController extends Controller
 
                 // Create the line for each article used in the ticket.
                 $line = new Renglon();
-                $line->setIdFactura($ticket);
-                $line->setIdArticulo($article);
+                $line->setFactura($ticket);
+                $line->setArticulo($article);
                 $line->setCantidad($quantity);
                 $line->setPrecioArticulo($article->getPrecioVenta());
                 $line->setPrecioTotal($quantity * $article->getPrecioVenta());
@@ -70,5 +71,17 @@ class ShopController extends Controller
         // Clean the shopping cart and redirect to the sales page.
         $this->forward('DNTWorkshopBundle:Ajax:cleanBuy');
         return $this->redirect($this->generateUrl('DNTWorkshopBundle_shop'));
+    }
+
+
+    public function salesAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $sl = $em->getRepository('DNTWorkshopBundle:Factura')->findBy(array(), array('creado' => 'DESC'));
+
+        // Render the view.
+        return $this->render('DNTWorkshopBundle:Cash:sales.html.twig', array(
+            'sales' => $sl,
+        ));
     }
 }

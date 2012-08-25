@@ -4,46 +4,97 @@
         <th>Código Barra</th>
         <th>Código Proveedor</th>
         <th>Proveedor</th>
-        <th class="right">Cant.</th>
+        <th class="right">Stock</th>
         <th class="right">Precio</th>
         <th class="center"></th>
     </tr>
+
     {% for article in articles %}
         {% for artProv in article.getArticuloProveedors %}
-            <tr>
-                <td id="nombre_{{ article.id }}">{{ article.nombre }}</td>
+            <tr id="{{ article.id }}">
+                <td class="name">{{ article.nombre }}</td>
                 <td>{{ article.codigoBarra }}</td>
                 <td>{{ article.codigoProveedor }}</td>
                 <td>{{ artProv.proveedor.nombre }}</td>
-                <td class="right"><strong>{{ article.cantidad }}</strong></td>
+                <td class="right stock"><strong>{{ article.cantidad }}</strong></td>
                 <td class="right"><strong>$ {{ article.precioVenta }}</strong></td>
                 <td class="center">
-                    <button class="btn btn-info" onclick=""><i class="icon-file icon-white"></i></button>
-                    <button class="btn btn-primary" onclick""><i class="icon-pencil icon-white"></i></button>
-                    <button class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
-                    &nbsp;&nbsp;
-                    <button class="btn btn-success shopping" id="{{ article.id }}"><i class="icon-shopping-cart icon-white"></i></button>
+                    <button class="btn btn-info"><i class="icon-file icon-white"></i></button>
+                    <button class="btn btn-warning order"><i class="icon-calendar icon-white"></i></button>
+                    <button class="btn btn-success shopping"><i class="icon-shopping-cart icon-white"></i></button>
                 </td>
             </tr>
         {% endfor %}
     {% endfor %}
+
     <script type="text/javascript">
+
+        // Validates the quantity inserted by the user.
+        function validateQuantity(quantity, stock) {
+            if (isNaN(quantity)) {
+                alert('Debe ingresar un número entero.');
+                return false;
+            } else if (quantity > stock) {
+                alert('No existe cantidad suficiente de este artículo para agregar.');
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        // Validates the Ajax response.
+        function validateAjaxResponse(data) {
+            if (data.error == 'sintax') {
+                alert('Debe ingresar un número entero.');
+            } else if (data.error == 'nostock') {
+                alert('No existe cantidad suficiente de este artículo para agregar.');
+            }
+        }
+
+        // Action for when an article is added to the shopping cart.
         $('.shopping').click(function() {
-            var quantity = prompt('Cantidad de "' + $('#nombre_'+this.id).text() + '" a agregar:');
+            var parentTr = $(this).closest('tr');
 
-            var url  = '{{ path('DNTWorkshopBundle_ajax_buy') }}';
-            var data = {
-                "id_article": this.id,
-                "quantity":   quantity
-            };
+            var artId    = parentTr.attr('id');
+            var artName  = parentTr.find('.name').text();
+            var artStock = parseInt(parentTr.find('.stock').text());
+            var quantity = prompt('Cantidad de "' + artName + '" a agregar al carrito:');
 
-            $.post(url, data, function(data) {
-                if (data.error == 1) {
-                    alert('Debe ingresar un número entero.');
-                } else if (data.error == 2) {
-                    alert('No existe cantidad suficiente de este artículo para realizar la venta.');
-                }
-            });
+            if (quantity && validateQuantity(quantity, artStock)) {
+                var url  = '{{ path('DNTWorkshopBundle_ajax_buy') }}';
+                var data = {
+                    "id_article": artId,
+                    "quantity":   quantity
+                };
+
+                // Ajax post call.
+                $.post(url, data, function(data) {
+                    validateAjaxResponse(data);
+                });
+            }
+        });
+
+        // Action for when an article is added to the order list.
+        $('.order').click(function() {
+            var parentTr = $(this).closest('tr');
+
+            var artId    = parentTr.attr('id');
+            var artName  = parentTr.find('.name').text();
+            var artStock = parseInt(parentTr.find('.stock').text());
+            var quantity = prompt('Cantidad de "' + artName + '" a agregar a los pedidos:');
+
+            if (quantity && validateQuantity(quantity, artStock)) {
+                var url  = '{{ path('DNTWorkshopBundle_ajax_order') }}';
+                var data = {
+                    "id_article": artId,
+                    "quantity":   quantity
+                };
+
+                // Ajax post call.
+                $.post(url, data, function(data) {
+                    validateAjaxResponse(data);
+                });
+            }
         });
     </script>
 </table>
