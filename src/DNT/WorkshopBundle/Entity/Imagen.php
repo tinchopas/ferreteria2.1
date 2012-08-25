@@ -141,4 +141,9 @@ class Imagen
             unlink($this->filenameForRemove);
         }
     }
+
+    public function __toString()
+    {
+        return '<img src="/uploads/images/1.jpeg" />' . $this->nombre;
+    }
 }
