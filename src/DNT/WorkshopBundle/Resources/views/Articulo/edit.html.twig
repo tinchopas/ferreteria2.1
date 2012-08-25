@@ -6,7 +6,55 @@
 <h1>Edicion de Articulo</h1>
 
 <form action="{{ path('articulo_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
+    {{ form_errors(edit_form) }}
+    <div>
+        {{ form_label(edit_form.nombre) }}
+        {{ form_errors(edit_form.nombre) }}
+        {{ form_widget(edit_form.nombre) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.cantidad) }}
+        {{ form_errors(edit_form.cantidad) }}
+        {{ form_widget(edit_form.cantidad) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.costo) }}
+        {{ form_errors(edit_form.costo) }}
+        {{ form_widget(edit_form.costo) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.precioVenta) }}
+        {{ form_errors(edit_form.precioVenta) }}
+        {{ form_widget(edit_form.precioVenta) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.descripcion) }}
+        {{ form_errors(edit_form.descripcion) }}
+        {{ form_widget(edit_form.descripcion) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.codigoBarra) }}
+        {{ form_errors(edit_form.codigoBarra) }}
+        {{ form_widget(edit_form.codigoBarra) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.codigoProveedor) }}
+        {{ form_errors(edit_form.codigoProveedor) }}
+        {{ form_widget(edit_form.codigoProveedor) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.idCategoria) }}
+        {{ form_errors(edit_form.idCategoria) }}
+        {{ form_widget(edit_form.idCategoria) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.imagen.file) }}
+        {{ form_errors(edit_form.imagen.file) }}
+        {{ form_widget(edit_form.imagen.file) }}
+    </div>
+    <div style="width:19%;">
+        <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" />
+    </div>
     <p>
         <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i></button>
     </p>

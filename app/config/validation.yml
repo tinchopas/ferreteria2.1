@@ -1,0 +1,1 @@
+- { resource: @DNTWorkshopBundle/Resources/config/validation.yml }
