@@ -61,3 +61,15 @@ DNTWorkshopBundle_renglon:
 DNTWorkshopBundle_articuloproveedor:
     resource: "@DNTWorkshopBundle/Resources/config/routing/articuloproveedor.yml"
     prefix:   /articuloproveedor
+
+## Mantenimiento
+DNTWorkshopBundle_datos:
+    resource: "@DNTWorkshopBundle/Resources/config/routing/datos.yml"
+    prefix:   /datos
+#DNTWorkshopBundle_datos:
+#    resource: "@DNTWorkshopBundle/Resources/config/routing/usuarios.yml"
+#    prefix:   /usuarios
+#DNTWorkshopBundle_datos:
+#    resource: "@DNTWorkshopBundle/Resources/config/routing/extras.yml"
+#    prefix:   /extras
+

@@ -1,0 +1,8 @@
+datos:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Datos:index" }
+
+datos_savedb:
+    pattern:  /savedb
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:savedb" }
+
