@@ -4,5 +4,13 @@ datos:
 
 datos_savedb:
     pattern:  /savedb
-    defaults: { _controller: "DNTWorkshopBundle:Articulo:savedb" }
+    defaults: { _controller: "DNTWorkshopBundle:Datos:savedb" }
+
+datos_restoredb:
+    pattern:  /restoredb
+    defaults: { _controller: "DNTWorkshopBundle:Datos:restoredb" }
+
+datos_deletedb:
+    pattern:  /deletedb
+    defaults: { _controller: "DNTWorkshopBundle:Datos:deletedb" }
 

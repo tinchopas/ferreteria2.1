@@ -66,10 +66,10 @@ DNTWorkshopBundle_articuloproveedor:
 DNTWorkshopBundle_datos:
     resource: "@DNTWorkshopBundle/Resources/config/routing/datos.yml"
     prefix:   /datos
-#DNTWorkshopBundle_datos:
+#DNTWorkshopBundle_usuarios:
 #    resource: "@DNTWorkshopBundle/Resources/config/routing/usuarios.yml"
 #    prefix:   /usuarios
-#DNTWorkshopBundle_datos:
+#DNTWorkshopBundle_extras:
 #    resource: "@DNTWorkshopBundle/Resources/config/routing/extras.yml"
 #    prefix:   /extras
 
