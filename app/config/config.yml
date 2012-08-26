@@ -84,3 +84,5 @@ stof_doctrine_extensions:
 #        tags:
 #            - { name: doctrine.event_listener, event: prePersist }
 #
+
+backup_restore: ~
