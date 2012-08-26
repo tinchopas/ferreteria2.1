@@ -24,7 +24,8 @@ class DatosController extends Controller
     {
         $backupFile = '/home/legolas/Escritorio/backup'.date("Y-m-d-H-i-s").'.gz';
         $command = "mysqldump --opt -uroot -pr00t ferreteria | gzip > $backupFile";
-        system($command);
+        //system($command);
+        exec($command);
         $response = $this->render('DNTWorkshopBundle:Datos:index.html.twig');
         return $response;
     }
@@ -41,3 +42,4 @@ class DatosController extends Controller
         return $response;
     }
 }
+?>
