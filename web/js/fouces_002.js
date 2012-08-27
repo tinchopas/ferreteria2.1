@@ -24,7 +24,7 @@
     $("#txtEmailNewsletter").DefaultValue("e-mail");
 
 
-    $("#cajanews").find(".btnnews").find("a").find("img").click(function() {
+/**    $("#cajanews").find(".btnnews").find("a").find("img").click(function() {
         var nombre = $("#txtNombreNewsletter").attr("value");
         var email = $("#txtEmailNewsletter").attr("value");
         $.ajax({
@@ -41,22 +41,24 @@
             }
         });
     });
-
+**/
     /*******************************************
     *BEGINNING OF:                             *
     *Sección que maneja el menu de la izquierda*
     *******************************************/
+/**
+    $(".menuright, .menuinterno").find("a").click(function() {
+        prompt("erw", "efg");
+        if ($(this).siblings("ul").length > 0) {
+            $(this).parent().siblings().children("ul").each(function() {
+                $(this).hide("slow");
+            });
+            $(this).siblings("ul").slideToggle(600);
+            return false;
+        }
+    });
+**/
 
-//    $(".menuright, .menuinterno").find("a").click(function() {
-//        prompt("erw", "efg");
-//        if ($(this).siblings("ul").length > 0) {
-//            $(this).parent().siblings().children("ul").each(function() {
-//                $(this).hide("slow");
-//            });
-//            $(this).siblings("ul").slideToggle(600);
-//            return false;
-//        }
-//    });
 });
 
 function odioIe6(obj) {

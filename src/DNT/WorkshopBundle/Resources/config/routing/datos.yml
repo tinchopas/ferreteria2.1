@@ -1,0 +1,16 @@
+datos:
+    pattern:  /
+    defaults: { _controller: "DNTWorkshopBundle:Datos:index" }
+
+datos_savedb:
+    pattern:  /savedb
+    defaults: { _controller: "DNTWorkshopBundle:Datos:savedb" }
+
+datos_restoredb:
+    pattern:  /restoredb
+    defaults: { _controller: "DNTWorkshopBundle:Datos:restoredb" }
+
+datos_deletedb:
+    pattern:  /deletedb
+    defaults: { _controller: "DNTWorkshopBundle:Datos:deletedb" }
+
