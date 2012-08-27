@@ -21,9 +21,14 @@ class Pedido
     private $fecha;
 
     /**
-     * @var integer $devolucion
+     * @var integer $devuelto
      */
-    private $devolucion;
+    private $devuelto;
+
+    /**
+     * @var integer $cantidad
+     */
+    private $cantidad;
 
     /**
      * @var datetime $creado
@@ -38,7 +43,7 @@ class Pedido
     /**
      * @var DNT\WorkshopBundle\Entity\ArticuloProveedor
      */
-    private $idArticuloProveedor;
+    private $ArticuloProveedor;
 
 
     /**
@@ -72,23 +77,43 @@ class Pedido
     }
 
     /**
-     * Set devolucion
+     * Set devuelto
      *
-     * @param integer $devolucion
+     * @param integer $devuelto
      */
-    public function setDevolucion($devolucion)
+    public function setDevuelto($devuelto)
     {
-        $this->devolucion = $devolucion;
+        $this->devuelto = $devuelto;
     }
 
     /**
-     * Get devolucion
+     * Get devuelto
      *
      * @return integer 
      */
-    public function getDevolucion()
+    public function getDevuelto()
     {
-        return $this->devolucion;
+        return $this->devuelto;
+    }
+
+    /**
+     * Set cantidad
+     *
+     * @param integer $cantidad
+     */
+    public function setCantidad($cantidad)
+    {
+        $this->cantidad = $cantidad;
+    }
+
+    /**
+     * Get cantidad
+     *
+     * @return integer 
+     */
+    public function getCantidad()
+    {
+        return $this->cantidad;
     }
 
     /**
@@ -132,22 +157,22 @@ class Pedido
     }
 
     /**
-     * Set idArticuloProveedor
+     * Set ArticuloProveedor
      *
-     * @param DNT\WorkshopBundle\Entity\ArticuloProveedor $idArticuloProveedor
+     * @param DNT\WorkshopBundle\Entity\ArticuloProveedor $ArticuloProveedor
      */
-    public function setIdArticuloProveedor(\DNT\WorkshopBundle\Entity\ArticuloProveedor $idArticuloProveedor)
+    public function setArticuloProveedor(\DNT\WorkshopBundle\Entity\ArticuloProveedor $ArticuloProveedor)
     {
-        $this->idArticuloProveedor = $idArticuloProveedor;
+        $this->ArticuloProveedor = $ArticuloProveedor;
     }
 
     /**
-     * Get idArticuloProveedor
+     * Get ArticuloProveedor
      *
      * @return DNT\WorkshopBundle\Entity\ArticuloProveedor 
      */
-    public function getIdArticuloProveedor()
+    public function getArticuloProveedor()
     {
-        return $this->idArticuloProveedor;
+        return $this->ArticuloProveedor;
     }
 }

@@ -19,6 +19,11 @@ DNT\WorkshopBundle\Entity\ArticuloProveedor:
       gedmo:
         timestampable:
           on: update
+  oneToMany:
+    pedido:
+      targetEntity: Pedido
+      mappedBy: articuloProveedors
+      cascade: [ "remove" ]
   manyToOne:
     proveedor:
       targetEntity: Proveedor

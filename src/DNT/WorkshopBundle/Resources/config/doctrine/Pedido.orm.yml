@@ -13,7 +13,11 @@ DNT\WorkshopBundle\Entity\Pedido:
     fecha:
       type: datetime
       nullable: true
-    devolucion:
+    devuelto:
+      type: integer
+      unsigned: false
+      nullable: false
+    cantidad:
       type: integer
       unsigned: false
       nullable: false
@@ -29,14 +33,12 @@ DNT\WorkshopBundle\Entity\Pedido:
       gedmo:
         timestampable:
           on: update
-  oneToOne:
-    idArticuloProveedor:
+  manyToOne:
+    ArticuloProveedor:
       targetEntity: ArticuloProveedor
-      cascade: {  }
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        idArticuloProveedor:
-          referencedColumnName: id
-      orphanRemoval: false
+      inversedBy: pedido
+      joinColumn:
+        ArticuloProveedor:
+          name: ArticuloProveedor
+          referencedColumnName: id_articulo_proveedor
   lifecycleCallbacks: {  }

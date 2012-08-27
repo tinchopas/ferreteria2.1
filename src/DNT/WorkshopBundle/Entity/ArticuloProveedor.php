@@ -27,6 +27,11 @@ class ArticuloProveedor
     private $articulo;
 
     /**
+     * @var DNT\WorkshopBundle\Entity\Pedido
+     */
+    private $pedido;
+
+    /**
      * @var datetime $creado
      */
     private $creado;
@@ -85,6 +90,26 @@ class ArticuloProveedor
     public function getArticulo()
     {
         return $this->articulo;
+    }
+
+    /**
+     * Add Pedidos
+     *
+     * @param DNT\WorkshopBundle\Entity\Pedido $pedido
+     */
+    public function addPedido(\DNT\WorkshopBundle\Entity\pedido $pedido)
+    {
+        $this->pedidos[] = $pedido;
+    }
+
+    /**
+     * Get Pedido
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getPedidos()
+    {
+        return $this->pedidos;
     }
 
     /**

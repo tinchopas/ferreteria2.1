@@ -7,6 +7,8 @@ use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
 
+use DNT\WorkshopBundle\Entity\Pedido;
+
 class AjaxController extends Controller
 {
     public function generateResponse($error)
@@ -23,7 +25,7 @@ class AjaxController extends Controller
         $idArticle = $this->getRequest()->request->get('id_article');
         $quantity  = $this->getRequest()->request->get('quantity');
 
-        if (preg_match('/^[0-9]+$/',$quantity)) {
+        if (preg_match('/^[0-9]+$/', $quantity)) {
 
             $em = $this->getDoctrine()->getEntityManager();
             $ar = $em->getRepository('DNTWorkshopBundle:Articulo')->find($idArticle);
@@ -61,17 +63,35 @@ class AjaxController extends Controller
         $idArticle = $this->getRequest()->request->get('id_article');
         $quantity  = $this->getRequest()->request->get('quantity');
 
-        if (preg_match('/^[0-9]+$/',$quantity)) {
+        if (preg_match('/^[0-9]+$/', $quantity)) {
 
             $em = $this->getDoctrine()->getEntityManager();
             $ar = $em->getRepository('DNTWorkshopBundle:Articulo')->find($idArticle);
 
             if ($ar->getCantidad() >= $quantity) {
 
-                $session = $this->get('session');
-                $order = $session->get('order');
-                $order[$idArticle] = $quantity;
-                $session->set('order', $order); 
+                // Gets the article and provider.
+                $apArray = $ar->getArticuloProveedors();
+                $artProv = $apArray[0];
+
+                // Set the order.
+                $pedidos = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
+                    'Devuelto'          => 0,
+                    'ArticuloProveedor' => $artProv,
+                ));
+                if ($pedidos) {
+                    $pedido = $pedidos[0];
+                    $pedido->setCantidad($quantity);
+                } else {
+                    $pedido = new Pedido();
+                    $pedido->setArticuloProveedor($artProv);
+                    $pedido->setDevuelto(0);
+                    $pedido->setCantidad($quantity);
+                }
+
+                // Persist the data.
+                $em->persist($pedido);
+                $em->flush();
 
                 return $this->generateResponse('noerrors');
             } else {
