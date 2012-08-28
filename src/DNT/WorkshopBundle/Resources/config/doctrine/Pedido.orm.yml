@@ -1,5 +1,6 @@
 DNT\WorkshopBundle\Entity\Pedido:
   type: entity
+  repositoryClass: DNT\WorkshopBundle\Repository\PedidoRepository
   table: pedido
   fields:
     id:
@@ -13,10 +14,6 @@ DNT\WorkshopBundle\Entity\Pedido:
     fecha:
       type: datetime
       nullable: true
-    devuelto:
-      type: integer
-      unsigned: false
-      nullable: false
     cantidad:
       type: integer
       unsigned: false
@@ -33,6 +30,14 @@ DNT\WorkshopBundle\Entity\Pedido:
       gedmo:
         timestampable:
           on: update
+    eliminado:
+      type: integer
+      unsigned: false
+      nullable: false
+    confirmado:
+      type: integer
+      unsigned: false
+      nullable: false
   manyToOne:
     ArticuloProveedor:
       targetEntity: ArticuloProveedor

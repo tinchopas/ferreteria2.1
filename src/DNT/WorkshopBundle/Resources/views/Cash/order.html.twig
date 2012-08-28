@@ -6,11 +6,13 @@
     <br />
     <h2>Pedidos a Proveedores</h2>
     <br />
-    {% for providerName, value in articles %}
-        <div>
+    {% for item in articles %}
+        <div id="{{ item.provider.id }}">
             <div class="clearfix provider">
-                <strong>{{ providerName }}</strong>
-                <button class="btn btn-mini btn-success"><i class="icon-arrow-down icon-white"></i> <span>Mostrar Artículos</span></button>
+                <strong>{{ item.provider.nombre }} {{ item.provider.apellido }}</strong>
+                <button class="btn btn-mini btn-success success" id="submit"><i class="icon-ok icon-white"></i> Confirmar Pedido</button>
+                <button class="btn btn-mini btn-danger delete" id="clean"><i class="icon-trash icon-white"></i> Eliminar Pedido</button>
+                <button class="btn btn-mini btn-success details"><i class="icon-arrow-down icon-white"></i> <span>Mostrar Artículos</span></button>
             </div>
             <table class="table table-striped" style="display:none">
                 <tr>
@@ -19,7 +21,7 @@
                     <th>Descripción</th>
                     <th class="right">Cantidad</th>
                 </tr>
-                {% for article in value %}
+                {% for article in item.article %}
                     <tr>
                         <td>{{ article.nombre }}</td>
                         <td>{{ article.codigoBarra }}</td>
@@ -31,8 +33,9 @@
         </div>
     {% endfor %}
 
-    <script type="text/javascript">
-        $('.provider').find('button').click(function() {
+    <script typei="text/javascript">
+
+        $('.provider').find('button.details').click(function() {
             var btnText  = $(this).find('span');
             var btnImage = $(this).find('i');
 
@@ -43,6 +46,32 @@
             btnText.text(text);
 
             $(this).parent().parent().find('table').toggle('fast');
+        });
+
+        $('.delete').click(function() {
+            if (confirm("¿Está seguro que desea eliminar el pedido?")) {
+                var url  = '{{ path('DNTWorkshopBundle_ajax_delorder') }}';
+                var data = {
+                    "id_proveedor": $(this).parent().parent().attr('id')
+                };
+
+                $.post(url, data, function(data) {
+                    $('#' + data.id).remove();
+                });
+            }
+        });
+
+        $('.success').click(function() {
+            if (confirm("¿Desea confirmar el pedido y agregar los artículos al stock?")) {
+                var url  = '{{ path('DNTWorkshopBundle_ajax_confirmorder') }}';
+                var data = {
+                    "id_proveedor": $(this).parent().parent().attr('id')
+                };
+
+                $.post(url, data, function(data) {
+                    $('#' + data.id).remove();
+                });
+            }
         });
     </script>
 {% endblock %}

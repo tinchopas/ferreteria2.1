@@ -119,5 +119,6 @@ DIV.provider {
 
 DIV.provider BUTTON {
     float: right;
+    margin-left: 10px;
 }
 

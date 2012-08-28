@@ -21,11 +21,6 @@ class Pedido
     private $fecha;
 
     /**
-     * @var integer $devuelto
-     */
-    private $devuelto;
-
-    /**
      * @var integer $cantidad
      */
     private $cantidad;
@@ -39,6 +34,16 @@ class Pedido
      * @var datetime $modificado
      */
     private $modificado;
+
+    /**
+     * @var integer $eliminado
+     */
+    private $eliminado;
+
+    /**
+     * @var integer $confirmado
+     */
+    private $confirmado;
 
     /**
      * @var DNT\WorkshopBundle\Entity\ArticuloProveedor
@@ -77,23 +82,43 @@ class Pedido
     }
 
     /**
-     * Set devuelto
+     * Set eliminado
      *
-     * @param integer $devuelto
+     * @param integer $eliminado
      */
-    public function setDevuelto($devuelto)
+    public function setEliminado($eliminado)
     {
-        $this->devuelto = $devuelto;
+        $this->eliminado = $eliminado;
     }
 
     /**
-     * Get devuelto
+     * Get eliminado
      *
-     * @return integer 
+     * @return integer
      */
-    public function getDevuelto()
+    public function getEliminado()
     {
-        return $this->devuelto;
+        return $this->eliminado;
+    }
+
+    /**
+     * Set confirmado
+     *
+     * @param integer $confirmado
+     */
+    public function setConfirmado($confirmado)
+    {
+        $this->confirmado = $confirmado;
+    }
+
+    /**
+     * Get confirmado
+     *
+     * @return integer
+     */
+    public function getConfirmado()
+    {
+        return $this->confirmado;
     }
 
     /**

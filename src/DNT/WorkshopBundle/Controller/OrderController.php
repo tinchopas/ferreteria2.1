@@ -21,14 +21,18 @@ class OrderController extends Controller
 
         // Gets the Entity Manager and the order values.
         $em     = $this->getDoctrine()->getEntityManager();
-        $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findByDevuelto(0);
+        $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
+            'eliminado'  => 0,
+            'confirmado' => 0,
+        ));
 
         // Find each article from the session.
         foreach ($orders as $order) {
             $artProv  = $order->getArticuloProveedor();
             $provider = $artProv->getProveedor();
             $article  = $artProv->getArticulo();
-            $articles[$provider->getNombre() . ' ' . $provider->getApellido()][] = $article;
+            $articles[$provider->getId()]['provider']  = $provider;
+            $articles[$provider->getId()]['article'][] = $article;
             $quantities[$article->getId()] = $order->getCantidad();
         }
 

@@ -34,6 +34,12 @@ DNTWorkshopBundle_ajax_cleanbuy:
 DNTWorkshopBundle_ajax_order:
     pattern:  /ajax/order
     defaults: { _controller: DNTWorkshopBundle:Ajax:orderArticle }
+DNTWorkshopBundle_ajax_delorder:
+    pattern:  /ajax/order/delete
+    defaults: { _controller: DNTWorkshopBundle:Ajax:orderDelete }
+DNTWorkshopBundle_ajax_confirmorder:
+    pattern:  /ajax/order/confirm
+    defaults: { _controller: DNTWorkshopBundle:Ajax:orderConfirm }
 
 ### Login
 login:

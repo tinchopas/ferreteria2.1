@@ -11,7 +11,7 @@ use DNT\WorkshopBundle\Entity\Pedido;
 
 class AjaxController extends Controller
 {
-    public function generateResponse($error)
+    public function generateErrorResponse($error)
     {
         $response = new Response(json_encode(array('error' => $error)));
         $response->setStatusCode(200);
@@ -37,12 +37,12 @@ class AjaxController extends Controller
                 $shop[$idArticle] = $quantity;
                 $session->set('shop', $shop); 
 
-                return $this->generateResponse('noerrors');
+                return $this->generateErrorResponse('noerrors');
             } else {
-                return $this->generateResponse('nostock');
+                return $this->generateErrorResponse('nostock');
             }
         }
-        return $this->generateResponse('sintax');
+        return $this->generateErrorResponse('sintax');
     }
 
 
@@ -75,29 +75,57 @@ class AjaxController extends Controller
                 $artProv = $apArray[0];
 
                 // Set the order.
-                $pedidos = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
-                    'Devuelto'          => 0,
+                $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
+                    'eliminado'         => 0,
                     'ArticuloProveedor' => $artProv,
                 ));
-                if ($pedidos) {
-                    $pedido = $pedidos[0];
-                    $pedido->setCantidad($quantity);
+                if ($orders) {
+                    $order = $orders[0];
+                    $order->setCantidad($quantity);
                 } else {
-                    $pedido = new Pedido();
-                    $pedido->setArticuloProveedor($artProv);
-                    $pedido->setDevuelto(0);
-                    $pedido->setCantidad($quantity);
+                    $order = new Pedido();
+                    $order->setArticuloProveedor($artProv);
+                    $order->setEliminado(0);
+                    $order->setCantidad($quantity);
                 }
 
                 // Persist the data.
-                $em->persist($pedido);
+                $em->persist($order);
                 $em->flush();
 
-                return $this->generateResponse('noerrors');
+                return $this->generateErrorResponse('noerrors');
             } else {
-                return $this->generateResponse('nostock');
+                return $this->generateErrorResponse('nostock');
             }
         }
-        return $this->generateResponse('sintax');
+        return $this->generateErrorResponse('sintax');
+    }
+
+
+    public function orderDeleteAction()
+    {
+        $idProveedor = $this->getRequest()->request->get('id_proveedor');
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $pr = $em->getRepository('DNTWorkshopBundle:Pedido')->deleteOrdersByProvider($idProveedor);
+
+        $response = new Response(json_encode(array('id' => $idProveedor)));
+        $response->setStatusCode(200);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
+
+    public function orderConfirmAction()
+    {
+        $idProveedor = $this->getRequest()->request->get('id_proveedor');
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $pr = $em->getRepository('DNTWorkshopBundle:Pedido')->confirmOrdersByProvider($idProveedor);
+
+        $response = new Response(json_encode(array('id' => $idProveedor)));
+        $response->setStatusCode(200);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
     }
 }
