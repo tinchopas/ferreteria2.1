@@ -6,32 +6,45 @@
     <br />
     <h2>Pedidos a Proveedores</h2>
     <br />
-    {% for item in articles %}
-        <div id="{{ item.provider.id }}">
-            <div class="clearfix provider">
-                <strong>{{ item.provider.nombre }} {{ item.provider.apellido }}</strong>
-                <button class="btn btn-mini btn-success success" id="submit"><i class="icon-ok icon-white"></i> Confirmar Pedido</button>
-                <button class="btn btn-mini btn-danger delete" id="clean"><i class="icon-trash icon-white"></i> Eliminar Pedido</button>
-                <button class="btn btn-mini btn-success details"><i class="icon-arrow-down icon-white"></i> <span>Mostrar Artículos</span></button>
-            </div>
-            <table class="table table-striped" style="display:none">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Código Barra</th>
-                    <th>Descripción</th>
-                    <th class="right">Cantidad</th>
-                </tr>
-                {% for article in item.article %}
+    <div class="alert alert-success none" id="confirmMsg">
+        <strong>CONFIRMADO!</strong> El pedido se confirmó con éxito.
+    </div>
+    <div class="alert alert-error none" id="deleteMsg">
+        <strong>ELIMINADO!</strong> El pedido se eliminó correctamente.
+    </div>
+    {% if articles %}
+        {% for item in articles %}
+            <div id="{{ item.provider.id }}">
+                <div class="clearfix provider">
+                    <strong>{{ item.provider.nombre }} {{ item.provider.apellido }}</strong>
+                    <button class="btn btn-mini btn-success success" id="submit"><i class="icon-ok icon-white"></i> Confirmar Pedido</button>
+                    <button class="btn btn-mini btn-danger delete" id="clean"><i class="icon-trash icon-white"></i> Eliminar Pedido</button>
+                    <button class="btn btn-mini btn-success details"><i class="icon-arrow-down icon-white"></i> <span>Mostrar Artículos</span></button>
+                </div>
+                <table class="table table-striped" style="display:none">
                     <tr>
-                        <td>{{ article.nombre }}</td>
-                        <td>{{ article.codigoBarra }}</td>
-                        <td>{{ article.descripcion }}</td>
-                        <td class="right"><strong>{{ attribute(quantity, article.id) }}</strong></td>
+                        <th>Nombre</th>
+                        <th>Código Barra</th>
+                        <th>Descripción</th>
+                        <th class="right">Cantidad</th>
                     </tr>
-                {% endfor %}
-            </table>
+                    {% for article in item.article %}
+                        <tr>
+                            <td>{{ article.nombre }}</td>
+                            <td>{{ article.codigoBarra }}</td>
+                            <td>{{ article.descripcion }}</td>
+                            <td class="right"><strong>{{ attribute(quantity, article.id) }}</strong></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endfor %}
+    {% else %}
+        <br />
+        <div class="alert alert-info alert-block">
+            <strong>No existen pedidos por realizarse.</strong>
         </div>
-    {% endfor %}
+    {% endif %}
 
     <script typei="text/javascript">
 
@@ -57,6 +70,8 @@
 
                 $.post(url, data, function(data) {
                     $('#' + data.id).remove();
+                    $('#deleteMsg').show('fast');
+                    setTimeout(function() { $('#deleteMsg').hide('fast'); }, 3000);
                 });
             }
         });
@@ -70,6 +85,8 @@
 
                 $.post(url, data, function(data) {
                     $('#' + data.id).remove();
+                    $('#confirmMsg').show('fast');
+                    setTimeout(function() { $('#confirmMsg').hide('fast'); }, 3000);
                 });
             }
         });

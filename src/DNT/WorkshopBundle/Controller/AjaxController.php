@@ -77,6 +77,7 @@ class AjaxController extends Controller
                 // Set the order.
                 $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
                     'eliminado'         => 0,
+                    'confirmado'        => 0,
                     'ArticuloProveedor' => $artProv,
                 ));
                 if ($orders) {
@@ -86,6 +87,7 @@ class AjaxController extends Controller
                     $order = new Pedido();
                     $order->setArticuloProveedor($artProv);
                     $order->setEliminado(0);
+                    $order->setConfirmado(0);
                     $order->setCantidad($quantity);
                 }
 

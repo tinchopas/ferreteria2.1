@@ -44,6 +44,9 @@
         <br />
         {% include 'DNTWorkshopBundle:Default:article_table.html.twig' %}
     {% elseif app.request.query.has('advancedSearch') %}
-        <p>No se encontraron resultados</p>
+        <br />
+        <div class="alert alert-info alert-block">
+            <strong>No se encontraron resultados.</strong>
+        </div>
     {% endif %}
 {% endblock %}
