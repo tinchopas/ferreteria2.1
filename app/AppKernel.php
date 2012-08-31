@@ -21,7 +21,8 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new DNT\WorkshopBundle\DNTWorkshopBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle()
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
