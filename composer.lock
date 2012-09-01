@@ -52,8 +52,8 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "8fa580a58e73550b3f729e420d078784b154013f",
-            "commit-date": "1346185701"
+            "source-reference": "4e8a3a920eedaba4e76c26a92347e9b47bb7ffdf",
+            "commit-date": "1346486653"
         },
         {
             "package": "imagine/Imagine",
@@ -71,13 +71,7 @@
         },
         {
             "package": "jms/di-extra-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "1.1.x-dev",
-            "alias-version": "1.1.9999999.9999999-dev"
-        },
-        {
-            "package": "jms/di-extra-bundle",
-            "version": "dev-master",
+            "version": "1.1.x-dev",
             "source-reference": "1.1.0-RC",
             "commit-date": "1345140102"
         },
@@ -178,8 +172,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "2cf50b78017b805c75f8ba134925e3e71d2fea50",
-            "commit-date": "1346337608"
+            "source-reference": "41ffd006e57b0955d44a2b07fd898689c0d63a56",
+            "commit-date": "1346482338"
         },
         {
             "package": "twig/extensions",
@@ -196,8 +190,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "f76ed618c890165fd107a9cd4a06c7d73da75b9c",
-            "commit-date": "1346324412"
+            "source-reference": "459720ff3b74ee0c0d159277c6f2f5df89d8a4f6",
+            "commit-date": "1346397138"
         }
     ],
     "packages-dev": null,

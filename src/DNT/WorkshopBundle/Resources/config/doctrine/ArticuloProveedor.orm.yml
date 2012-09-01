@@ -22,18 +22,18 @@ DNT\WorkshopBundle\Entity\ArticuloProveedor:
   oneToMany:
     pedido:
       targetEntity: Pedido
-      mappedBy: articuloProveedors
+      mappedBy: ArticuloProveedors
       cascade: [ "remove" ]
   manyToOne:
     proveedor:
       targetEntity: Proveedor
-      inversedBy: articuloProveedors
+      inversedBy: ArticuloProveedors
       joinColumn:
         name: id_proveedor
         referencedColumnName: id
     articulo:
       targetEntity: Articulo
-      inversedBy: articuloProveedors
+      inversedBy: ArticuloProveedors
       joinColumn:
         name: id_articulo
         referencedColumnName: id
