@@ -2,6 +2,11 @@
 
 {% block subtitle %}Mantenimiento{% endblock %}
 {% block content %}
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
 
 <h1>Acciones de Mantenimiento</h1>
 

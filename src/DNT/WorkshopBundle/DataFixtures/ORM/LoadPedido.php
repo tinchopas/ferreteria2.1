@@ -17,6 +17,7 @@ class LoadPedido extends AbstractFixture implements OrderedFixtureInterface
         $Pedido->setEliminado(0);
         $Pedido->setConfirmado(0);
         $Pedido->setCantidad(2);
+        $Pedido->setConfirmado(0);
         $Pedido->setArticuloProveedor($manager->merge($this->getReference('AP.PV')));
         $manager->persist($Pedido);
 
@@ -25,6 +26,7 @@ class LoadPedido extends AbstractFixture implements OrderedFixtureInterface
         $Pedido->setEliminado(0);
         $Pedido->setConfirmado(0);
         $Pedido->setCantidad(1);
+        $Pedido->setConfirmado(0);
         $Pedido->setArticuloProveedor($manager->merge($this->getReference('AP.PJ')));
         $manager->persist($Pedido);
 

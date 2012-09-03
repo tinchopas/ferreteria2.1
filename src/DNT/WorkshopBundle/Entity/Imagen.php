@@ -2,6 +2,9 @@
 
 namespace DNT\WorkshopBundle\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Imagine\Gd\Imagine;
+use Imagine\Image\Box;
+use Imagine\Image\ImageInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -121,11 +124,18 @@ class Imagen
         if (null === $this->file) {
             return;
         }
+        $imagine = new Imagine();
+        $size    = new Box(300, 300);
+        $mode    = ImageInterface::THUMBNAIL_INSET;
+
 
         // you must throw an exception here if the file cannot be moved
         // so that the entity is not persisted to the database
         // which the UploadedFile move() method does
-        $this->file->move($this->getUploadRootDir(), $this->id.'.'.$this->file->guessExtension());
+        $imagine->open($this->file->getPathname())
+                ->thumbnail($size, $mode)
+                    ->save($this->getUploadRootDir().'/'.$this->id.'.'.$this->file->guessExtension())
+                    ;
 
         unset($this->file);
     }
@@ -140,10 +150,5 @@ class Imagen
         if ($this->filenameForRemove) {
             unlink($this->filenameForRemove);
         }
-    }
-
-    public function __toString()
-    {
-        return '<img src="/uploads/images/1.jpeg" />' . $this->nombre;
     }
 }
