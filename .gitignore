@@ -4,7 +4,9 @@ app/cache/*
 app/logs/*
 app/config/parameters.yml
 app/bootstrap.php.cache
+app/SymfonyRequirements.php
 src/DNT/WorkshopBundle/Resources/config/doctrine/metadata/
 vendor/*
 web/bundles/*
 web/uploads/*
+composer.lock
