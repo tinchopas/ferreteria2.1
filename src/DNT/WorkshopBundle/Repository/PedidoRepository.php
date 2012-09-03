@@ -9,7 +9,11 @@ class PedidoRepository extends EntityRepository
     public function deleteOrdersByProvider($idProvider)
     {
         $em = $this->getEntityManager();
-        $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findAll();
+        $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
+            'eliminado'  => 0,
+            'confirmado' => 0,
+        ));
+
         foreach ($orders as $order) {
             $artProv = $order->getArticuloProveedor();
             if ($artProv->getProveedor()->getId() == $idProvider) {
@@ -25,6 +29,7 @@ class PedidoRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
         $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findAll();
+
         foreach ($orders as $order) {
             $artProv = $order->getArticuloProveedor();
             if ($artProv->getProveedor()->getId() == $idProvider) {

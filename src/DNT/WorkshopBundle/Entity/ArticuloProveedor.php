@@ -32,6 +32,11 @@ class ArticuloProveedor
     private $pedido;
 
     /**
+     * @var DNT\WorkshopBundle\Entity\Devolucion
+     */
+    private $devolucion;
+
+    /**
      * @var datetime $creado
      */
     private $creado;
@@ -97,7 +102,7 @@ class ArticuloProveedor
      *
      * @param DNT\WorkshopBundle\Entity\Pedido $pedido
      */
-    public function addPedido(\DNT\WorkshopBundle\Entity\pedido $pedido)
+    public function addPedido(\DNT\WorkshopBundle\Entity\Pedido $pedido)
     {
         $this->pedidos[] = $pedido;
     }
@@ -110,6 +115,26 @@ class ArticuloProveedor
     public function getPedidos()
     {
         return $this->pedidos;
+    }
+
+    /**
+     * Add Devolucion
+     *
+     * @param DNT\WorkshopBundle\Entity\Devolucion $devolucion
+     */
+    public function addDevolucion(\DNT\WorkshopBundle\Entity\Devolucion $devolucion)
+    {
+        $this->devolucion[] = $devolucion;
+    }
+
+    /**
+     * Get Devolucion
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getDevolucion()
+    {
+        return $this->devolucion;
     }
 
     /**

@@ -40,6 +40,12 @@ DNTWorkshopBundle_ajax_delorder:
 DNTWorkshopBundle_ajax_confirmorder:
     pattern:  /ajax/order/confirm
     defaults: { _controller: DNTWorkshopBundle:Ajax:orderConfirm }
+DNTWorkshopBundle_ajax_return:
+    pattern:  /ajax/return
+    defaults: { _controller: DNTWorkshopBundle:Ajax:returnArticle }
+DNTWorkshopBundle_ajax_confirmreturn:
+    pattern:  /ajax/return/confirm
+    defaults: { _controller: DNTWorkshopBundle:Ajax:returnConfirm }
 
 ### Login
 login:

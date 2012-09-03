@@ -46,6 +46,9 @@
         </div>
     {% endif %}
 
+<link type="text/css" rel="stylesheet" href="{{ asset('css/messi.css') }}" />
+<script type="text/javascript" src="{{ asset('js/messi.js') }}"></script>
+
     <script typei="text/javascript">
 
         $('.provider').find('button.details').click(function() {
@@ -79,11 +82,35 @@
         $('.success').click(function() {
             if (confirm("¿Desea confirmar el pedido y agregar los artículos al stock?")) {
                 var url  = '{{ path('DNTWorkshopBundle_ajax_confirmorder') }}';
-                var data = {
-                    "id_proveedor": $(this).parent().parent().attr('id')
-                };
+                var data = { 'id_proveedor': $(this).parent().parent().attr('id') };
 
                 $.post(url, data, function(data) {
+                    if (!jQuery.isEmptyObject(data.returns)) {
+
+                        // Generate the text to show in the box.
+                        var retText = 'Existen las siguientes devoluciones por realizarse asociadas al proveedor:<br /><br /><ul>';
+                        $.each(data.returns, function(key, value) {
+                            retText = retText + '<li>' + value.name + ' (' + value.quantity + ')</li>';
+                        });
+                        retText = retText + '</ul>';
+    
+                        new Messi(retText, {
+                            title: 'Devoluciones',
+                            titleClass: 'info',
+                            buttons: [
+                                {id: 1, label: 'Posponer', val: 'N'},
+                                {id: 2, label: 'Confirmar', val: 'Y'}
+                            ],
+                            callback: function(val) {
+                                if (val == 'Y') {
+                                    var returnUrl  = '{{ path('DNTWorkshopBundle_ajax_confirmreturn') }}';
+                                    var returnData = { 'id_proveedor': data.id };
+
+                                    $.post(returnUrl, returnData, null);
+                                }
+                            }
+                        });
+                    }
                     $('#' + data.id).remove();
                     $('#confirmMsg').show('fast');
                     setTimeout(function() { $('#confirmMsg').hide('fast'); }, 3000);

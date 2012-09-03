@@ -24,6 +24,10 @@ DNT\WorkshopBundle\Entity\ArticuloProveedor:
       targetEntity: Pedido
       mappedBy: articuloProveedors
       cascade: [ "remove" ]
+    devolucion:
+      targetEntity: Devolucion
+      mappedBy: articuloProveedors
+      cascade: [ "remove" ]
   manyToOne:
     proveedor:
       targetEntity: Proveedor

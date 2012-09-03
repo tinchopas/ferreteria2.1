@@ -1,7 +1,7 @@
-DNT\WorkshopBundle\Entity\Pedido:
+DNT\WorkshopBundle\Entity\Devolucion:
   type: entity
-  repositoryClass: DNT\WorkshopBundle\Repository\PedidoRepository
-  table: pedido
+  repositoryClass: DNT\WorkshopBundle\Repository\DevolucionRepository
+  table: devolucion
   fields:
     id:
       id: true
@@ -11,9 +11,6 @@ DNT\WorkshopBundle\Entity\Pedido:
       column: id
       generator:
         strategy: IDENTITY
-    fecha:
-      type: datetime
-      nullable: true
     cantidad:
       type: integer
       unsigned: false
@@ -34,14 +31,14 @@ DNT\WorkshopBundle\Entity\Pedido:
       type: integer
       unsigned: false
       nullable: false
-    confirmado:
+    devuelto:
       type: integer
       unsigned: false
       nullable: false
   manyToOne:
     ArticuloProveedor:
       targetEntity: ArticuloProveedor
-      inversedBy: pedido
+      inversedBy: devolucion
       joinColumn:
         ArticuloProveedor:
           name: id_articulo_proveedor

@@ -19,9 +19,10 @@
                 <td class="right stock"><strong>{{ article.cantidad }}</strong></td>
                 <td class="right"><strong>$ {{ article.precioVenta }}</strong></td>
                 <td class="center">
-                    <button class="btn btn-info"><i class="icon-file icon-white"></i></button>
-                    <button class="btn btn-warning order"><i class="icon-calendar icon-white"></i></button>
-                    <button class="btn btn-success shopping"><i class="icon-shopping-cart icon-white"></i></button>
+                    <button class="btn btn-info" title="Ver Detalle"><i class="icon-info-sign icon-white"></i></button>
+                    <button class="btn btn-danger return" title="Devolver Artículo"><i class="icon-minus-sign icon-white"></i></button>
+                    <button class="btn btn-warning order" title="Solicitar Artículo"><i class="icon-list-alt icon-white"></i></button>
+                    <button class="btn btn-success shopping" title="Comprar Artículo"><i class="icon-shopping-cart icon-white"></i></button>
                 </td>
             </tr>
         {% endfor %}
@@ -85,6 +86,29 @@
 
             if (quantity && validateQuantity(quantity, artStock)) {
                 var url  = '{{ path('DNTWorkshopBundle_ajax_order') }}';
+                var data = {
+                    "id_article": artId,
+                    "quantity":   quantity
+                };
+
+                // Ajax post call.
+                $.post(url, data, function(data) {
+                    validateAjaxResponse(data);
+                });
+            }
+        });
+
+        // Action for when an article is added to the return list.
+        $('.return').click(function() {
+            var parentTr = $(this).closest('tr');
+
+            var artId    = parentTr.attr('id');
+            var artName  = parentTr.find('.name').text();
+            var artStock = parseInt(parentTr.find('.stock').text());
+            var quantity = prompt('Cantidad de "' + artName + '" a agregar para su devolución:');
+
+            if (quantity && validateQuantity(quantity, artStock)) {
+                var url  = '{{ path('DNTWorkshopBundle_ajax_return') }}';
                 var data = {
                     "id_article": artId,
                     "quantity":   quantity
