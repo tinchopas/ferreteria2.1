@@ -21,15 +21,15 @@
                 <td>{{ article.nombre }}</td>
                 <td>{{ article.descripcion }}</td>
                 <td>{{ article.codigoBarra }}</td>
-                <td class="right"><strong>$ {{ article.precioVenta }}</strong></td>
+                <td class="right"><strong>$ {{ article.precioVenta|number_format(2, '.', ' ') }}</strong></td>
                 <td class="right"><strong>{{ attribute(quantity, article.id) }}</strong></td>
-                <td class="right"><strong>$ {{ article.precioVenta * attribute(quantity, article.id) }}</strong></td>
+                <td class="right"><strong>$ {{ (article.precioVenta * attribute(quantity, article.id))|number_format(2, '.', ' ') }}</strong></td>
                 {% set total = total + (article.precioVenta * attribute(quantity, article.id)) %}
             </tr>
         {% endfor %}
         <tr>
             <td colspan="5" class="right"><strong>Total:</strong></td>
-            <td id="total" class="right"><strong>${{ total }}</strong></td>
+            <td id="total" class="right"><strong>${{ total|number_format(2, '.', ' ') }}</strong></td>
         </tr>
     </table>
 

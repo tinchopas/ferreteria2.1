@@ -1,5 +1,6 @@
 DNT\WorkshopBundle\Entity\Factura:
   type: entity
+  repositoryClass: DNT\WorkshopBundle\Repository\FacturaRepository
   table: factura
   fields:
     id:

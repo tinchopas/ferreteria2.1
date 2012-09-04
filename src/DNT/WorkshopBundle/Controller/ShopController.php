@@ -43,7 +43,7 @@ class ShopController extends Controller
 
             // The ticket is created.
             $ticket = new Factura();
-            $ticket->setNroFactura('0000');
+            $ticket->setNroFactura($em->getRepository('DNTWorkshopBundle:Factura')->getLastNroFactura() + 1);
             $ticket->setCreado(new \DateTime('now'));
             $em->persist($ticket);
 

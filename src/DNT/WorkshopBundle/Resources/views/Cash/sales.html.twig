@@ -24,14 +24,14 @@
                     <tr>
                         <td>{{ renglon.getArticulo.nombre }}</td>
                         <td class="right">{{ renglon.cantidad }}</td>
-                        <td class="right">${{ renglon.precioArticulo }}</td>
-                        <td class="right"><strong>${{ renglon.precioTotal }}</strong></td>
+                        <td class="right">${{ renglon.precioArticulo|number_format(2, '.', ' ') }}</td>
+                        <td class="right"><strong>${{ renglon.precioTotal|number_format(2, '.', ' ') }}</strong></td>
                     </tr>
                     {% set total = total + renglon.precioTotal %}
                 {% endfor %}
                 <tr>
                     <td colspan="3" class="right"><strong>Total:</strong></td>
-                    <td id="total" class="right"><strong>${{ total }}</strong></td>
+                    <td id="total" class="right"><strong>${{ total|number_format(2, '.', ' ') }}</strong></td>
                 </tr>
             </table>
         </div>
