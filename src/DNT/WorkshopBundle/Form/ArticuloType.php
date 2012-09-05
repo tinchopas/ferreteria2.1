@@ -11,29 +11,31 @@ class ArticuloType extends AbstractType
     {
         $builder
             ->add('nombre', 'text', array(
-                'label' => 'Nombre')
+                'label' => 'Nombre', 'attr' => array('class'=>"field span12"))
             )
             ->add('cantidad', 'number', array(
-                'label' => 'Cantidad',     )
+                'label' => 'Cantidad', 'attr' => array('class'=>"field span12"))
             )
             ->add('costo', 'money', array(
                 'label' => 'Costo',
-                'currency' => 'u$s'
+                'currency' => false, 'attr' => array('class'=>"field span12")
                 )
             )
             ->add('precioVenta','money', array(
-                'label' => 'Precio')
+                'label' => 'Precio',
+                'currency' => false, 'attr' => array('class'=>"field span12")
+                )
             )
             ->add('descripcion','textarea', array(
-                'label' => 'Descripcion')
+                'label' => 'Descripcion', 'attr' => array('class'=>"field span6",'rows'=>"5"))
             )
             ->add('imagen', new ImagenType()
             )
             ->add('codigoBarra','number', array(
-                'label' => 'Codigo')
+                'label' => 'Codigo', 'attr' => array('class'=>"field span12"))
             )
             ->add('codigoProveedor', 'number', array(
-                'label' => 'Proveedor')
+                'label' => 'Proveedor', 'attr' => array('class'=>"field span12"))
             )
             ->add('idCategoria', 'entity',  array(
                 'class' => 'DNTWorkshopBundle:Categoria',
