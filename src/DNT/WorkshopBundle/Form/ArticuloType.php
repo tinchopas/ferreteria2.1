@@ -35,10 +35,6 @@ class ArticuloType extends AbstractType
             ->add('codigoProveedor', 'number', array(
                 'label' => 'Proveedor')
             )
-/*            ->add('eliminado', 'number', array(
-                'label' => 'Eliminado')
-            )
-*/
             ->add('idCategoria', 'entity',  array(
                 'class' => 'DNTWorkshopBundle:Categoria',
                 'label' => 'Categoria',
@@ -48,11 +44,6 @@ class ArticuloType extends AbstractType
         ;
     }
 
-    /*
-            ->add('imagen', 'file', array(
-                'label' => 'Imagen')
-            )
-    */
 
     public function getDefaultOptions(array $options)
     {

@@ -41,11 +41,13 @@
                 </tbody>
             </table>
         </div>
-        <div class="span2">
-            <tr>
-                <td> <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" /> </td>
-            </tr>
-        </div>
+        {% if entity.imagen.path is not null%}
+            <div class="span2">
+                <tr>
+                    <td> <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" /> </td>
+                </tr>
+            </div>
+        {% endif %}
     </div>
 </div>
 

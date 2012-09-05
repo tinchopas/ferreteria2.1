@@ -32,7 +32,6 @@ class SimpleSearchController extends Controller
         $ar = $em->getRepository('DNTWorkshopBundle:Articulo')->findBy(array(
             'codigoBarra' => $request->query->get('codigo'),
         ));
-            //'eliminado'   => false,
         return $this->render('DNTWorkshopBundle:Default:simple_search.html.twig', array(
             'articles' => $ar,
         ));
