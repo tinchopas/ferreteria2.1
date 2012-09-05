@@ -52,9 +52,11 @@
         {{ form_errors(edit_form.imagen.file) }}
         {{ form_widget(edit_form.imagen.file) }}
     </div>
-    <div style="width:19%;">
-        <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" />
-    </div>
+    {% if entity.imagen.path is not null%}
+        <div style="width:19%;">
+            <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" />
+        </div>
+    {%endif%}
     <p>
         <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i></button>
     </p>

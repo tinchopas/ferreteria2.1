@@ -17,6 +17,7 @@ DNT\WorkshopBundle\Entity\Imagen:
         nombre:
             type: string
             length: 255
+            nullable: true
         path:
             type: string
             length: 255
@@ -24,4 +25,3 @@ DNT\WorkshopBundle\Entity\Imagen:
         file:
             type: text
             nullable: true
-#    lifecycleCallbacks: {  }
