@@ -14,6 +14,7 @@ class ImagenType extends AbstractType
             ->add('file', 'file', array(
                 'label' => 'Imagen','required' => false)
             )
+            ->add('path', 'hidden')
         ;
     }
 

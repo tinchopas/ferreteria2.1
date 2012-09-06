@@ -29,7 +29,7 @@ class ArticuloType extends AbstractType
             ->add('descripcion','textarea', array(
                 'label' => 'Descripcion', 'attr' => array('class'=>"field span6",'rows'=>"5"))
             )
-            ->add('imagen', new ImagenType()
+            ->add('imagen', new ImagenType(), array('label'=>false)
             )
             ->add('codigoBarra','number', array(
                 'label' => 'Codigo', 'attr' => array('class'=>"field span12"))
