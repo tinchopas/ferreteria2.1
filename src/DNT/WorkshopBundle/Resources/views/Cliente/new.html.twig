@@ -1,16 +1,25 @@
-<h1>Cliente creation</h1>
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-<form action="{{ path('clients_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
+{% block subtitle %}Clientes{% endblock %}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('clients') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+    <br />
+    <h2>Nuevo Cliente</h2>
+    <br />
+
+    <form action="{{ path('clients_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('clients') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

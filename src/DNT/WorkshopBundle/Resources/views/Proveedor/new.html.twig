@@ -1,18 +1,19 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-{% block subtitle %}Nuevo Proveedor{% endblock %}
+{% block subtitle %}Proveedores{% endblock %}
 {% block content %}
+    <br />
+    <h2>Nuevo Proveedor</h2>
+    <br />
 
-<h1>Crear Proveedor</h1>
+    <form action="{{ path('proveedor_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
+            <button type="submit" class="btn btn-success" onclick="location='{{ path('proveedor_new') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
+        </p>
+    </form>
 
-<form action="{{ path('proveedor_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
-        <button type="submit" class="btn btn-success" onclick="location='{{ path('proveedor_new') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
-    </p>
-</form>
-
-<button class="btn btn-info" onclick="location='{{ path('proveedor') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
+    <button class="btn btn-info" onclick="location='{{ path('proveedor') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
 
 {% endblock %}

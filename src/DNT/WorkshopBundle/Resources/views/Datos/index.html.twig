@@ -1,18 +1,21 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
 {% block subtitle %}Mantenimiento{% endblock %}
+
 {% block content %}
+
 {% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="flash-notice">
         {{ flashMessage }}
     </div>
 {% endfor %}
 
-<h1>Acciones de Mantenimiento</h1>
-
-<button class="btn btn-success" onclick="location='{{ path('datos_savedb') }}'"><i class="icon-download-alt icon-white"></i> Salvar base de datos</button>
-<button class="btn btn-primary" onclick="location='{{ path('datos_restoredb') }}') }}'"><i class="icon-folder-open icon-white"></i> Recuperar base de datos</button>
-<button class="btn btn-danger" onclick="location='{{ path('datos_deletedb') }}') }}'"><i class="icon-trash icon-white"></i> Eliminar base de datos</button>
+    <br />
+    <h2>Acciones de Mantenimiento</h2>
+    <br />
+    <button class="btn btn-success" onclick="location='{{ path('datos_savedb') }}'"><i class="icon-download-alt icon-white"></i> Salvar base de datos</button>
+    <button class="btn btn-primary" onclick="location='{{ path('datos_restoredb') }}') }}'"><i class="icon-folder-open icon-white"></i> Recuperar base de datos</button>
+    <button class="btn btn-danger" onclick="location='{{ path('datos_deletedb') }}') }}'"><i class="icon-trash icon-white"></i> Eliminar base de datos</button>
 
 {% endblock %}
 

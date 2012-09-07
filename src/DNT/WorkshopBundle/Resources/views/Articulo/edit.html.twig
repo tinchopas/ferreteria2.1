@@ -1,33 +1,36 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-{% block subtitle %}Edicion de Articulo{% endblock %}
+{% block subtitle %}Articulos{% endblock %}
+
 {% block content %}
 
-<h1>Edicion de Articulo</h1>
+    <br />
+    <h2>Edicion de Articulo</h2>
+    <br />
 
-<form action="{{ path('articulo_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_errors(edit_form) }}
-    {% include 'DNTWorkshopBundle:Articulo:articleFields.html.twig' %}
+    <form action="{{ path('articulo_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_errors(edit_form) }}
+        {% include 'DNTWorkshopBundle:Articulo:articleFields.html.twig' %}
 
-        <div class="row-fluid">
-            <div class="span12">
-                    <div class="row-fluid">
-                        {% if entity.imagen.path is not null%}
-                                <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" />
-                        {%endif%}
-                    </div>
+            <div class="row-fluid">
+                <div class="span12">
+                        <div class="row-fluid">
+                            {% if entity.imagen.path is not null%}
+                                    <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" />
+                            {%endif%}
+                        </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Modificar</button>
-            <button type="submit" class="btn btn-success" onclick="location='{{ path('articulo') }}'"><i class="icon-ok-sign icon-white"></i> Modificar y continuar</button>
-        <div class="row">
-    {{ form_rest(edit_form) }}
-</form>
-<form action="{{ path('articulo_delete', { 'id': entity.id }) }}" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el elemento?');">
-    {{ form_widget(delete_form) }}
-    <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i>Eliminar</button>
-</form>
+            <div class="row">
+                <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Modificar</button>
+                <button type="submit" class="btn btn-success" onclick="location='{{ path('articulo') }}'"><i class="icon-ok-sign icon-white"></i> Modificar y continuar</button>
+            <div class="row">
+        {{ form_rest(edit_form) }}
+    </form>
+    <form action="{{ path('articulo_delete', { 'id': entity.id }) }}" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el elemento?');">
+        {{ form_widget(delete_form) }}
+        <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i>Eliminar</button>
+    </form>
 
 {% endblock %}
 

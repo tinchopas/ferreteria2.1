@@ -1,41 +1,51 @@
-<h1>Renglon</h1>
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Cantidad</th>
-            <td>{{ entity.cantidad }}</td>
-        </tr>
-        <tr>
-            <th>Precioarticulo</th>
-            <td>{{ entity.precioArticulo }}</td>
-        </tr>
-        <tr>
-            <th>Preciototal</th>
-            <td>{{ entity.precioTotal }}</td>
-        </tr>
-    </tbody>
-</table>
+{% block subtitle %}Renglones{% endblock %}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('renglon') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('renglon_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('renglon_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{% block content %}
+
+    <br />
+    <h2>Renglon</h2>
+    <br />
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Cantidad</th>
+                <td>{{ entity.cantidad }}</td>
+            </tr>
+            <tr>
+                <th>Precioarticulo</th>
+                <td>{{ entity.precioArticulo }}</td>
+            </tr>
+            <tr>
+                <th>Preciototal</th>
+                <td>{{ entity.precioTotal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('renglon') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('renglon_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>
+            <form action="{{ path('renglon_delete', { 'id': entity.id }) }}" method="post">
+                {{ form_widget(delete_form) }}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
+
+{% endblock %}
