@@ -1,39 +1,42 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-{% block subtitle %}Regla{% endblock %}
+{% block subtitle %}Reglas{% endblock %}
+
 {% block content %}
 
-<h1>Regla</h1>
+    <br />
+    <h2>Regla</h2>
+    <br />
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span10">
-            <table class="table table-striped table-condensed">
-                <tbody>
-                    <tr>
-                        <th>ID</th>
-                        <td>{{ entity.id }}</td>
-                    </tr>
-{#                  <tr>
-                        <th>Nombre</th>
-                        <td>{{ entity.nombre }}</td>
-                    </tr>
-#}                  <tr>
-                        <th>Operando</th>
-                        <td>{{ entity.operando }}</td>
-                    </tr>
-                    <tr>
-                        <th>Valor</th>
-                        <td>{{ entity.valor }}</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                <table class="table table-striped table-condensed">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ entity.id }}</td>
+                        </tr>
+    {#                  <tr>
+                            <th>Nombre</th>
+                            <td>{{ entity.nombre }}</td>
+                        </tr>
+    #}                  <tr>
+                            <th>Operando</th>
+                            <td>{{ entity.operando }}</td>
+                        </tr>
+                        <tr>
+                            <th>Valor</th>
+                            <td>{{ entity.valor }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-<button class="btn btn-info" onclick="location='{{ path('regla') }}'"><i class="icon-arrow-left icon-white"></i></button>
-<button class="btn btn-primary" onclick="location='{{ path('regla_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
-<button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
+    <button class="btn btn-info" onclick="location='{{ path('regla') }}'"><i class="icon-arrow-left icon-white"></i></button>
+    <button class="btn btn-primary" onclick="location='{{ path('regla_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
+    <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
 
 {% endblock %}

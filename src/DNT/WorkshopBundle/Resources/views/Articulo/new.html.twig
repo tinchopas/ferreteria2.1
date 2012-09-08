@@ -1,21 +1,20 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-{% block subtitle %}Nuevo Articulo{% endblock %}
+{% block subtitle %}Articulos{% endblock %}
 {% block content %}
+    <br />
+    <h2>Nuevo Articulo</h2>
+    <br />
+    <form action="{{ path('articulo_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        {% include 'DNTWorkshopBundle:Articulo:articleFields.html.twig' with {'edit_form': form}%}
 
-<h1>Nuevo Articulo</h1>
-
-<form action="{{ path('articulo_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_errors(form) }}
-    {% include 'DNTWorkshopBundle:Articulo:articleFields.html.twig' with {'edit_form': form}%}
-
-        <div class="row">
-            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
-            <button type="submit" class="btn btn-success" onclick="location='{{ path('articulo') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
-        <div class="row">
-    {{ form_rest(form) }}
-</form>
-<button class="btn btn-info" onclick="location='{{ path('articulo') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
+            <div class="row">
+                <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
+                <button type="submit" class="btn btn-success" onclick="location='{{ path('articulo') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
+            <div class="row">
+    </form>
+    <button class="btn btn-info" onclick="location='{{ path('articulo') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
 
 {% endblock %}
 

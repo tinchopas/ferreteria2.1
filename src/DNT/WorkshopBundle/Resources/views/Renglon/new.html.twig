@@ -1,16 +1,26 @@
-<h1>Renglon creation</h1>
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-<form action="{{ path('renglon_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
+{% block subtitle %}Renglones{% endblock %}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('renglon') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+
+    <br />
+    <h2>Nuevo Renglon</h2>
+    <br />
+
+    <form action="{{ path('renglon_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('renglon') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

@@ -1,22 +1,25 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
 {% block subtitle %}Edicion de Proveedor{% endblock %}
+
 {% block content %}
 
-<h1>Edicion de Proveedor</h1>
+    <br />
+    <h2>Edicion de Proveedor</h2>
+    <br />
 
-<form action="{{ path('proveedor_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i></button>
-    </p>
-</form>
+    <form action="{{ path('proveedor_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_widget(edit_form) }}
+        <p>
+            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i></button>
+        </p>
+    </form>
 
-<button class="btn btn-info" onclick="location='{{ path('proveedor') }}'"><i class="icon-arrow-left icon-white"></i></button>
+    <button class="btn btn-info" onclick="location='{{ path('proveedor') }}'"><i class="icon-arrow-left icon-white"></i></button>
 
-<form action="{{ path('proveedor_delete', { 'id': entity.id }) }}" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el elemento?');">
-    {{ form_widget(delete_form) }}
-    <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
-</form>
+    <form action="{{ path('proveedor_delete', { 'id': entity.id }) }}" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el elemento?');">
+        {{ form_widget(delete_form) }}
+        <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
+    </form>
 
 {% endblock %}
