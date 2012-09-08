@@ -1,41 +1,50 @@
-<h1>Cliente</h1>
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Nombre</th>
-            <td>{{ entity.nombre }}</td>
-        </tr>
-        <tr>
-            <th>Apellido</th>
-            <td>{{ entity.apellido }}</td>
-        </tr>
-        <tr>
-            <th>Direccion</th>
-            <td>{{ entity.direccion }}</td>
-        </tr>
-        <tr>
-            <th>Telefono</th>
-            <td>{{ entity.telefono }}</td>
-        </tr>
-    </tbody>
-</table>
+{% block subtitle %}Clientes{% endblock %}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('clients') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('clients_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('clients_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{% block content %}
+    <br />
+    <h2>Cliente</h2>
+    <br />
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ entity.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ entity.apellido }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ entity.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ entity.telefono }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('clients') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('clients_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>
+            <form action="{{ path('clients_delete', { 'id': entity.id }) }}" method="post">
+                {{ form_widget(delete_form) }}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
+
+{% endblock %}

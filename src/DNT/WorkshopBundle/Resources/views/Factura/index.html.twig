@@ -1,37 +1,47 @@
-<h1>Factura list</h1>
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nrofactura</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('factura_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.nroFactura }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('factura_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('factura_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block subtitle %}Facturas{% endblock %}
 
-<ul>
-    <li>
-        <a href="{{ path('factura_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+{% block content %}
+
+    <br />
+    <h2>Lista Facturas</h2>
+    <br />
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nrofactura</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('factura_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nroFactura }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('factura_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('factura_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('factura_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

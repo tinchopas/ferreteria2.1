@@ -1,18 +1,21 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-{% block subtitle %}Nueva Regla{% endblock %}
+{% block subtitle %}Reglas{% endblock %}
+
 {% block content %}
 
-<h1>Crear Regla</h1>
+    <br />
+    <h2>Nueva Regla</h2>
+    <br />
+    
+    <form action="{{ path('regla_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
+            <button type="submit" class="btn btn-success" onclick="location='{{ path('regla_new') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
+        </p>
+    </form>
 
-<form action="{{ path('regla_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
-        <button type="submit" class="btn btn-success" onclick="location='{{ path('regla_new') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
-    </p>
-</form>
-
-<button class="btn btn-info" onclick="location='{{ path('regla') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
+    <button class="btn btn-info" onclick="location='{{ path('regla') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
 
 {% endblock %}

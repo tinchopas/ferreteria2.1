@@ -1,41 +1,51 @@
-<h1>Renglon list</h1>
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Cantidad</th>
-            <th>Precioarticulo</th>
-            <th>Preciototal</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('renglon_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.cantidad }}</td>
-            <td>{{ entity.precioArticulo }}</td>
-            <td>{{ entity.precioTotal }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('renglon_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('renglon_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block subtitle %}Renglones{% endblock %}
 
-<ul>
-    <li>
-        <a href="{{ path('renglon_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+{% block content %}
+
+    <br />
+    <h2>Listado de Renglones</h2>
+    <br />
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cantidad</th>
+                <th>Precioarticulo</th>
+                <th>Preciototal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('renglon_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.cantidad }}</td>
+                <td>{{ entity.precioArticulo }}</td>
+                <td>{{ entity.precioTotal }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('renglon_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('renglon_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('renglon_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

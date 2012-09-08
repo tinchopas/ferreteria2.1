@@ -1,42 +1,51 @@
-<h1>Cliente list</h1>
+{% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Direccion</th>
-            <th>Telefono</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td>{{ entity.nombre }}</td>
-            <td>{{ entity.apellido }}</td>
-            <td>{{ entity.direccion }}</td>
-            <td>{{ entity.telefono }}</td>
-            <td>{{ entity.eliminado }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('clients_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('clients_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block subtitle %}Clientes{% endblock %}
 
-<ul>
-    <li>
-        <a href="{{ path('clients_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+{% block content %}
+    <br />
+    <h2>Listar Clientes</h2>
+    <br />
+    
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.apellido }}</td>
+                <td>{{ entity.direccion }}</td>
+                <td>{{ entity.telefono }}</td>
+                <td>{{ entity.eliminado }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('clients_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('clients_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('clients_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

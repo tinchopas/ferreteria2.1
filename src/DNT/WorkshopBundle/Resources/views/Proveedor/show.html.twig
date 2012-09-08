@@ -1,47 +1,50 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
 {% block subtitle %}Proveedores{% endblock %}
+
 {% block content %}
 
-<h1>Proveedor</h1>
+    <br />
+    <h2>Proveedor</h2>
+    <br />
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span10">
-            <table class="table table-striped table-condensed">
-                <tbody>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ entity.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Nombre</th>
-                        <td>{{ entity.nombre }}</td>
-                    </tr>
-                    <tr>
-                        <th>Apellido</th>
-                        <td>{{ entity.apellido }}</td>
-                    </tr>
-                    <tr>
-                        <th>Direccion</th>
-                        <td>{{ entity.direccion }}</td>
-                    </tr>
-                    <tr>
-                        <th>Telefono</th>
-                        <td>{{ entity.telefono }}</td>
-                    </tr>
-                    <tr>
-                        <th>Dolar</th>
-                        <td>{{ entity.dolar }}</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                <table class="table table-striped table-condensed">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ entity.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ entity.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido</th>
+                            <td>{{ entity.apellido }}</td>
+                        </tr>
+                        <tr>
+                            <th>Direccion</th>
+                            <td>{{ entity.direccion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Telefono</th>
+                            <td>{{ entity.telefono }}</td>
+                        </tr>
+                        <tr>
+                            <th>Dolar</th>
+                            <td>{{ entity.dolar }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-<button class="btn btn-info" onclick="location='{{ path('proveedor') }}'"><i class="icon-arrow-left icon-white"></i></button>
-<button class="btn btn-primary" onclick="location='{{ path('proveedor_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
-<button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
+    <button class="btn btn-info" onclick="location='{{ path('proveedor') }}'"><i class="icon-arrow-left icon-white"></i></button>
+    <button class="btn btn-primary" onclick="location='{{ path('proveedor_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
+    <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
 
 {% endblock %}
