@@ -9,7 +9,7 @@
     <form method="get" action="{{ path('DNTWorkshopBundle_homepage') }}" class="well form-search">
         <div class="input-prepend input-append">
             <span class="add-on"><strong>Código de barras:</strong></span>
-            <input type="text" name="codigo" class="input-xxlarge search-query">
+            <input type="text" name="codigo" class="input-xxlarge search-query" id="simple_search">
             <button class="btn" type="submit">Buscar</button>
         </div>
     </form>
@@ -23,4 +23,8 @@
             <strong>No se encontraron resultados.</strong>
         </div>
     {% endif %}
+
+    <script type="text/javascript">
+        $('#simple_search').focus();
+    </script>
 {% endblock %}
