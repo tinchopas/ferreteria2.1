@@ -14,7 +14,6 @@
                 <th>Costo</th>
                 <th>Precio</th>
                 <th>Descripcion</th>
-                <!--th>Imagen</th-->
                 <th>Codigobarra</th>
                 <th>Proveedor</th>
             </tr>
@@ -26,8 +25,7 @@
                 <td>{{ entity.cantidad }}</td>
                 <td>{{ entity.costo }}</td>
                 <td>{{ entity.precioVenta }}</td>
-                <td>{{substr( entity.descripcion , 0, 30) }}</td>
-                {# <td>{{ entity.imagen }}</td> #}
+                <td>{{ entity.descripcion|truncate(0,10) }}</td>
                 <td>{{ entity.codigoBarra }}</td>
                 <td>{{ entity.codigoProveedor }}</td>
                 <td>
