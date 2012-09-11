@@ -25,7 +25,7 @@
                 <td>{{ entity.cantidad }}</td>
                 <td>{{ entity.costo }}</td>
                 <td>{{ entity.precioVenta }}</td>
-                <td>{{ entity.descripcion|truncate(0,10) }}</td>
+                <td>{{ entity.descripcion|slice(0,50) }}</td>
                 <td>{{ entity.codigoBarra }}</td>
                 <td>{{ entity.codigoProveedor }}</td>
                 <td>
