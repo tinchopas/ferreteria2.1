@@ -18,8 +18,9 @@ body {
 
 #topbanner {
     margin: 0 auto;
-    height: 94px;
-    width: 992px;
+    height: 70px;
+    width: 100%;
+    background: url(../img/logo.png) no-repeat center left;
 }
 
 #header {
