@@ -25,7 +25,8 @@ class ReglaController extends Controller
         $entities = $em->getRepository('DNTWorkshopBundle:Regla')->findAll();
 
         return $this->render('DNTWorkshopBundle:Regla:index.html.twig', array(
-            'entities' => $entities
+            'section'  => 'rules',
+            'entities' => $entities,
         ));
     }
 
@@ -46,9 +47,9 @@ class ReglaController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Regla:show.html.twig', array(
+            'section'     => 'rules',
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-
         ));
     }
 
@@ -62,8 +63,9 @@ class ReglaController extends Controller
         $form   = $this->createForm(new ReglaType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
 
         return $this->render('DNTWorkshopBundle:Regla:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'section' => 'rules',
+            'entity'  => $entity,
+            'form'    => $form->createView()
         ));
     }
 
@@ -88,8 +90,9 @@ class ReglaController extends Controller
         }
 
         return $this->render('DNTWorkshopBundle:Regla:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'section' => 'rules',
+            'entity'  => $entity,
+            'form'    => $form->createView()
         ));
     }
 
@@ -110,6 +113,7 @@ class ReglaController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Regla:edit.html.twig', array(
+            'section'     => 'rules',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -145,6 +149,7 @@ class ReglaController extends Controller
         }
 
         return $this->render('DNTWorkshopBundle:Regla:edit.html.twig', array(
+            'section'     => 'rules',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

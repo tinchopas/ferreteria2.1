@@ -24,6 +24,7 @@ class ProveedorController extends Controller
         $entities = $em->getRepository('DNTWorkshopBundle:Proveedor')->findAll();
 
         return $this->render('DNTWorkshopBundle:Proveedor:index.html.twig', array(
+            'section'  => 'provider',
             'entities' => $entities
         ));
     }
@@ -45,9 +46,9 @@ class ProveedorController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Proveedor:show.html.twig', array(
+            'section'     => 'provider',
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-
         ));
     }
 
@@ -61,8 +62,9 @@ class ProveedorController extends Controller
         $form   = $this->createForm(new ProveedorType(), $entity);
 
         return $this->render('DNTWorkshopBundle:Proveedor:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'section' => 'provider',
+            'entity'  => $entity,
+            'form'    => $form->createView()
         ));
     }
 
@@ -87,8 +89,9 @@ class ProveedorController extends Controller
         }
 
         return $this->render('DNTWorkshopBundle:Proveedor:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'section' => 'provider',
+            'entity'  => $entity,
+            'form'    => $form->createView()
         ));
     }
 
@@ -110,6 +113,7 @@ class ProveedorController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Proveedor:edit.html.twig', array(
+            'section'     => 'provider',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -145,6 +149,7 @@ class ProveedorController extends Controller
         }
 
         return $this->render('DNTWorkshopBundle:Proveedor:edit.html.twig', array(
+            'section'     => 'provider',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

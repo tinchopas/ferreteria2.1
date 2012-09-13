@@ -17,10 +17,12 @@ class DatosController extends Controller
      */
     public function indexAction()
     {
-
-        $response = $this->render('DNTWorkshopBundle:Datos:index.html.twig');
+        $response = $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
+            'section' => 'maintenance',
+        ));
         return $response;
     }
+
 
     private function getUploadRootDir()
     {
@@ -28,11 +30,13 @@ class DatosController extends Controller
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
+
     private function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
         return 'uploads/backups';
     }
+
 
     public function savedbAction()
     {
@@ -45,19 +49,25 @@ class DatosController extends Controller
         unset($file);
         $this->get('session')->getFlashBag()->add('notice', 'Your changes were saved!');
 //        $this->get('session')->setFlash('success', 'Your changes were saved!');
-        $response = $this->render('DNTWorkshopBundle:Datos:index.html.twig');
-        return $response;
+
+        return $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
+            'section' => 'maintenance',
+        ));
     }
+
+
     public function restoredbAction()
     {
-
-        $response = $this->render('DNTWorkshopBundle:Datos:index.html.twig');
-        return $response;
+        return $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
+            'section' => 'maintenance',
+        ));
     }
+
+
     public function deletedbAction()
     {
-
-        $response = $this->render('DNTWorkshopBundle:Datos:index.html.twig');
-        return $response;
+        return $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
+            'section' => 'maintenance',
+        ));
     }
 }

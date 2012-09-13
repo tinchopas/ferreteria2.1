@@ -38,6 +38,7 @@ class OrderController extends Controller
 
         // Render the view.
         return $this->render('DNTWorkshopBundle:Cash:order.html.twig', array(
+            'section'  => 'cash',
             'articles' => $articles,
             'quantity' => $quantities,
         ));

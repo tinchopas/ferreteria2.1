@@ -24,6 +24,7 @@ class ArticuloController extends Controller
         $entities = $em->getRepository('DNTWorkshopBundle:Articulo')->findAll();
 
         return $this->render('DNTWorkshopBundle:Articulo:index.html.twig', array(
+            'section'  => 'article',
             'entities' => $entities
         ));
     }
@@ -45,9 +46,9 @@ class ArticuloController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Articulo:show.html.twig', array(
+            'section'     => 'article',
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-
         ));
     }
 
@@ -61,8 +62,9 @@ class ArticuloController extends Controller
         $form   = $this->createForm(new ArticuloType(), $entity);
 
         return $this->render('DNTWorkshopBundle:Articulo:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'section' => 'article',
+            'entity'  => $entity,
+            'form'    => $form->createView()
         ));
     }
 
@@ -87,8 +89,9 @@ class ArticuloController extends Controller
         }
 
         return $this->render('DNTWorkshopBundle:Articulo:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'section' => 'article',
+            'entity'  => $entity,
+            'form'    => $form->createView()
         ));
     }
 
@@ -110,6 +113,7 @@ class ArticuloController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Articulo:edit.html.twig', array(
+            'section'     => 'article',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -145,6 +149,7 @@ class ArticuloController extends Controller
         }
 
         return $this->render('DNTWorkshopBundle:Articulo:edit.html.twig', array(
+            'section'     => 'article',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

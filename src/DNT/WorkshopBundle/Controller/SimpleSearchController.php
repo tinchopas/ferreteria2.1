@@ -33,6 +33,7 @@ class SimpleSearchController extends Controller
             'codigoBarra' => $request->query->get('codigo'),
         ));
         return $this->render('DNTWorkshopBundle:Default:simple_search.html.twig', array(
+            'section'  => 'search',
             'articles' => $ar,
         ));
     }

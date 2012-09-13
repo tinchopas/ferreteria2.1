@@ -60,6 +60,7 @@ class AdvancedSearchController extends Controller
         }
 
         return $this->render('DNTWorkshopBundle:Default:advanced_search.html.twig', array(
+            'section'  => 'search',
             'articles' => isset($query) ? $query->getResult() : null,
             'form'     => $form->createView(),
         ));
