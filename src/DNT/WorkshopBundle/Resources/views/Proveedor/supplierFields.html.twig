@@ -1,0 +1,35 @@
+    <div class="span12">
+
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="row-fluid">
+                    {{ form_label(edit_form.nombre) }}
+                    {{ form_errors(edit_form.nombre) }}
+                    {{ form_widget(edit_form.nombre) }}
+                </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.apellido) }}
+                    {{ form_errors(edit_form.apellido) }}
+                    {{ form_widget(edit_form.apellido) }}
+                </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.direccion) }}
+                    {{ form_errors(edit_form.direccion) }}
+                    {{ form_widget(edit_form.direccion) }}
+                </div>
+            </div>
+
+            <div class="span3">
+                <div class="row-fluid">
+                    {{ form_label(edit_form.telefono) }}
+                    {{ form_errors(edit_form.telefono) }}
+                    {{ form_widget(edit_form.telefono) }}
+                </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.dolar) }}
+                    {{ form_errors(edit_form.dolar) }}
+                    {{ form_widget(edit_form.dolar) }}
+                </div>
+            </div>
+        </div>
+    </div>
