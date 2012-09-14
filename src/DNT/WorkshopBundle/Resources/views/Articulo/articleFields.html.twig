@@ -15,7 +15,11 @@
                 <div class="row-fluid">
                     {{ form_label(edit_form.codigoBarra) }}
                     {{ form_errors(edit_form.codigoBarra) }}
-                    {{ form_widget(edit_form.codigoBarra) }}
+                    {% if app.request.get('codigo') %}
+                        {{ form_widget(edit_form.codigoBarra, { 'attr': {'value': app.request.get('codigo'), 'readonly': 'readonly'} }) }}
+                    {% else %}
+                        {{ form_widget(edit_form.codigoBarra) }}
+                    {% endif %}
                 </div>
             </div>
 

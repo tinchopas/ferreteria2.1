@@ -10,27 +10,34 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Costo</th>
-                <th>Precio</th>
                 <th>Descripcion</th>
-                <!--th>Imagen</th-->
-                <th>Codigobarra</th>
-                <th>Proveedor</th>
+                <th>Código Barra</th>
+                <th>Código Proveedor</th>
+                <th class="right">Cantidad</th>
+                <th class="right">Costo</th>
+                <th class="right">Precio</th>
+                <th class="center"></th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td>{{ entity.nombre }}</td>
+<<<<<<< HEAD
                 <td>{{ entity.cantidad }}</td>
                 <td>{{ entity.costo }}</td>
                 <td>{{ entity.precioVenta }}</td>
                 <td>{{ entity.descripcion }}</td>
                 {# <td>{{ entity.imagen }}</td> #}
+=======
+                <td>{{ entity.descripcion|slice(0, 40) }}</td>
+>>>>>>> aab780918b337c4cd6439c709ae7ced9d6c4239d
                 <td>{{ entity.codigoBarra }}</td>
                 <td>{{ entity.codigoProveedor }}</td>
-                <td>
+                <td class="right">{{ entity.cantidad }}</td>
+                <td class="right">$ {{ entity.costo|number_format(2, '.', ' ') }}</td>
+                <td class="right">$ {{ entity.precioVenta|number_format(2, '.', ' ') }}</td>
+                <td class="center">
                     <button class="btn btn-info" onclick="location='{{ path('articulo_show', { 'id': entity.id }) }}'"><i class="icon-file icon-white"></i></button>
                     <button class="btn btn-primary" onclick="location='{{ path('articulo_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
                     <button type="submit" class="btn btn-danger" onclick="delete_item('{{ path('articulo_delete', { 'id': entity.id }) }}', 'Are you sure you want to delete this item?')"><i class="icon-trash icon-white"></i></button>

@@ -28,6 +28,7 @@ class ShopController extends Controller
 
         // Render the view.
         return $this->render('DNTWorkshopBundle:Cash:shop.html.twig', array(
+            'section'  => 'cash',
             'articles' => $articles,
             'quantity' => $shop,
         ));
@@ -81,7 +82,8 @@ class ShopController extends Controller
 
         // Render the view.
         return $this->render('DNTWorkshopBundle:Cash:sales.html.twig', array(
-            'sales' => $sl,
+            'section' => 'cash',
+            'sales'   => $sl,
         ));
     }
 }

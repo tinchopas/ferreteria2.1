@@ -9,10 +9,10 @@
         {{ form_errors(form) }}
         {% include 'DNTWorkshopBundle:Articulo:articleFields.html.twig' with {'edit_form': form}%}
 
-            <div class="row">
-                <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
-                <button type="submit" class="btn btn-success" onclick="location='{{ path('articulo') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
-            </div>
+        <div class="row">
+            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
+            <button type="submit" class="btn btn-success" onclick="location='{{ path('articulo') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
+        <div class="row">
     </form>
     <button class="btn btn-info" onclick="location='{{ path('articulo') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
 

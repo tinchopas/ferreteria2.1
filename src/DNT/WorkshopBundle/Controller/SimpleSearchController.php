@@ -28,12 +28,22 @@ class SimpleSearchController extends Controller
     public function indexAction()
     {
         $request = $this->getRequest();
+        $codigo  = ($request->query->has('codigo')) ? $request->query->get('codigo') : '';
+
         $em = $this->getDoctrine()->getEntityManager();
         $ar = $em->getRepository('DNTWorkshopBundle:Articulo')->findBy(array(
-            'codigoBarra' => $request->query->get('codigo'),
+            'codigoBarra' => $codigo,
         ));
-        return $this->render('DNTWorkshopBundle:Default:simple_search.html.twig', array(
-            'articles' => $ar,
-        ));
+
+        if (!empty($codigo) && !$ar) {
+            return $this->forward('DNTWorkshopBundle:Articulo:new', array(
+                'codigo' => $request->query->get('codigo'),
+            ));
+        } else {
+            return $this->render('DNTWorkshopBundle:Default:simple_search.html.twig', array(
+                'section'  => 'search',
+                'articles' => $ar,
+            ));
+        }
     }
 }
