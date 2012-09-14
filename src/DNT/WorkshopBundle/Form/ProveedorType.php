@@ -18,6 +18,14 @@ class ProveedorType extends AbstractType
         ;
     }
 
+    public function getDefaultOptions(array $options)
+    {
+        $options = parent::getDefaultOptions($options);
+        $options['data_class'] = 'DNT\WorkshopBundle\Entity\Proveedor';
+        return $options;
+    }
+
+
     public function getName()
     {
         return 'dnt_workshopbundle_proveedortype';

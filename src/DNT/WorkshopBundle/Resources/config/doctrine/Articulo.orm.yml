@@ -70,7 +70,7 @@ DNT\WorkshopBundle\Entity\Articulo:
     ArticuloProveedors:
       targetEntity: ArticuloProveedor
       mappedBy: articulo
-      cascade: [ "remove" ]
+      cascade: [ "all" ]
   manyToOne:
     idCategoria:
       targetEntity: Categoria

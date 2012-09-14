@@ -77,6 +77,11 @@ class Articulo
     private $idCategoria;
 
     /**
+     * @var ArrayCollections
+     */
+    private $proveedores;
+
+    /**
      * @var DNT\WorkshopBundle\Entity\ArticuloProveedor
      */
     private $ArticuloProveedors;
@@ -84,6 +89,7 @@ class Articulo
     public function __construct()
     {
         $this->ArticuloProveedors = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->proveedores = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -354,5 +360,60 @@ class Articulo
     public function getArticuloProveedors()
     {
         return $this->ArticuloProveedors;
+    }
+
+
+    /**
+     * Add ArticuloProveedors
+     *
+     * @param DNT\WorkshopBundle\Entity\ArticuloProveedor $articuloProveedors
+     */
+    public function setProveedor( $proveedores)
+    {
+
+    
+            $ap = new ArticuloProveedor();
+            $ap->setArticulo($this);
+            $ap->setProveedor($proveedores);
+            $this->addArticuloProveedor($ap);
+/*
+            foreach($proveedores as $p)
+        {
+            $ap = new ArticuloProveedor();
+
+            $ap->setArticulo($this);
+            $ap->setProveedor($p);
+
+            $this->addArticuloProveedor($ap);
+        }
+ */
+    }
+
+    /**
+     * Get Proveedores
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getProveedor()
+    {
+        $proveedores = new \Doctrine\Common\Collections\ArrayCollection();
+        
+        foreach($this->ArticuloProveedors as $ap)
+        {
+            $proveedores[] = $ap->getProveedor();
+        }
+
+        return $proveedores;
+    }
+
+    public function removeAp($articuloProveedor)
+    {
+        /*
+        var_dump($this->ArticuloProveedors->count());
+        $this->ArticuloProveedors->removeElement($articuloProveedor);
+        var_dump($this->ArticuloProveedors->count());exit;
+        return;
+         */
+        return $this->ArticuloProveedors->removeElement($articuloProveedor);
     }
 }

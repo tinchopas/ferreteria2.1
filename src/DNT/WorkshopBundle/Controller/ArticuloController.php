@@ -133,10 +133,16 @@ class ArticuloController extends Controller
         $editForm   = $this->createForm(new ArticuloType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
+        $previousCollections = $entity->getArticuloProveedors();
+        $previousCollections = $previousCollections->toArray();
         $request = $this->getRequest();
 
         $editForm->bindRequest($request);
 
+        foreach($previousCollections as $ap)
+        {
+            $entity->removeAp($ap);
+        }
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();

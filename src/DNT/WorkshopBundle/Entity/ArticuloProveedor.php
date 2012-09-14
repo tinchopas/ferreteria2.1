@@ -176,4 +176,8 @@ class ArticuloProveedor
     {
         return $this->modificado;
     }
+
+    public function __toString(){
+        return 'pepe';
+    }
 }

@@ -35,7 +35,7 @@ class ArticuloType extends AbstractType
                 'label' => 'Codigo', 'attr' => array('class'=>"field span12"))
             )
             ->add('codigoProveedor', 'number', array(
-                'label' => 'Proveedor', 'attr' => array('class'=>"field span12"))
+                'label' => 'Codigo para el Proveedor', 'attr' => array('class'=>"field span12"))
             )
             ->add('idCategoria', 'entity',  array(
                 'class' => 'DNTWorkshopBundle:Categoria',
@@ -43,6 +43,12 @@ class ArticuloType extends AbstractType
                 'empty_value' => 'Seleccione categoria'
 
             ))
+            ->add('Proveedor' , 'entity' , array(
+                  'class'    => 'DNTWorkshopBundle:Proveedor' ,
+                  'property' => 'nombre' ,
+                  'multiple' => false ,
+                   ))
+//            ->add('articuloProveedors', 'collection',array('type' => new ArticuloProveedorType(), 'label'=>'Proveedor'))
         ;
     }
 

@@ -49,6 +49,6 @@ DNT\WorkshopBundle\Entity\Proveedor:
     ArticuloProveedors:
       targetEntity: ArticuloProveedor
       mappedBy: proveedor
-      cascade: [ "remove" ]
+      cascade: [ "all" ]
 
   lifecycleCallbacks: {  }
