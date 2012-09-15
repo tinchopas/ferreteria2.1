@@ -45,10 +45,8 @@ class ArticuloType extends AbstractType
             ))
             ->add('Proveedor' , 'entity' , array(
                   'class'    => 'DNTWorkshopBundle:Proveedor' ,
-                  'property' => 'nombre' ,
-                  'multiple' => false ,
+                  'multiple' => true ,
                    ))
-//            ->add('articuloProveedors', 'collection',array('type' => new ArticuloProveedorType(), 'label'=>'Proveedor'))
         ;
     }
 

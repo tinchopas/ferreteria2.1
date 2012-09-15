@@ -62,7 +62,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setDescripcion('Un alicate, pero no de los que te cortás las uñas, sino el local sería una perfumería y no una ferretería.');
 //        $Articulo->setImagen('Imagen');
         $Articulo->setCodigoBarra('123557123');
-        $Articulo->setCodigoProveedor('2342dsdff244');
+        $Articulo->setCodigoProveedor('2342244');
         //$Articulo->setEliminado(0);
         $this->addReference('Articulo.Alicate', $Articulo);
 

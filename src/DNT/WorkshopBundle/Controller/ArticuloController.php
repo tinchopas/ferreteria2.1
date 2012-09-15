@@ -145,6 +145,7 @@ class ArticuloController extends Controller
 
         foreach($previousCollections as $ap)
         {
+            $em->remove($ap);
             $entity->removeAp($ap);
         }
         if ($editForm->isValid()) {

@@ -372,11 +372,12 @@ class Articulo
     {
 
     
+/*
             $ap = new ArticuloProveedor();
             $ap->setArticulo($this);
             $ap->setProveedor($proveedores);
             $this->addArticuloProveedor($ap);
-/*
+ */
             foreach($proveedores as $p)
         {
             $ap = new ArticuloProveedor();
@@ -386,7 +387,6 @@ class Articulo
 
             $this->addArticuloProveedor($ap);
         }
- */
     }
 
     /**

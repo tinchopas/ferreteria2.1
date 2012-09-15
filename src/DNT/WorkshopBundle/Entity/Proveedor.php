@@ -229,4 +229,9 @@ class Proveedor
     {
         return $this->ArticuloProveedors;
     }
+
+    public function __toString()
+    {
+        return sprintf('%s %s', $this->nombre, $this->apellido);
+    }
 }

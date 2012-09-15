@@ -23,15 +23,7 @@
         {% for entity in entities %}
             <tr>
                 <td>{{ entity.nombre }}</td>
-<<<<<<< HEAD
-                <td>{{ entity.cantidad }}</td>
-                <td>{{ entity.costo }}</td>
-                <td>{{ entity.precioVenta }}</td>
-                <td>{{ entity.descripcion }}</td>
-                {# <td>{{ entity.imagen }}</td> #}
-=======
                 <td>{{ entity.descripcion|slice(0, 40) }}</td>
->>>>>>> aab780918b337c4cd6439c709ae7ced9d6c4239d
                 <td>{{ entity.codigoBarra }}</td>
                 <td>{{ entity.codigoProveedor }}</td>
                 <td class="right">{{ entity.cantidad }}</td>

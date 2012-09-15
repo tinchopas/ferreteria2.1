@@ -75,6 +75,9 @@ class Imagen
      */
     public function setPath($path)
     {
+        if (null === $path) {
+            return $this;
+        }
         $this->path = $path;
     
         return $this;

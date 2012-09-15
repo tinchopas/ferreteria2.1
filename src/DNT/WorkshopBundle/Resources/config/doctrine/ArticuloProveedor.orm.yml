@@ -22,11 +22,11 @@ DNT\WorkshopBundle\Entity\ArticuloProveedor:
   oneToMany:
     pedido:
       targetEntity: Pedido
-      mappedBy: ArticuloProveedors
+      mappedBy: ArticuloProveedor
       cascade: [ "remove" ]
     devolucion:
       targetEntity: Devolucion
-      mappedBy: articuloProveedors
+      mappedBy: ArticuloProveedor
       cascade: [ "remove" ]
   manyToOne:
     proveedor:
