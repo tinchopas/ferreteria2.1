@@ -329,6 +329,7 @@ class Articulo
      */
     public function setIdCategoria(\DNT\WorkshopBundle\Entity\Categoria $idCategoria)
     {
+        $idCategoria->addArticulo($this);
         $this->idCategoria = $idCategoria;
     }
 

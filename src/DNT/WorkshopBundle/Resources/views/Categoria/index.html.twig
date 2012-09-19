@@ -4,13 +4,12 @@
 
 {% block content %}
     <br />
-    <h2>Listar Categorias</h2>
+    <h2>Categorias</h2>
     <br />
 
-    <table class="records_list">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nombre</th>
                 <th>Actions</th>
             </tr>
@@ -18,28 +17,19 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('categoria_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nombre }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categoria_show', { 'id': entity.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categoria_edit', { 'id': entity.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                <td class="center">
+                    <button class="btn btn-info" onclick="location='{{ path('categoria_show', { 'id': entity.id }) }}'"><i class="icon-file icon-white"></i></button>
+                    <button class="btn btn-primary" onclick="location='{{ path('categoria_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
+                    <button type="submit" class="btn btn-danger" onclick="delete_item('{{ path('categoria_delete', { 'id': entity.id }) }}', 'Are you sure you want to delete this item?')"><i class="icon-trash icon-white"></i></button>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('categoria_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    <button class="btn btn-success" onclick="location='{{ path('categoria_new') }}'"><i class="icon-plus icon-white"></i> Añadir nueva categoria</button>
+    {% javascripts '@DNTWorkshopBundle/Resources/public/js/ajax_delete.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}

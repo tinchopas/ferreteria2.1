@@ -33,6 +33,22 @@ class Categoria
     private $modificado;
 
     /**
+     * @var DNT\WorkshopBundle\Entity\Articulo
+     */
+    private $articulos;
+
+    /**
+     * @var datetime $eliminado
+     */
+    private $eliminado;
+
+    public function __construct()
+    {
+        $this->articulos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -105,6 +121,46 @@ class Categoria
         public function __toString()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Add Articulo
+     *
+     * @param DNT\WorkshopBundle\Entity\Articulo $articulo
+     */
+    public function addArticulo(\DNT\WorkshopBundle\Entity\Articulo $articulo)
+    {
+        $this->articulos[] = $articulo;
+    }
+
+    /**
+     * Get Articulos
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getArticulos()
+    {
+        return $this->articulos;
+    }
+
+    /**
+     * Set eliminado
+     *
+     * @param integer $eliminado
+     */
+    public function setEliminado($eliminado)
+    {
+        $this->eliminado = $eliminado;
+    }
+
+    /**
+     * Get eliminado
+     *
+     * @return integer 
+     */
+    public function getEliminado()
+    {
+        return $this->eliminado;
     }
 
 }

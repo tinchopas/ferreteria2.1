@@ -8,18 +8,15 @@
     <br />
 
     <form action="{{ path('categoria_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Create</button>
-        </p>
+        {{ form_errors(form) }}
+        {% include 'DNTWorkshopBundle:Categoria:categoryFields.html.twig' with {'edit_form': form}%}
+        <div class="row">
+            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Crear</button>
+            <button type="submit" class="btn btn-success" onclick="location='{{ path('categoria') }}'"><i class="icon-ok-sign icon-white"></i> Crear y continuar</button>
+        <div class="row">
+        {{ form_rest(form) }}
     </form>
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('categoria') }}">
-                Back to the list
-            </a>
-        </li>
-    </ul>
+    <button class="btn btn-info" onclick="location='{{ path('categoria') }}'"><i class="icon-arrow-left icon-white"></i> Retroceder</button>
 
 {% endblock %}

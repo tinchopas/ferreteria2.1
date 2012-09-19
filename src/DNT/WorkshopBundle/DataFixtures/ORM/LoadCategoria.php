@@ -15,18 +15,21 @@ class LoadCategoria extends AbstractFixture implements OrderedFixtureInterface
         $Categoria = new Categoria();
         $Categoria->setNombre('Herramientas de mano');
         $Categoria->setModificado(new \DateTime("now"));
+        $this->addReference('Categoria.HerramientasDeMano', $Categoria);
 
         $manager->persist($Categoria);
 
         $Categoria = new Categoria();
         $Categoria->setNombre('Herramientas electricas');
         $Categoria->setModificado(new \DateTime("now"));
+        $this->addReference('Categoria.HerramientasElectricas', $Categoria);
 
         $manager->persist($Categoria);
 
         $Categoria = new Categoria();
         $Categoria->setNombre('Pinturas');
         $Categoria->setModificado(new \DateTime("now"));
+        $this->addReference('Categoria.Pinturas', $Categoria);
 
         $manager->persist($Categoria);
         $manager->flush();

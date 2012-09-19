@@ -3,7 +3,6 @@
 namespace DNT\WorkshopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Data managment controller.
@@ -40,15 +39,11 @@ class DatosController extends Controller
 
     public function savedbAction()
     {
-        $backupFile = '/tmp/tempDump';
+        $factory = $this->container->get('backup_restore.factory');
+        $backupInstance = $factory->getBackupInstance('doctrine.dbal.default_connection');
+        $backupInstance->backupDatabase($this->getUploadRootDir(), 'backup'.date("Y-m-d-H-i-s").'.sql');
 
-        $command = "mysqldump -uroot -pr00t ferreteria | gzip > $backupFile";
-        $return = exec($command, $output, $return_var);
-        $file = new file($backupFile);
-        $file->move($this->getUploadRootDir(),'backup'.date("Y-m-d-H-i-s").'.gz');
-        unset($file);
         $this->get('session')->getFlashBag()->add('notice', 'Your changes were saved!');
-//        $this->get('session')->setFlash('success', 'Your changes were saved!');
 
         return $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
             'section' => 'maintenance',

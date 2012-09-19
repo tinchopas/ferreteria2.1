@@ -1,6 +1,9 @@
 DNT\WorkshopBundle\Entity\Categoria:
   type: entity
   table: categoria
+  gedmo:
+    soft_deleteable:
+      field_name: eliminado
   fields:
     id:
       id: true
@@ -28,4 +31,12 @@ DNT\WorkshopBundle\Entity\Categoria:
       gedmo:
         timestampable:
           on: update
+    eliminado:
+      type: datetime
+      nullable: true
+  oneToMany:
+    articulos:
+      targetEntity: Articulo
+      mappedBy: idCategoria
+      cascade: [ "all" ]
   lifecycleCallbacks: {  }

@@ -46,6 +46,7 @@ class ArticuloType extends AbstractType
             ->add('Proveedor' , 'entity' , array(
                   'class'    => 'DNTWorkshopBundle:Proveedor' ,
                   'multiple' => true ,
+                  'attr' => array('class' => 'select optional', 'size' => "1")
                    ))
         ;
     }
