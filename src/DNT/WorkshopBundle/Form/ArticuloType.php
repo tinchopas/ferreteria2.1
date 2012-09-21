@@ -55,7 +55,6 @@ class ArticuloType extends AbstractType
     public function getDefaultOptions(array $options)
     {
         $options = parent::getDefaultOptions($options);
-        $options['csrf_protection'] = false;
         $options['data_class'] = 'DNT\WorkshopBundle\Entity\Articulo';
         return $options;
     }

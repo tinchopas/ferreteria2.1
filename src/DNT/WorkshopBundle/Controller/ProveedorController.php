@@ -23,9 +23,12 @@ class ProveedorController extends Controller
 
         $entities = $em->getRepository('DNTWorkshopBundle:Proveedor')->findAll();
 
+        $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('unknown');
+
         return $this->render('DNTWorkshopBundle:Proveedor:index.html.twig', array(
             'section'  => 'provider',
-            'entities' => $entities
+            'entities' => $entities,
+            'csrf_token' => $csrfToken
         ));
     }
 
@@ -162,18 +165,22 @@ class ProveedorController extends Controller
      */
     public function deleteAction($id)
     {
-
+        $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $em = $this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('DNTWorkshopBundle:Proveedor')->find($id);
+        $form->bindRequest($request);
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Articulo entity.');
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $entity = $em->getRepository('DNTWorkshopBundle:Proveedor')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Proveedor entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
         }
-
-        $em->remove($entity);
-        $em->flush();
 
         return $this->redirect($this->generateUrl('proveedor'));
     }

@@ -23,8 +23,12 @@ class CategoriaController extends Controller
 
         $entities = $em->getRepository('DNTWorkshopBundle:Categoria')->findAll();
 
+        $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('unknown');
+
         return $this->render('DNTWorkshopBundle:Categoria:index.html.twig', array(
-            'entities' => $entities
+            'section'  => 'category',
+            'entities' => $entities,
+            'csrf_token' => $csrfToken
         ));
     }
 
@@ -159,6 +163,8 @@ class CategoriaController extends Controller
     {
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
+
+        //var_dump($request);exit;
 
         $form->bindRequest($request);
 

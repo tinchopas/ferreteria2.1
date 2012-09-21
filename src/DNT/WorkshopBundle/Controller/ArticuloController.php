@@ -23,9 +23,12 @@ class ArticuloController extends Controller
 
         $entities = $em->getRepository('DNTWorkshopBundle:Articulo')->findAll();
 
+        $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('unknown');
+
         return $this->render('DNTWorkshopBundle:Articulo:index.html.twig', array(
             'section'  => 'article',
-            'entities' => $entities
+            'entities' => $entities,
+            'csrf_token' => $csrfToken
         ));
     }
 
@@ -169,17 +172,23 @@ class ArticuloController extends Controller
      */
     public function deleteAction($id)
     {
+        $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $em = $this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('DNTWorkshopBundle:Articulo')->find($id);
+        $form->bindRequest($request);
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Articulo entity.');
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $entity = $em->getRepository('DNTWorkshopBundle:Articulo')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Articulo entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('notice', 'El elemento ha sido eliminado!');
         }
-
-        $em->remove($entity);
-        $em->flush();
 
         return $this->redirect($this->generateUrl('articulo'));
     }

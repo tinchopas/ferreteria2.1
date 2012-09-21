@@ -24,9 +24,12 @@ class ReglaController extends Controller
 
         $entities = $em->getRepository('DNTWorkshopBundle:Regla')->findAll();
 
+        $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('unknown');
+
         return $this->render('DNTWorkshopBundle:Regla:index.html.twig', array(
             'section'  => 'rules',
             'entities' => $entities,
+            'csrf_token' => $csrfToken
         ));
     }
 
