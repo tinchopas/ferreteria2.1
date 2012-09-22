@@ -3,11 +3,6 @@
 {% block subtitle %}Articulos{% endblock %}
 
 {% block content %}
-{% for flashMessage in app.session.flashbag.get('notice') %}
-    <div class="flash-notice">
-        {{ flashMessage }}
-    </div>
-{% endfor %}
 
     <br />
     <h2>Catalogo de Articulos</h2>
