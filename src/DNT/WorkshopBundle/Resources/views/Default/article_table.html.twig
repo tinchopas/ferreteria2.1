@@ -19,7 +19,7 @@
                 <td class="right stock"><strong>{{ article.cantidad }}</strong></td>
                 <td class="right"><strong>$ {{ article.precioVenta|number_format(2, '.', ' ') }}</strong></td>
                 <td class="center">
-                    <button class="btn btn-info" title="Ver Detalle"><i class="icon-info-sign icon-white"></i></button>
+                    <button class="btn btn-info" title="Ver Detalle" onclick="location='{{ path('articulo_show', { 'id': article.id }) }}'"><i class="icon-info-sign icon-white"></i></button>
                     <button class="btn btn-danger return" title="Devolver Artículo"><i class="icon-minus-sign icon-white"></i></button>
                     <button class="btn btn-warning order" title="Solicitar Artículo"><i class="icon-list-alt icon-white"></i></button>
                     <button class="btn btn-success shopping" title="Comprar Artículo"><i class="icon-shopping-cart icon-white"></i></button>

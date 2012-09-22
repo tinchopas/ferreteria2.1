@@ -41,7 +41,7 @@
                     </tbody>
                 </table>
             </div>
-            {% if entity.imagen.path is not null%}
+            {% if entity.imagen is not null and entity.imagen.path is not null %}
                 <div class="span2">
                     <tr>
                         <td> <img src="/uploads/images/{{ entity.imagen.id }}.{{ entity.imagen.path }}" /> </td>
