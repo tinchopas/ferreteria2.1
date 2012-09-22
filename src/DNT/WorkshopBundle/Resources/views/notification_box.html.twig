@@ -1,49 +1,14 @@
-{% if app.session.hasFlash('notice') %}
-    <div class="notification information">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Information notification'|trans }}</strong>{{ app.session.flash('notice')|trans }}</p>
-    </div>
-{% endif %}
-{% if notice is defined %}
-    <div class="notification error">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Error notification'|trans }}</strong> {{ notice|trans }}</p>
-    </div>
-{% endif %}
-{% if app.session.hasFlash('error') %}
-    <div class="notification error">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Error notification'|trans }}</strong> {{ app.session.flash('error')|trans }}</p>
-    </div>
-{% endif %}
-{% if error is defined %}
-    <div class="notification error">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Error notification'|trans }}</strong> {{ error|trans }}</p>
-    </div>
-{% endif %}
-{% if app.session.hasFlash('success') %}
-    <div class="notification success">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Success notification'|trans }}</strong> {{ app.session.flash('success')|trans }}</p>
-    </div>
-{% endif %}
-{% if success is defined %}
-    <div class="notification error">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Error notification'|trans }}</strong> {{ success|trans }}</p>
-    </div>
-{% endif %}
-{% if app.session.hasFlash('attention') %}
-    <div class="notification attention">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Attention notification'|trans }}</strong> {{ app.session.flash('attention')|trans }}</p>
-    </div>
-{% endif %}
-{% if attention is defined %}
-    <div class="notification error">
-        <a href="#" class="close-notification" title="Hide Notification" rel="tooltip">x</a>
-        <p><strong>{{ 'Error notification'|trans }}</strong> {{ attention|trans }}</p>
-    </div>
-{% endif %}
+
+<div class="alert alert-block alert-info {% if not app.session.hasFlash('notice') %}none{% endif %}">
+    <p><strong>{{ 'NOTIFICACIÓN:'|trans }}</strong> <span>{{ app.session.flash('notice')|trans }}</span></p>
+</div>
+<div class="alert alert-block alert-error {% if not app.session.hasFlash('error') %}none{% endif %}">
+    <p><strong>{{ 'ERROR:'|trans }}</strong> <span>{{ app.session.flash('error')|trans }}</span></p>
+</div>
+<div class="alert alert-block alert-success {% if not app.session.hasFlash('success') %}none{% endif %}" id="confirmMsg">
+    <p><strong>{{ 'OK:'|trans }}</strong> <span>{{ app.session.flash('success')|trans }}</span></p>
+</div>
+<div class="alert alert-block {% if not app.session.hasFlash('attention') %}none{% endif %}">
+    <p><strong>{{ 'ATENCIÓN:'|trans }}</strong> <span>{{ app.session.flash('attention')|trans }}</span></p>
+</div>
 

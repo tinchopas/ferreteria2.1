@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         {% for entity in entities %}
-            <tr>
+            <tr id="{{ entity.id }}">
                 <td>{{ entity.nombre }}</td>
                 <td class="center">
                     <button class="btn btn-info" onclick="location='{{ path('categoria_show', { 'id': entity.id }) }}'"><i class="icon-file icon-white"></i></button>

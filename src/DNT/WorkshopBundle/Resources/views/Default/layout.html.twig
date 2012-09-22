@@ -65,7 +65,11 @@
 		        </ul>
 		    </div>
             <div class="span9">
-            <div id="flash-notice">{% block notifications %}{% include "DNTWorkshopBundle::notification_box.html.twig" %}{% endblock %}</div>
+                <div id="flash-notice">
+                    {% block notifications %}
+                        {% include "DNTWorkshopBundle::notification_box.html.twig" %}
+                    {% endblock %}
+                </div>
                 {% block content %}{% endblock %}
             </div>
         </div>

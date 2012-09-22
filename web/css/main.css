@@ -119,3 +119,6 @@ DIV.provider BUTTON {
     margin-left: 10px;
 }
 
+DIV.alert {
+    margin-top: 10px;
+}

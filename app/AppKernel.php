@@ -23,7 +23,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
-            new ENC\Bundle\BackupRestoreBundle\BackupRestoreBundle()
+            new ENC\Bundle\BackupRestoreBundle\BackupRestoreBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle()
 
         );
 
