@@ -1,5 +1,5 @@
 {
-    "hash": "0bbdb1f304247538f11f0616bf486bf8",
+    "hash": "9231ba68d65283daea13da222a11c055",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -23,6 +23,7 @@
             "suggest": {
                 "symfony/twig-bundle": "2.*"
             },
+            "time": "1344289113",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -37,8 +38,7 @@
                 {
                     "name": "Bulat Shakirzyanov",
                     "email": "mallluhuct@gmail.com",
-                    "homepage": "http://avalanche123.com",
-                    "role": null
+                    "homepage": "http://avalanche123.com"
                 }
             ],
             "description": "Image manipulation using Imagine and Twig Filters.",
@@ -46,8 +46,25 @@
             "keywords": [
                 "image manipulation",
                 "imagine"
-            ],
-            "time": "1344289113"
+            ]
+        },
+        {
+            "name": "comfortablynumb/BackupRestoreBundle",
+            "version": "dev-master",
+            "target-dir": "ENC/Bundle/BackupRestoreBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/comfortablynumb/BackupRestoreBundle",
+                "reference": "master"
+            },
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "ENC": ""
+                }
+            },
+            "time": "1308093866"
         },
         {
             "name": "doctrine/common",
@@ -101,9 +118,9 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -323,21 +340,15 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": null,
-                    "role": null
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",
-                    "email": null,
-                    "homepage": "http://symfony.com/contributors",
-                    "role": null
+                    "homepage": "http://symfony.com/contributors"
                 },
                 {
                     "name": "Doctrine Project",
-                    "email": null,
-                    "homepage": "http://www.doctrine-project.org",
-                    "role": null
+                    "homepage": "http://www.doctrine-project.org"
                 }
             ],
             "description": "Symfony DoctrineFixturesBundle",
@@ -511,8 +522,7 @@
                 {
                     "name": "Bulat Shakirzyanov",
                     "email": "mallluhuct@gmail.com",
-                    "homepage": "http://avalanche123.com",
-                    "role": null
+                    "homepage": "http://avalanche123.com"
                 }
             ],
             "description": "Image processing for PHP 5.3",
@@ -543,7 +553,7 @@
                 "symfony/framework-bundle": "2.*",
                 "jms/cg": "1.0.0"
             },
-            "time": "2012-01-04 17:50:26",
+            "time": "2012-01-02 20:50:26",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -559,7 +569,7 @@
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
-                    "role": null
+                    "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
             "description": "Adds AOP capabilities to Symfony2",
@@ -585,7 +595,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-04 17:40:52",
+            "time": "2012-01-02 20:40:52",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -601,7 +611,7 @@
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
-                    "role": null
+                    "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
             "description": "Toolset for generating PHP code",
@@ -611,25 +621,25 @@
         },
         {
             "name": "jms/di-extra-bundle",
-            "version": "dev-master",
+            "version": "1.1.x-dev",
             "target-dir": "JMS/DiExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSDiExtraBundle",
-                "reference": "4cfdb1fe6e380578dd459e71c060f655a94e28d7"
+                "reference": "1.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/JMSDiExtraBundle/zipball/4cfdb1fe6e380578dd459e71c060f655a94e28d7",
-                "reference": "4cfdb1fe6e380578dd459e71c060f655a94e28d7",
+                "url": "https://github.com/schmittjoh/JMSDiExtraBundle/zipball/1.1.1",
+                "reference": "1.1.1",
                 "shasum": ""
             },
             "require": {
+                "symfony/framework-bundle": "2.1.*",
+                "jms/aop-bundle": "1.0.*",
                 "jms/metadata": "1.1.*",
-                "symfony/framework-bundle": ">=2.1.0,<2.3-dev",
-                "symfony/process": ">=2.1.0,<2.3-dev",
-                "symfony/finder": ">=2.1.0,<2.3-dev",
-                "jms/aop-bundle": ">=1.0.0,<1.2-dev"
+                "symfony/process": "2.1.*",
+                "symfony/finder": "2.1.*"
             },
             "require-dev": {
                 "jms/security-extra-bundle": "1.*",
@@ -644,13 +654,8 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "1348217858",
+            "time": "1348217792",
             "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2.x-dev"
-                }
-            },
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
@@ -692,7 +697,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-04 18:32:49",
+            "time": "2012-01-02 21:32:49",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -708,7 +713,7 @@
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
-                    "role": null
+                    "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
             "description": "Class/method/property metadata management in PHP",
@@ -770,7 +775,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1010,27 +1015,27 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioDistributionBundle",
-                "reference": "4e86595e02c6e3d76971f790d7c06ec434e1b513"
+                "reference": "v2.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioDistributionBundle/zipball/4e86595e02c6e3d76971f790d7c06ec434e1b513",
-                "reference": "4e86595e02c6e3d76971f790d7c06ec434e1b513",
+                "url": "https://github.com/sensio/SensioDistributionBundle/zipball/v2.1.1",
+                "reference": "v2.1.1",
                 "shasum": ""
             },
             "require": {
-                "symfony/framework-bundle": "2.2.*"
+                "symfony/framework-bundle": "2.1.*"
             },
-            "time": "1347635342",
+            "time": "1347340208",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "installation-source": "source",
@@ -1056,28 +1061,28 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "03e32da3fd1bb37e4c6f3c77f1b4cb8a3a78e0a8"
+                "reference": "86a68df44eb50a64042d05a3f09548d2c21d4456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/03e32da3fd1bb37e4c6f3c77f1b4cb8a3a78e0a8",
-                "reference": "03e32da3fd1bb37e4c6f3c77f1b4cb8a3a78e0a8",
+                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/86a68df44eb50a64042d05a3f09548d2c21d4456",
+                "reference": "86a68df44eb50a64042d05a3f09548d2c21d4456",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": ">=2.1,<2.4-dev",
-                "symfony/framework-bundle": "2.2.*"
+                "symfony/framework-bundle": "2.1.*",
+                "doctrine/common": ">=2.1,<2.4-dev"
             },
-            "time": "1347340790",
+            "time": "1348064274",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "installation-source": "source",
@@ -1103,36 +1108,33 @@
         },
         {
             "name": "sensio/generator-bundle",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "target-dir": "Sensio/Bundle/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioGeneratorBundle",
-                "reference": "f5bda1014f5f124a0fd881644664493e36a09ad0"
+                "reference": "3a65c9bf7d31aecacffc15a48f5eb2ece3615ef0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioGeneratorBundle/zipball/f5bda1014f5f124a0fd881644664493e36a09ad0",
-                "reference": "f5bda1014f5f124a0fd881644664493e36a09ad0",
+                "url": "https://github.com/sensio/SensioGeneratorBundle/zipball/3a65c9bf7d31aecacffc15a48f5eb2ece3615ef0",
+                "reference": "3a65c9bf7d31aecacffc15a48f5eb2ece3615ef0",
                 "shasum": ""
             },
             "require": {
-                "symfony/framework-bundle": "2.2.*",
-                "symfony/console": "2.2.*"
+                "symfony/framework-bundle": "2.1.*",
+                "symfony/console": "2.1.*"
             },
             "require-dev": {
+                "symfony/doctrine-bridge": "2.1.*",
                 "doctrine/orm": ">=2.1,<2.4-dev",
-                "twig/twig": ">=1.8,<2.0-dev",
-                "symfony/doctrine-bridge": "2.2.*"
+                "twig/twig": ">=1.8,<2.0-dev"
             },
-            "suggest": {
-                "doctrine/doctrine-bundle": "to generate entities and their crud controller"
-            },
-            "time": "1348070473",
+            "time": "1348030981",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "installation-source": "source",
@@ -1176,6 +1178,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "2.1.*"
             },
+            "time": "1346283670",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1194,9 +1197,7 @@
             "authors": [
                 {
                     "name": "Christophe Coevoet",
-                    "email": "stof@notk.org",
-                    "homepage": null,
-                    "role": null
+                    "email": "stof@notk.org"
                 }
             ],
             "description": "Integration of the gedmo/doctrine-extensions with Symfony2",
@@ -1213,8 +1214,7 @@
                 "nestedset",
                 "sortable",
                 "timestampable"
-            ],
-            "time": "1346283670"
+            ]
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1440,21 +1440,21 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "e9b6a12baf37a3b48bcf47c9fe4b31e364549279"
+                "reference": "7273311e1fb663ae7f5501f57a52ba9bd4db2ec3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/zipball/e9b6a12baf37a3b48bcf47c9fe4b31e364549279",
-                "reference": "e9b6a12baf37a3b48bcf47c9fe4b31e364549279",
+                "url": "https://github.com/symfony/symfony/zipball/7273311e1fb663ae7f5501f57a52ba9bd4db2ec3",
+                "reference": "7273311e1fb663ae7f5501f57a52ba9bd4db2ec3",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": ">2.2,<2.4-dev",
                 "php": ">=5.3.3",
+                "doctrine/common": ">2.2,<2.4-dev",
                 "twig/twig": ">=1.9.1,<2.0-dev"
             },
             "replace": {
@@ -1492,20 +1492,17 @@
                 "symfony/yaml": "self.version"
             },
             "require-dev": {
+                "doctrine/dbal": ">=2.2,<2.4-dev",
+                "doctrine/orm": ">=2.2.3,<2.4-dev",
                 "doctrine/data-fixtures": "1.0.*",
                 "propel/propel1": "dev-master",
-                "monolog/monolog": "dev-master",
-                "doctrine/dbal": ">=2.2,<2.4-dev",
-                "doctrine/orm": ">=2.2.3,<2.4-dev"
+                "monolog/monolog": "dev-master"
             },
-            "suggest": {
-                "doctrine/data-fixtures": "1.0.*"
-            },
-            "time": "1348209299",
+            "time": "1348414301",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "installation-source": "source",
@@ -1598,6 +1595,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
+            "time": "1347961095",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1627,8 +1625,7 @@
             "homepage": "http://twig.sensiolabs.org",
             "keywords": [
                 "templating"
-            ],
-            "time": "1347961095"
+            ]
         }
     ],
     "packages-dev": null,
@@ -1637,19 +1634,12 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "doctrine/doctrine-bundle": 20,
-        "twig/extensions": 20,
-        "symfony/assetic-bundle": 20,
-        "symfony/swiftmailer-bundle": 20,
-        "symfony/monolog-bundle": 20,
-        "sensio/distribution-bundle": 20,
-        "sensio/framework-extra-bundle": 20,
-        "sensio/generator-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "gedmo/doctrine-extensions": 20,
         "stof/doctrine-extensions-bundle": 20,
         "imagine/imagine": 20,
         "avalanche123/imagine-bundle": 20,
-        "knplabs/knp-paginator-bundle": 20
+        "knplabs/knp-paginator-bundle": 20,
+        "comfortablynumb/backuprestorebundle": 20
     }
 }
