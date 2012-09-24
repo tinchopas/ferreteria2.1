@@ -10,15 +10,15 @@
     <form action="{{ path('regla_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         {{ form_widget(edit_form) }}
         <p>
-            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i></button>
+            <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Modificar</button>
+            <button class="btn btn-info" onclick="location='{{ path('regla') }}'"><i class="icon-arrow-left icon-white"></i> Modificar y continuar</button>
         </p>
     </form>
 
-    <button class="btn btn-info" onclick="location='{{ path('regla') }}'"><i class="icon-arrow-left icon-white"></i></button>
 
     <form action="{{ path('regla_delete', { 'id': entity.id }) }}" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el elemento?');">
         {{ form_widget(delete_form) }}
-        <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i></button>
+        <button type="submit" class="btn btn-danger" onclick=""><i class="icon-trash icon-white"></i> Eliminar</button>
     </form>
 
 {% endblock %}

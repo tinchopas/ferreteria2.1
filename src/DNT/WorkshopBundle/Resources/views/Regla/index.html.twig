@@ -13,6 +13,7 @@
                 <th>ID</th>
                 <th>Operando</th>
                 <th>Valor</th>
+                <th>Proveedor</th>
                 <th></th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ entity.id }}</td>
                 <td>{{ entity.operando }}</td>
                 <td>{{ entity.valor }}</td>
+                <td>{{ entity.idProveedor }}</td>
                 <td>
                     <button class="btn btn-info" onclick="location='{{ path('regla_show', { 'id': entity.id }) }}'"><i class="icon-file icon-white"></i></button>
                     <button class="btn btn-primary" onclick="location='{{ path('regla_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>

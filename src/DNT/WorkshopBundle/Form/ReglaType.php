@@ -16,17 +16,15 @@ class ReglaType extends AbstractType
                     'choices' => $options['ruleDefinition']
                 ))
             ->add('valor')
-#            ->add('id_proveedor')
+            ->add('id_proveedor', 'entity',  array(
+                'class' => 'DNTWorkshopBundle:Proveedor',
+                'label' => 'Proveedor',
+                'empty_value' => 'Seleccione proveedor',
+                'required' => false
+
+            ))
         ;
     }
-
-    /*
-            ->add('operando', 'operator_selector')
-            ->add('operando', 'choice', array(
-                    'empty_value' => 'Elija una opción',
-                    'choices' => array('Multiplicación' => 'Multiplicación', 'División' => 'División', 'Resta' => 'Resta', 'Suma' => 'Suma', 'Porcentaje' => 'Porcentaje', )
-                ))
-     * */
 
     public function getName()
     {
