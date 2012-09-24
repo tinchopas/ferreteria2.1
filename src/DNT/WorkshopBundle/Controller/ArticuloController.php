@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use DNT\WorkshopBundle\Entity\Articulo;
 use DNT\WorkshopBundle\Form\ArticuloType;
+use Ps\PdfBundle\Annotation\Pdf;
 
 /**
  * Articulo controller.
@@ -15,9 +16,9 @@ class ArticuloController extends Controller
 {
     /**
      * Lists all Articulo entities.
-     *
+     * @Pdf()
      */
-    public function indexAction()
+    public function indexAction($_format)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -25,7 +26,7 @@ class ArticuloController extends Controller
 
         $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('unknown');
 
-        return $this->render('DNTWorkshopBundle:Articulo:index.html.twig', array(
+        return $this->render(sprintf('DNTWorkshopBundle:Articulo:index.%s.twig', $_format), array(
             'section'  => 'article',
             'entities' => $entities,
             'csrf_token' => $csrfToken

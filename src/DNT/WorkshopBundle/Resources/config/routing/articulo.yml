@@ -1,6 +1,8 @@
 articulo:
-    pattern:  /
-    defaults: { _controller: "DNTWorkshopBundle:Articulo:index" }
+    pattern:  /{_format}
+    defaults: { _controller: "DNTWorkshopBundle:Articulo:index", _format: "html" }
+    requirements:
+        _format:  html|pdf
 
 articulo_show:
     pattern:  /{id}/show

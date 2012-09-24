@@ -4,16 +4,13 @@
 
 {% block content %}
     <br />
-    <h2>Ventas realizadas</h2>
+    <h2>Venta realizada</h2>
     <br />
-    {% for sale in sales %}
         <div>
             <div class="clearfix provider">
                 <strong>{{ sale.creado|date('d/m/Y') }}</strong> - Factura Nro: {{ sale.nroFactura }}
-                <button class="btn btn-mini btn-primary"><i class="icon-arrow-down icon-white"></i> <span>Mostrar Detalle</span></button>
-                <a class="btn btn-mini btn-primary" href='{{ path('DNTWorkshopBundle_sale', { 'id': sale.id , '_format': 'pdf'}) }}'><i class="icon-print icon-white"></i> <span>Exportar Pdf</span></a>
             </div>
-            <table class="table table-striped" style="display:none">
+            <table class="table table-striped" >
                 <tr>
                     <th>Artículo</th>
                     <th class="right">Cantidad</th>
@@ -36,20 +33,5 @@
                 </tr>
             </table>
         </div>
-    {% endfor %}
 
-    <script type="text/javascript">
-        $('.provider').find('button').click(function() {
-            var btnText  = $(this).find('span');
-            var btnImage = $(this).find('i');
-
-            btnImage.toggleClass('icon-arrow-up');
-            btnImage.toggleClass('icon-arrow-down');
-
-            var text = btnText.text() == 'Mostrar Detalle' ? 'Ocultar Detalle' : 'Mostrar Detalle';
-            btnText.text(text);
-
-            $(this).parent().parent().find('table').toggle('fast');
-        });
-    </script>
 {% endblock %}

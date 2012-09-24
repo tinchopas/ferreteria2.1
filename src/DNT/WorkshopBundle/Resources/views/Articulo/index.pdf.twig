@@ -1,0 +1,33 @@
+<pdf>
+    <dynamic-page>
+
+{% block content %}
+
+    <br />
+    <h2>Catalogo de Articulos</h2>
+    <br />
+    <table class="table table-striped">
+            <tr>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+                <td>Código Barra</td>
+                <td>Código Proveedor</td>
+                <td class="right">Cantidad</td>
+                <td class="right">Costo</td>
+                <td class="right">Precio</td>
+            </tr>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.descripcion|slice(0, 40) }}</td>
+                <td>{{ entity.codigoBarra }}</td>
+                <td>{{ entity.codigoProveedor }}</td>
+                <td class="right">{{ entity.cantidad }}</td>
+                <td class="right">$ {{ entity.costo|number_format(2, '.', ' ') }}</td>
+                <td class="right">$ {{ entity.precioVenta|number_format(2, '.', ' ') }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+    </dynamic-page>
+</pdf>

@@ -8,6 +8,8 @@ use Symfony\Component\Security\Core\SecurityContext;
 use DNT\WorkshopBundle\Entity\Articulo;
 use DNT\WorkshopBundle\Entity\Factura;
 use DNT\WorkshopBundle\Entity\Renglon;
+use Ps\PdfBundle\Annotation\Pdf;
+
 
 class ShopController extends Controller
 {
@@ -84,6 +86,22 @@ class ShopController extends Controller
         return $this->render('DNTWorkshopBundle:Cash:sales.html.twig', array(
             'section' => 'cash',
             'sales'   => $sl,
+        ));
+    }
+
+    /**
+     * List a sale .
+     * @Pdf()
+     */
+    public function saleAction($id, $_format)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $sl = $em->getRepository('DNTWorkshopBundle:Factura')->find($id);
+
+        // Render the view.
+        return $this->render(sprintf('DNTWorkshopBundle:Cash:sale.%s.twig', $_format), array(
+            'section' => 'cash',
+            'sale'   => $sl,
         ));
     }
 }

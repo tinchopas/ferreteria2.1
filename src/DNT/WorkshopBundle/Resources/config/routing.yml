@@ -23,6 +23,12 @@ DNTWorkshopBundle_orders:
 DNTWorkshopBundle_sales:
     pattern:  /ventas
     defaults: { _controller: DNTWorkshopBundle:Shop:sales }
+DNTWorkshopBundle_sale:
+    pattern:  /{id}/{_format}/venta
+    defaults: { _controller: DNTWorkshopBundle:Shop:sale, _format: html }
+    requirements:
+        _format:  html|pdf
+
 
 ### Ajax
 DNTWorkshopBundle_ajax_buy:

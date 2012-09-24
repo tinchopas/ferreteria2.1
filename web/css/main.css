@@ -114,7 +114,7 @@ DIV.provider {
     border-bottom: dotted 1px #666;
 }
 
-DIV.provider BUTTON {
+DIV.provider A, DIV.provider BUTTON {
     float: right;
     margin-left: 10px;
 }

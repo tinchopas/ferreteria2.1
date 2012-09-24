@@ -1,0 +1,39 @@
+<pdf>
+    <dynamic-page>
+
+{% block content %}
+    <br />
+    <h2>Venta realizada</h2>
+    <br />
+        <div>
+            <div class="clearfix provider">
+                <strong>{{ sale.creado|date('d/m/Y') }}</strong> - Factura Nro: {{ sale.nroFactura }}
+            </div>
+            <table class="table table-striped" >
+                <tr>
+                    <td>Artículo</td>
+                    <td class="right">Cantidad</td>
+                    <td class="right">Precio Artículo</td>
+                    <td class="right">Precio Total</td>
+                </tr>
+                {% set total = 0 %}
+                {% for renglon in sale.getRenglones %}
+                    <tr>
+                        <td>{{ renglon.getArticulo.nombre }}</td>
+                        <td class="right">{{ renglon.cantidad }}</td>
+                        <td class="right">${{ renglon.precioArticulo|number_format(2, '.', ' ') }}</td>
+                        <td class="right"><strong>${{ renglon.precioTotal|number_format(2, '.', ' ') }}</strong></td>
+                    </tr>
+                    {% set total = total + renglon.precioTotal %}
+                {% endfor %}
+                <tr>
+                    <td colspan="3" class="right"><strong>Total:</strong></td>
+                    <td id="total" class="right"><strong>${{ total|number_format(2, '.', ' ') }}</strong></td>
+                </tr>
+            </table>
+        </div>
+
+{% endblock %}
+    </dynamic-page>
+</pdf>
+
