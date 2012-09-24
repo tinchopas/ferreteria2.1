@@ -20,6 +20,14 @@
                 "psr-0": { "ENC": "" }
                 }
             }
+    },
+    {
+        "type": "composer",
+        "url": "http://packages.zendframework.com/"
+    },
+    {
+        "type": "composer",
+        "url": "http://packagist.org/"
     }
     ],
     "require": {
@@ -42,7 +50,8 @@
         "imagine/Imagine": "dev-master",
         "avalanche123/imagine-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
-        "comfortablynumb/BackupRestoreBundle": "dev-master"
+        "comfortablynumb/BackupRestoreBundle": "dev-master",
+        "psliwa/pdf-bundle": "dev-master"
 
     },
     "scripts": {

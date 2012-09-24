@@ -1,5 +1,5 @@
 {
-    "hash": "9231ba68d65283daea13da222a11c055",
+    "hash": "28222fbba1a9b93cdaa46c3f6cf3636d",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -244,12 +244,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/DoctrineBundle.git",
-                "reference": "d3c930599723c8343472a5791b0f5909a4111a73"
+                "reference": "1b94aa04c933fbf6a96998667a7dd5ff161ac19d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineBundle/zipball/d3c930599723c8343472a5791b0f5909a4111a73",
-                "reference": "d3c930599723c8343472a5791b0f5909a4111a73",
+                "url": "https://github.com/doctrine/DoctrineBundle/zipball/1b94aa04c933fbf6a96998667a7dd5ff161ac19d",
+                "reference": "1b94aa04c933fbf6a96998667a7dd5ff161ac19d",
                 "shasum": ""
             },
             "require": {
@@ -266,7 +266,7 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "1347289964",
+            "time": "1348484241",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -610,7 +610,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -712,7 +712,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1011,6 +1011,99 @@
             "keywords": [
                 "log",
                 "logging"
+            ]
+        },
+        {
+            "name": "psliwa/pdf-bundle",
+            "version": "dev-master",
+            "target-dir": "Ps/PdfBundle",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/psliwa/PdfBundle.git",
+                "reference": "21b8d73d8148fbabeb2c827a2d3cfd1cde6fbf57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/psliwa/PdfBundle/zipball/21b8d73d8148fbabeb2c827a2d3cfd1cde6fbf57",
+                "reference": "21b8d73d8148fbabeb2c827a2d3cfd1cde6fbf57",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/symfony": ">=2.0",
+                "sensio/framework-extra-bundle": ">=2.0",
+                "psliwa/php-pdf": ">=1.1.5"
+            },
+            "time": "1348425698",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Ps\\PdfBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Piotr Śliwa",
+                    "homepage": "http://ohey.pl"
+                }
+            ],
+            "description": "This bundle integrates Symfony2 with PHPPdf library.",
+            "keywords": [
+                "pdf",
+                "PHPPdf"
+            ]
+        },
+        {
+            "name": "psliwa/php-pdf",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/psliwa/PHPPdf.git",
+                "reference": "8270f391bd61ff14ada609c6ee1786ba98a47c19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/psliwa/PHPPdf/zipball/8270f391bd61ff14ada609c6ee1786ba98a47c19",
+                "reference": "8270f391bd61ff14ada609c6ee1786ba98a47c19",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": ">=v0.2.6",
+                "zendframework/zend-cache": ">=2.0.0-rc2",
+                "zendframework/zend-barcode": ">=2.0.0-rc2",
+                "zendframework/zendpdf": ">=2.0.0-rc2",
+                "zendframework/zend-memory": ">=2.0.0-rc2",
+                "zendframework/zend-validator": ">=2.0.0-rc2"
+            },
+            "suggest": {
+                "zendframework/zendframework": "Used components: Zend_Pdf, Zend_Memory, Zend_Cache, Zend_Stdlib, Zend_ServiceManager, Zend_EventManager, Zend_Barcode"
+            },
+            "time": "1348427026",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "PHPPdf": "lib/",
+                    "Imagine": "lib/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Piotr Śliwa",
+                    "homepage": "http://ohey.pl"
+                }
+            ],
+            "description": "Pdf and graphic files generator library for PHP.",
+            "keywords": [
+                "pdf",
+                "PHPPdf"
             ]
         },
         {
@@ -1444,12 +1537,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "7273311e1fb663ae7f5501f57a52ba9bd4db2ec3"
+                "reference": "21d16e60fa2d4dc12a489817070896daf806b55d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/zipball/7273311e1fb663ae7f5501f57a52ba9bd4db2ec3",
-                "reference": "7273311e1fb663ae7f5501f57a52ba9bd4db2ec3",
+                "url": "https://github.com/symfony/symfony/zipball/21d16e60fa2d4dc12a489817070896daf806b55d",
+                "reference": "21d16e60fa2d4dc12a489817070896daf806b55d",
                 "shasum": ""
             },
             "require": {
@@ -1498,7 +1591,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "dev-master"
             },
-            "time": "1348414301",
+            "time": "1348488710",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1626,6 +1719,309 @@
             "keywords": [
                 "templating"
             ]
+        },
+        {
+            "name": "zendframework/zend-barcode",
+            "version": "2.0.0",
+            "target-dir": "Zend/Barcode",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Barcode-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "require-dev": {
+                "zendframework/zendpdf": "*"
+            },
+            "suggest": {
+                "zendframework/zend-validator": "Zend\\Validator component",
+                "zendframework/zendpdf": "ZendPdf component"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Barcode": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a generic way to generate barcodes",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "barcode"
+            ]
+        },
+        {
+            "name": "zendframework/zend-cache",
+            "version": "2.0.0",
+            "target-dir": "Zend/Cache",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Cache-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-stdlib": "self.version",
+                "zendframework/zend-servicemanager": "self.version",
+                "zendframework/zend-eventmanager": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-log": "Zend\\Log component"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Cache": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a generic way to cache any data",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "cache"
+            ]
+        },
+        {
+            "name": "zendframework/zend-eventmanager",
+            "version": "2.0.0",
+            "target-dir": "Zend/EventManager",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_EventManager-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\EventManager": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": " ",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "eventmanager"
+            ]
+        },
+        {
+            "name": "zendframework/zend-i18n",
+            "version": "2.0.0",
+            "target-dir": "Zend/I18n",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_I18n-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "ext-intl": "*",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\I18n": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": " ",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "i18n"
+            ]
+        },
+        {
+            "name": "zendframework/zend-memory",
+            "version": "2.0.0",
+            "target-dir": "Zend/Memory",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Memory-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Memory": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": " ",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "memory"
+            ]
+        },
+        {
+            "name": "zendframework/zend-servicemanager",
+            "version": "2.0.0",
+            "target-dir": "Zend/ServiceManager",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_ServiceManager-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "zendframework/zend-di": "Zend\\Di component"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\ServiceManager": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": " ",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "servicemanager"
+            ]
+        },
+        {
+            "name": "zendframework/zend-stdlib",
+            "version": "2.0.0",
+            "target-dir": "Zend/Stdlib",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Stdlib-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "pecl-weakref": "Implementation of weak references for Stdlib\\CallbackHandler"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Stdlib": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": " ",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "stdlib"
+            ]
+        },
+        {
+            "name": "zendframework/zend-validator",
+            "version": "2.0.0",
+            "target-dir": "Zend/Validator",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Validator-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-i18n": "self.version",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "require-dev": {
+                "zendframework/zend-math": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-math": "Zend\\Math component"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Validator": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a set of commonly needed validators",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "validator"
+            ]
+        },
+        {
+            "name": "zendframework/zendpdf",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/ZendPdf-2.0.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-memory": "self.version",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "ZendPdf": "library/"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Zend Pdf Component",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "pdf"
+            ]
         }
     ],
     "packages-dev": null,
@@ -1640,6 +2036,7 @@
         "imagine/imagine": 20,
         "avalanche123/imagine-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "comfortablynumb/backuprestorebundle": 20
+        "comfortablynumb/backuprestorebundle": 20,
+        "psliwa/pdf-bundle": 20
     }
 }
