@@ -3,19 +3,29 @@
 {% block subtitle %}Mantenimiento{% endblock %}
 
 {% block content %}
-
-{% for flashMessage in app.session.flashbag.get('notice') %}
-    <div class="flash-notice">
-        {{ flashMessage }}
-    </div>
-{% endfor %}
-
     <br />
     <h2>Acciones de Mantenimiento</h2>
     <br />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for file in finder %}
+            <tr>
+                <td>{{ file.Filename }}</td>
+                <td>
+                    <button class="btn btn-primary" onclick="location='{{ path('datos_restoredb', { 'backupFile': file.Filename }) }}'"><i class="icon-folder-open icon-white"></i> Recuperar</button>
+                    <button class="btn btn-danger" onclick="location='{{ path('datos_deletedb', { 'backupFile': file.Filename }) }}'"><i class="icon-trash icon-white"></i> Eliminar</button>
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
     <button class="btn btn-success" onclick="location='{{ path('datos_savedb') }}'"><i class="icon-download-alt icon-white"></i> Salvar base de datos</button>
-    <button class="btn btn-primary" onclick="location='{{ path('datos_restoredb') }}') }}'"><i class="icon-folder-open icon-white"></i> Recuperar base de datos</button>
-    <button class="btn btn-danger" onclick="location='{{ path('datos_deletedb') }}') }}'"><i class="icon-trash icon-white"></i> Eliminar base de datos</button>
 
 {% endblock %}
 

@@ -3,6 +3,7 @@
 namespace DNT\WorkshopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Finder\Finder;
 
 /**
  * Data managment controller.
@@ -16,8 +17,13 @@ class DatosController extends Controller
      */
     public function indexAction()
     {
+
+        $finder = new Finder();
+        $finder->files()->in($this->getUploadRootDir());
+
         $response = $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
             'section' => 'maintenance',
+            'finder' => $finder
         ));
         return $response;
     }
@@ -45,24 +51,27 @@ class DatosController extends Controller
 
         $this->get('session')->getFlashBag()->add('notice', 'Your changes were saved!');
 
-        return $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
-            'section' => 'maintenance',
-        ));
+        return $this->redirect($this->generateUrl('datos'));
     }
 
 
-    public function restoredbAction()
+    public function restoredbAction($backupFile)
     {
-        return $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
-            'section' => 'maintenance',
-        ));
+        $factory = $this->container->get('backup_restore.factory');
+        $restoreInstance = $factory->getRestoreInstance('doctrine.dbal.default_connection');
+        $restoreInstance->restoreDatabase($this->getUploadRootDir().'/'.$backupFile);
+
+        $this->get('session')->getFlashBag()->add('notice', 'Your changes were saved!');
+
+        return $this->redirect($this->generateUrl('datos'));
     }
 
 
-    public function deletedbAction()
+    public function deletedbAction($backupFile)
     {
-        return $this->render('DNTWorkshopBundle:Datos:index.html.twig', array(
-            'section' => 'maintenance',
-        ));
+        unlink($this->getUploadRootDir().'/'.$backupFile);
+        $this->get('session')->getFlashBag()->add('notice', 'Your changes were saved!');
+
+        return $this->redirect($this->generateUrl('datos'));
     }
 }

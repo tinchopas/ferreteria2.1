@@ -50,5 +50,9 @@ DNT\WorkshopBundle\Entity\Proveedor:
       targetEntity: ArticuloProveedor
       mappedBy: proveedor
       cascade: [ "all" ]
+    reglas:
+      targetEntity: Regla
+      mappedBy: id_proveedor
+      cascade: [ "all" ]
 
   lifecycleCallbacks: {  }

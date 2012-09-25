@@ -55,9 +55,15 @@ class Proveedor
      */
     private $ArticuloProveedors;
 
+    /**
+     * @var DNT\WorkshopBundle\Entity\Regla
+     */
+    private $reglas;
+
     public function __construct()
     {
         $this->ArticuloProveedors = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reglas = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -228,6 +234,26 @@ class Proveedor
     public function getArticuloProveedors()
     {
         return $this->ArticuloProveedors;
+    }
+
+    /**
+     * Add Regla
+     *
+     * @param DNT\WorkshopBundle\Entity\Regla $regla
+     */
+    public function addRegla(\DNT\WorkshopBundle\Entity\Regla $regla)
+    {
+        $this->reglas[] = $regla;
+    }
+
+    /**
+     * Get Reglas
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getReglas()
+    {
+        return $this->reglas;
     }
 
     public function __toString()

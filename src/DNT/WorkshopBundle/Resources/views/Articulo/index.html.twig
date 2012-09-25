@@ -22,7 +22,7 @@
         </thead>
         <tbody>
         {% for entity in entities %}
-            <tr>
+            <tr id="{{ entity.id }}">
                 <td>{{ entity.nombre }}</td>
                 <td>{{ entity.descripcion|slice(0, 40) }}</td>
                 <td>{{ entity.codigoBarra }}</td>

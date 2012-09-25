@@ -7,10 +7,10 @@ datos_savedb:
     defaults: { _controller: "DNTWorkshopBundle:Datos:savedb" }
 
 datos_restoredb:
-    pattern:  /restoredb
+    pattern:  /{backupFile}/restoredb
     defaults: { _controller: "DNTWorkshopBundle:Datos:restoredb" }
 
 datos_deletedb:
-    pattern:  /deletedb
+    pattern:  /{backupFile}/deletedb
     defaults: { _controller: "DNTWorkshopBundle:Datos:deletedb" }
 

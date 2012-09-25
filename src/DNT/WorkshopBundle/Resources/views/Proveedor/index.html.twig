@@ -18,7 +18,7 @@
         </thead>
         <tbody>
         {% for entity in entities %}
-            <tr>
+            <tr id="{{ entity.id }}">
                 <td>{{ entity.nombre }}</td>
                 <td>{{ entity.apellido }}</td>
                 <td>{{ entity.direccion }}</td>
