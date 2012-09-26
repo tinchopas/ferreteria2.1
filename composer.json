@@ -48,10 +48,7 @@
         "gedmo/doctrine-extensions": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
         "imagine/Imagine": "dev-master",
-        "avalanche123/imagine-bundle": "dev-master",
-        "knplabs/knp-paginator-bundle": "dev-master",
-        "comfortablynumb/BackupRestoreBundle": "dev-master",
-        "psliwa/pdf-bundle": "dev-master"
+        "avalanche123/imagine-bundle": "dev-master"
 
     },
     "scripts": {
