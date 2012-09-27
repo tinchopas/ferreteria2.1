@@ -59,6 +59,8 @@ login:
     defaults: { _controller: DNTWorkshopBundle:Login:login }
 login_check:
     pattern:  /login_check
+logout:
+    pattern:   /logout
 
 ### ABMs
 DNTWorkshopBundle_client:
