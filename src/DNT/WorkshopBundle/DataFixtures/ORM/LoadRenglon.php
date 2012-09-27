@@ -24,7 +24,7 @@ class LoadRenglon extends AbstractFixture implements OrderedFixtureInterface
         $Renglon->setCantidad(2);
         $Renglon->setPrecioArticulo(53.90);
         $Renglon->setPrecioTotal(107.80);
-        $Renglon->setArticulo($manager->merge($this->getReference('Articulo.Pintura')));
+        $Renglon->setArticulo($manager->merge($this->getReference('Articulo.LlaveSueca')));
         $Renglon->setFactura($manager->merge($this->getReference('Factura.00001')));
         $manager->persist($Renglon);
 
