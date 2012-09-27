@@ -24,9 +24,11 @@ DNT\WorkshopBundle\Entity\Articulo:
       nullable: false
     costo:
       type: decimal
+      scale: 2
       nullable: false
     precioVenta:
       type: decimal
+      scale: 2
       nullable: false
       column: precio_venta
     descripcion:
