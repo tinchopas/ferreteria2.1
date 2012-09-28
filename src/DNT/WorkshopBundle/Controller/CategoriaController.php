@@ -22,12 +22,16 @@ class CategoriaController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $entities = $em->getRepository('DNTWorkshopBundle:Categoria')->findAll();
+        if ($entities) {
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate($entities, $this->get('request')->query->get('page', 1), 15);
+        }
 
         $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('unknown');
 
         return $this->render('DNTWorkshopBundle:Categoria:index.html.twig', array(
-            'section'  => 'category',
-            'entities' => $entities,
+            'section'    => 'category',
+            'entities'   => ($entities) ? $pagination : null,
             'csrf_token' => $csrfToken
         ));
     }

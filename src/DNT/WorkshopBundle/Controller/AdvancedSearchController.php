@@ -59,9 +59,15 @@ class AdvancedSearchController extends Controller
             }
         }
 
+        $articles = isset($query) ? $query->getResult() : null;
+        if ($articles) {
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate($articles, $this->get('request')->query->get('page', 1), 12);
+        }
+
         return $this->render('DNTWorkshopBundle:Default:advanced_search.html.twig', array(
             'section'  => 'search',
-            'articles' => isset($query) ? $query->getResult() : null,
+            'articles' => ($articles) ? $pagination : null,
             'form'     => $form->createView(),
         ));
     }

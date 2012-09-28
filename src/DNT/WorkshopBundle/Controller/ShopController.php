@@ -82,10 +82,15 @@ class ShopController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $sl = $em->getRepository('DNTWorkshopBundle:Factura')->findBy(array(), array('creado' => 'DESC'));
 
+        if ($sl) {
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate($sl, $this->get('request')->query->get('page', 1), 12);
+        }
+
         // Render the view.
         return $this->render('DNTWorkshopBundle:Cash:sales.html.twig', array(
             'section' => 'cash',
-            'sales'   => $sl,
+            'sales'   => ($sl) ? $pagination : null,
         ));
     }
 

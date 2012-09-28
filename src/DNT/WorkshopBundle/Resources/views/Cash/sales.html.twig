@@ -38,6 +38,8 @@
         </div>
     {% endfor %}
 
+    {{ sales.render()|raw }}
+
     <script type="text/javascript">
         $('.provider').find('button').click(function() {
             var btnText  = $(this).find('span');

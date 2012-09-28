@@ -39,6 +39,7 @@
                 </table>
             </div>
         {% endfor %}
+        {{ articles.render()|raw }}
     {% else %}
         <br />
         <div class="alert alert-info alert-block">
@@ -46,8 +47,8 @@
         </div>
     {% endif %}
 
-<link type="text/css" rel="stylesheet" href="{{ asset('css/messi.css') }}" />
-<script type="text/javascript" src="{{ asset('js/messi.js') }}"></script>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/messi.css') }}" />
+    <script type="text/javascript" src="{{ asset('js/messi.js') }}"></script>
 
     <script typei="text/javascript">
 

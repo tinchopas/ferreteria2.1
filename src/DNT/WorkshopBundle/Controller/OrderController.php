@@ -36,10 +36,15 @@ class OrderController extends Controller
             $quantities[$article->getId()] = $order->getCantidad();
         }
 
+        if ($articles) {
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate($articles, $this->get('request')->query->get('page', 1), 12);
+        }
+
         // Render the view.
         return $this->render('DNTWorkshopBundle:Cash:order.html.twig', array(
             'section'  => 'cash',
-            'articles' => $articles,
+            'articles' => ($articles) ? $pagination : null,
             'quantity' => $quantities,
         ));
     }

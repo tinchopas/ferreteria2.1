@@ -23,12 +23,16 @@ class ReglaController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $entities = $em->getRepository('DNTWorkshopBundle:Regla')->findAll();
+        if ($entities) {
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate($entities, $this->get('request')->query->get('page', 1), 15);
+        }
 
         $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('unknown');
 
         return $this->render('DNTWorkshopBundle:Regla:index.html.twig', array(
-            'section'  => 'rules',
-            'entities' => $entities,
+            'section'    => 'rules',
+            'entities'   => ($entities) ? $pagination : null,
             'csrf_token' => $csrfToken
         ));
     }
