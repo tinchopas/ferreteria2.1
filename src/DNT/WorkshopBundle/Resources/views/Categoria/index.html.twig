@@ -28,7 +28,10 @@
         </tbody>
     </table>
 
-    {{ entities.render()|raw }}
+    {% if entities %}
+        {{ entities.render()|raw }}
+    {% endif %}
+
 
     <button class="btn btn-success" onclick="location='{{ path('categoria_new') }}'"><i class="icon-plus icon-white"></i> Añadir nueva categoria</button>
     {% javascripts '@DNTWorkshopBundle/Resources/public/js/ajax_delete.js' %}

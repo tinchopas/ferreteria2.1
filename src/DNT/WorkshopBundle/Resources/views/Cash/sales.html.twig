@@ -38,7 +38,9 @@
         </div>
     {% endfor %}
 
-    {{ sales.render()|raw }}
+    {% if sales %}
+        {{ sales.render()|raw }}
+    {% endif %}
 
     <script type="text/javascript">
         $('.provider').find('button').click(function() {
