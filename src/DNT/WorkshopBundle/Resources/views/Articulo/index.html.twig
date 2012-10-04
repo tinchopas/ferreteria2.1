@@ -12,7 +12,6 @@
             <tr>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Código Barra</th>
                 <th>Código Proveedor</th>
                 <th class="right">Cantidad</th>
                 <th class="right">Costo</th>
@@ -24,8 +23,7 @@
         {% for entity in entities %}
             <tr id="{{ entity.id }}">
                 <td>{{ entity.nombre }}</td>
-                <td>{{ entity.descripcion|slice(0, 40) }}</td>
-                <td>{{ entity.codigoBarra }}</td>
+                <td>{{ entity.descripcion|slice(0, 25) }}</td>
                 <td>{{ entity.codigoProveedor }}</td>
                 <td class="right">{{ entity.cantidad }}</td>
                 <td class="right">$ {{ entity.costo|number_format(2, '.', ' ') }}</td>
@@ -40,7 +38,9 @@
         </tbody>
     </table>
 
-    {{ entities.render()|raw }}
+    {% if entities %}
+        {{ entities.render()|raw }}
+    {% endif %}
 
     <button class="btn btn-success" onclick="location='{{ path('articulo_new') }}'"><i class="icon-plus icon-white"></i> Añadir nuevo articulo</button>
     {% javascripts '@DNTWorkshopBundle/Resources/public/js/ajax_delete.js' %}

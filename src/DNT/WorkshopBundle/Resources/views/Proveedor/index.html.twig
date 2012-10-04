@@ -34,7 +34,9 @@
         </tbody>
     </table>
 
-    {{ entities.render()|raw }}
+    {% if entities %}
+        {{ entities.render()|raw }}
+    {% endif %}
 
     <button class="btn btn-success" onclick="location='{{ path('proveedor_new') }}'"><i class="icon-plus icon-white"></i> Añadir nuevo Proveedor</button>
 

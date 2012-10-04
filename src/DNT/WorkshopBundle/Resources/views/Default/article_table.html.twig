@@ -123,4 +123,6 @@
     </script>
 </table>
 
-{{ articles.render()|raw }}
+    {% if articles %}
+        {{ articles.render()|raw }}
+    {% endif %}

@@ -39,7 +39,9 @@
                 </table>
             </div>
         {% endfor %}
+    {% if articles %}
         {{ articles.render()|raw }}
+    {% endif %}
     {% else %}
         <br />
         <div class="alert alert-info alert-block">
