@@ -7,6 +7,7 @@
     <h2>Listado de Reglas</h2>
     <br />
     
+    {% if entities %}
     <table class="table table-striped">
         <thead>
             <tr>
@@ -14,6 +15,7 @@
                 <th>Operando</th>
                 <th>Valor</th>
                 <th>Proveedor</th>
+                <th>Categoria</th>
                 <th></th>
             </tr>
         </thead>
@@ -24,6 +26,7 @@
                 <td>{{ entity.operando }}</td>
                 <td>{{ entity.valor }}</td>
                 <td>{{ entity.idProveedor }}</td>
+                <td>{{ entity.idCategoria }}</td>
                 <td>
                     <button class="btn btn-info" onclick="location='{{ path('regla_show', { 'id': entity.id }) }}'"><i class="icon-file icon-white"></i></button>
                     <button class="btn btn-primary" onclick="location='{{ path('regla_edit', { 'id': entity.id }) }}'"><i class="icon-pencil icon-white"></i></button>
@@ -34,8 +37,7 @@
         </tbody>
     </table>
 
-    {% if articles %}
-        {{ articles.render()|raw }}
+        {{ entities.render()|raw }}
     {% endif %}
 
     <button class="btn btn-success" onclick="location='{{ path('regla_new') }}'"><i class="icon-plus icon-white"></i> Añadir nueva regla</button>

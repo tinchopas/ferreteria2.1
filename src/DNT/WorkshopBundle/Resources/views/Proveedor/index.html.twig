@@ -5,6 +5,7 @@
     <br />
     <h2>Listado de Proveedores</h2>
     <br />
+    {% if entities %}
     <table class="table table-striped">
         <thead>
             <tr>
@@ -34,7 +35,6 @@
         </tbody>
     </table>
 
-    {% if entities %}
         {{ entities.render()|raw }}
     {% endif %}
 
