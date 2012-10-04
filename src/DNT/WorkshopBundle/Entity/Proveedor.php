@@ -243,7 +243,21 @@ class Proveedor
      */
     public function addRegla(\DNT\WorkshopBundle\Entity\Regla $regla)
     {
+        $regla->setIdProveedor($this);
         $this->reglas[] = $regla;
+    }
+
+    /**
+     * Set Reglas
+     *
+     * @param Doctrine\Common\Collections\Collection $reglas
+     */
+    public function setRegla(\Doctrine\Common\Collections\Collection $reglas)
+    {
+        foreach ($reglas as $regla) {
+            $regla->setIdProveedor($this);
+        }
+        $this->reglas = $reglas;
     }
 
     /**
@@ -254,6 +268,11 @@ class Proveedor
     public function getReglas()
     {
         return $this->reglas;
+    }
+
+    public function removeRegla($regla)
+    {
+        return $this->reglas->removeElement($remove);
     }
 
     public function __toString()

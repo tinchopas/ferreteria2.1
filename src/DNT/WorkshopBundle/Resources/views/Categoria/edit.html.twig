@@ -16,7 +16,6 @@
                 <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> Modificar</button>
                 <button type="submit" class="btn btn-success" onclick="location='{{ path('categoria') }}';return true;"><i class="icon-ok-sign icon-white"></i> Modificar y continuar</button>
             </div>
-        {{ form_rest(edit_form) }}
     </form>
 
     <form action="{{ path('categoria_delete', { 'id': entity.id }) }}" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el elemento?');">

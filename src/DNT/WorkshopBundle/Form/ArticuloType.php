@@ -48,6 +48,12 @@ class ArticuloType extends AbstractType
                   'multiple' => true ,
                   'attr' => array('class' => 'select optional', 'size' => "1")
                    ))
+            ->add('moneda', 'entity',  array(
+                'class' => 'DNTWorkshopBundle:Moneda',
+                'label' => 'Moneda',
+                'empty_value' => 'Seleccione moneda'
+
+            ))
         ;
     }
 

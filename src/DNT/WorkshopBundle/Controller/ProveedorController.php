@@ -66,7 +66,7 @@ class ProveedorController extends Controller
     public function newAction()
     {
         $entity = new Proveedor();
-        $form   = $this->createForm(new ProveedorType(), $entity);
+        $form   = $this->createForm(new ProveedorType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
 
         return $this->render('DNTWorkshopBundle:Proveedor:new.html.twig', array(
             'section' => 'provider',
@@ -83,7 +83,7 @@ class ProveedorController extends Controller
     {
         $entity  = new Proveedor();
         $request = $this->getRequest();
-        $form    = $this->createForm(new ProveedorType(), $entity);
+        $form    = $this->createForm(new ProveedorType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
         $form->bindRequest($request);
 
         if ($form->isValid()) {
@@ -116,7 +116,7 @@ class ProveedorController extends Controller
             throw $this->createNotFoundException('Unable to find Proveedor entity.');
         }
 
-        $editForm = $this->createForm(new ProveedorType(), $entity);
+        $editForm = $this->createForm(new ProveedorType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Proveedor:edit.html.twig', array(
@@ -141,7 +141,7 @@ class ProveedorController extends Controller
             throw $this->createNotFoundException('Unable to find Proveedor entity.');
         }
 
-        $editForm   = $this->createForm(new ProveedorType(), $entity);
+        $editForm   = $this->createForm(new ProveedorType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();

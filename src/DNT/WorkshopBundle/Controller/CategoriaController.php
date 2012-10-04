@@ -66,7 +66,7 @@ class CategoriaController extends Controller
     public function newAction()
     {
         $entity = new Categoria();
-        $form   = $this->createForm(new CategoriaType(), $entity);
+        $form   = $this->createForm(new CategoriaType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
 
         return $this->render('DNTWorkshopBundle:Categoria:new.html.twig', array(
             'entity' => $entity,
@@ -82,7 +82,7 @@ class CategoriaController extends Controller
     {
         $entity  = new Categoria();
         $request = $this->getRequest();
-        $form    = $this->createForm(new CategoriaType(), $entity);
+        $form    = $this->createForm(new CategoriaType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
         $form->bindRequest($request);
 
         if ($form->isValid()) {
@@ -114,7 +114,7 @@ class CategoriaController extends Controller
             throw $this->createNotFoundException('Unable to find Categoria entity.');
         }
 
-        $editForm = $this->createForm(new CategoriaType(), $entity);
+        $editForm = $this->createForm(new CategoriaType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DNTWorkshopBundle:Categoria:edit.html.twig', array(
@@ -138,7 +138,7 @@ class CategoriaController extends Controller
             throw $this->createNotFoundException('Unable to find Categoria entity.');
         }
 
-        $editForm   = $this->createForm(new CategoriaType(), $entity);
+        $editForm   = $this->createForm(new CategoriaType(), $entity, array('ruleDefinition' => $this->container->getParameter('ruleDefinition')));
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();

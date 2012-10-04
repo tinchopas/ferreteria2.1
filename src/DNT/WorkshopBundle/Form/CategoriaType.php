@@ -11,14 +11,21 @@ class CategoriaType extends AbstractType
     {
         $builder
             ->add('nombre')
+            ->add('reglas', 'collection', array('type' => new ReglaProvType(), 
+                'options' => array('ruleDefinition' => $options['ruleDefinition']),
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => true
+            ))
         ;
     }
 
     public function getDefaultOptions(array $options)
     {
-        return array(
-            'data_class' => 'DNT\WorkshopBundle\Entity\Categoria',
-        );
+        $options = parent::getDefaultOptions($options);
+        $options['ruleDefinition'] = array();
+        $options['data_class'] = 'DNT\WorkshopBundle\Entity\Categoria';
+        return $options;
     }
 
     public function getName()

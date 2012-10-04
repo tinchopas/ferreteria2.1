@@ -39,4 +39,8 @@ DNT\WorkshopBundle\Entity\Categoria:
       targetEntity: Articulo
       mappedBy: idCategoria
       cascade: [ "all" ]
+    reglas:
+      targetEntity: Regla
+      mappedBy: id_categoria
+      cascade: [ "all" ]
   lifecycleCallbacks: {  }

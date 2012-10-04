@@ -18,6 +18,9 @@ DNT\WorkshopBundle\Entity\Regla:
     valor:
       type: float
       nullable: false
+    habilitado:
+      type: boolean
+      nullable: false
     creado:
       type: datetime
       nullable: true
@@ -30,14 +33,19 @@ DNT\WorkshopBundle\Entity\Regla:
       gedmo:
         timestampable:
           on: update
-  oneToOne:
+  manyToOne:
     id_proveedor:
       targetEntity: Proveedor
       cascade: {  }
-      mappedBy: null
-      inversedBy: null
       joinColumns:
         id_proveedor:
+          referencedColumnName: id
+      orphanRemoval: false
+    id_categoria:
+      targetEntity: Categoria
+      cascade: {  }
+      joinColumns:
+        id_categoria:
           referencedColumnName: id
       orphanRemoval: false
   lifecycleCallbacks: {  }

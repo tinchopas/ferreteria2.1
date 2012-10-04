@@ -42,9 +42,15 @@ class Categoria
      */
     private $eliminado;
 
+    /**
+     * @var DNT\WorkshopBundle\Entity\Regla
+     */
+    private $reglas;
+
     public function __construct()
     {
         $this->articulos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reglas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -163,4 +169,42 @@ class Categoria
         return $this->eliminado;
     }
 
+    /**
+     * Add Regla
+     *
+     * @param DNT\WorkshopBundle\Entity\Regla $regla
+     */
+    public function addRegla(\DNT\WorkshopBundle\Entity\Regla $regla)
+    {
+        $regla->setIdCategoria($this);
+        $this->reglas[] = $regla;
+    }
+
+    /**
+     * Set Reglas
+     *
+     * @param Doctrine\Common\Collections\Collection $reglas
+     */
+    public function setRegla(\Doctrine\Common\Collections\Collection $reglas)
+    {
+        foreach ($reglas as $regla) {
+            $regla->setIdCategoria($this);
+        }
+        $this->reglas = $reglas;
+    }
+
+    /**
+     * Get Reglas
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getReglas()
+    {
+        return $this->reglas;
+    }
+
+    public function removeRegla($regla)
+    {
+        return $this->reglas->removeElement($remove);
+    }
 }

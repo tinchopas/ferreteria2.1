@@ -72,6 +72,11 @@ class Articulo
     private $modificado;
 
     /**
+     * @var DNT\WorkshopBundle\Entity\ $moneda
+     */
+    private $moneda;
+
+    /**
      * @var DNT\WorkshopBundle\Entity\Categoria
      */
     private $idCategoria;
@@ -323,6 +328,26 @@ class Articulo
     }
 
     /**
+     * Set moneda
+     *
+     * @param DNT\WorkshopBundle\Entity\Categoria $moneda
+     */
+    public function setMoneda($moneda)
+    {
+        $this->moneda = $moneda;
+    }
+
+    /**
+     * Get moneda
+     *
+     * @return DNT\WorkshopBundle\Entity\Moneda
+     */
+    public function getMoneda()
+    {
+        return $this->moneda;
+    }
+
+    /**
      * Set idCategoria
      *
      * @param DNT\WorkshopBundle\Entity\Categoria $idCategoria
@@ -371,15 +396,7 @@ class Articulo
      */
     public function setProveedor( $proveedores)
     {
-
-    
-/*
-            $ap = new ArticuloProveedor();
-            $ap->setArticulo($this);
-            $ap->setProveedor($proveedores);
-            $this->addArticuloProveedor($ap);
- */
-            foreach($proveedores as $p)
+        foreach($proveedores as $p)
         {
             $ap = new ArticuloProveedor();
 
@@ -409,12 +426,6 @@ class Articulo
 
     public function removeAp($articuloProveedor)
     {
-        /*
-        var_dump($this->ArticuloProveedors->count());
-        $this->ArticuloProveedors->removeElement($articuloProveedor);
-        var_dump($this->ArticuloProveedors->count());exit;
-        return;
-         */
         return $this->ArticuloProveedors->removeElement($articuloProveedor);
     }
 }

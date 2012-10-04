@@ -15,12 +15,19 @@ class ProveedorType extends AbstractType
             ->add('direccion')
             ->add('telefono')
             ->add('dolar')
+            ->add('reglas', 'collection', array('type' => new ReglaProvType(), 
+                'options' => array('ruleDefinition' => $options['ruleDefinition']),
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => true
+            ))
         ;
     }
 
     public function getDefaultOptions(array $options)
     {
         $options = parent::getDefaultOptions($options);
+        $options['ruleDefinition'] = array();
         $options['data_class'] = 'DNT\WorkshopBundle\Entity\Proveedor';
         return $options;
     }

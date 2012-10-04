@@ -122,3 +122,12 @@ DIV.provider A, DIV.provider BUTTON {
 DIV.alert {
     margin-top: 10px;
 }
+
+ol.reglas {
+    list-style-type: none;
+}
+
+ol.reglas input[type="checkbox"] {
+    margin-top: 7px;
+}
+

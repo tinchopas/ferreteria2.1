@@ -1,0 +1,16 @@
+DNT\WorkshopBundle\Entity\Moneda:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombre:
+            type: string
+            length: 255
+        simbolo:
+            type: string
+            length: '5'
+    lifecycleCallbacks: {  }

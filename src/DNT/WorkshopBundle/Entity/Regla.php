@@ -26,6 +26,11 @@ class Regla
     private $valor;
 
     /**
+     * @var boolean $habilitado
+     */
+    private $habilitado;
+
+    /**
      * @var datetime $creado
      */
     private $creado;
@@ -39,6 +44,11 @@ class Regla
      * @var DNT\WorkshopBundle\Entity\Proveedor
      */
     private $id_proveedor;
+
+    /**
+     * @var DNT\WorkshopBundle\Entity\Categoria
+     */
+    private $id_categoria;
 
 
     /**
@@ -89,6 +99,26 @@ class Regla
     public function getValor()
     {
         return $this->valor;
+    }
+
+    /**
+     * Set habilitado
+     *
+     * @param boolean $habilitado
+     */
+    public function setHabilitado($habilitado)
+    {
+        $this->habilitado = $habilitado;
+    }
+
+    /**
+     * Get habilitado
+     *
+     * @return boolean
+     */
+    public function getHabilitado()
+    {
+        return $this->habilitado;
     }
 
     /**
@@ -149,5 +179,25 @@ class Regla
     public function getIdProveedor()
     {
         return $this->id_proveedor;
+    }
+
+    /**
+     * Set id_categoria
+     *
+     * @param DNT\WorkshopBundle\Entity\Categoria $idCategoria
+     */
+    public function setIdCategoria(\DNT\WorkshopBundle\Entity\Categoria $idCategoria)
+    {
+        $this->id_categoria = $idCategoria;
+    }
+
+    /**
+     * Get id_categoria
+     *
+     * @return DNT\WorkshopBundle\Entity\Categoria
+     */
+    public function getIdCategoria()
+    {
+        return $this->id_categoria;
     }
 }

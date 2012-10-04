@@ -81,4 +81,11 @@ DNT\WorkshopBundle\Entity\Articulo:
       joinColumn:
         name: id_categoria
         referencedColumnName: id
+    moneda:
+      targetEntity: Moneda
+      cascade: [ "persist" ]
+      inversedBy: articulos
+      joinColumn:
+        name: id_moneda
+        referencedColumnName: id
   lifecycleCallbacks: {  }

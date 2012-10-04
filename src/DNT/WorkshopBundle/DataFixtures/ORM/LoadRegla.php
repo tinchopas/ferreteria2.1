@@ -15,12 +15,14 @@ class LoadRegla extends AbstractFixture implements OrderedFixtureInterface
         $Regla = new Regla();
         $Regla->setOperando('sum');
         $Regla->setValor(20.50);
+        $Regla->setHabilitado(true);
 
         $manager->persist($Regla);
 
         $Regla = new Regla();
         $Regla->setOperando('sub');
         $Regla->setValor(20);
+        $Regla->setHabilitado(true);
 
         $manager->persist($Regla);
 

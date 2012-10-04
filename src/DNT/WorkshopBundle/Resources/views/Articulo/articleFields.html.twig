@@ -21,6 +21,11 @@
                         {{ form_widget(edit_form.codigoBarra) }}
                     {% endif %}
                 </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.codigoProveedor) }}
+                    {{ form_errors(edit_form.codigoProveedor) }}
+                    {{ form_widget(edit_form.codigoProveedor) }}
+                </div>
             </div>
 
             <div class="span3">
@@ -35,9 +40,9 @@
                     {{ form_widget(edit_form.precioVenta) }}
                 </div>
                 <div class="row-fluid">
-                    {{ form_label(edit_form.codigoProveedor) }}
-                    {{ form_errors(edit_form.codigoProveedor) }}
-                    {{ form_widget(edit_form.codigoProveedor) }}
+                    {{ form_label(edit_form.moneda) }}
+                    {{ form_errors(edit_form.moneda) }}
+                    {{ form_widget(edit_form.moneda) }}
                 </div>
             </div>
         </div>

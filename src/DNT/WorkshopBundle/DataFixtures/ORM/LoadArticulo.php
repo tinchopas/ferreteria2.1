@@ -19,7 +19,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setPrecioVenta(35.90);
         $Articulo->setDescripcion('Destornillador Paleta');
         $Articulo->setidCategoria($manager->merge($this->getReference('Categoria.HerramientasDeMano')));
-        
+        $Articulo->setMoneda($manager->merge($this->getReference('Moneda.Peso')));
         $Articulo->setImagen($manager->merge($this->getReference('Imagen.DestornilladorPaleta')));
         $Articulo->setCodigoBarra('23452345');
         $Articulo->setCodigoProveedor('256434563');
@@ -34,6 +34,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setPrecioVenta(35.90);
         $Articulo->setDescripcion('Black and Decker 13mm');
         $Articulo->setidCategoria($manager->merge($this->getReference('Categoria.HerramientasElectricas')));
+        $Articulo->setMoneda($manager->merge($this->getReference('Moneda.Euro')));
         $Articulo->setImagen($manager->merge($this->getReference('Imagen.Taladro')));
         $Articulo->setCodigoBarra('123412341');
         $Articulo->setCodigoProveedor('234523452');
@@ -48,6 +49,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setPrecioVenta(68.90);
         $Articulo->setDescripcion('Llave sueca de tamaño mediano');
         $Articulo->setidCategoria($manager->merge($this->getReference('Categoria.HerramientasDeMano')));
+        $Articulo->setMoneda($manager->merge($this->getReference('Moneda.Dolar')));
         $Articulo->setImagen($manager->merge($this->getReference('Imagen.LlaveSueca')));
         $Articulo->setCodigoBarra('123412345123');
         $Articulo->setCodigoProveedor('234234244');
@@ -62,6 +64,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setPrecioVenta(44.90);
         $Articulo->setDescripcion('Alicate mediano con mango aislante.');
         $Articulo->setidCategoria($manager->merge($this->getReference('Categoria.HerramientasDeMano')));
+        $Articulo->setMoneda($manager->merge($this->getReference('Moneda.Dolar')));
         $Articulo->setImagen($manager->merge($this->getReference('Imagen.Alicate')));
         $Articulo->setCodigoBarra('123557123');
         $Articulo->setCodigoProveedor('2342244');
@@ -76,6 +79,7 @@ class LoadArticulo extends AbstractFixture implements OrderedFixtureInterface
         $Articulo->setPrecioVenta(44.90);
         $Articulo->setDescripcion('Pinza de puntas con mango aislante.');
         $Articulo->setidCategoria($manager->merge($this->getReference('Categoria.HerramientasDeMano')));
+        $Articulo->setMoneda($manager->merge($this->getReference('Moneda.Peso')));
         $Articulo->setImagen($manager->merge($this->getReference('Imagen.PinzaDePuntas')));
         $Articulo->setCodigoBarra('123557123');
         $Articulo->setCodigoProveedor('2342244');
