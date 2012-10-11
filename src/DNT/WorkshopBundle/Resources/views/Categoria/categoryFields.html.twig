@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-        {% include 'DNTWorkshopBundle:Regla:table.html.twig' %}
+        {% include 'DNTWorkshopBundle:Regla:table.html.twig' with {'parent_form': 'category'} %}
     </div>
     {{ form_widget(edit_form._token) }}
 

@@ -43,4 +43,6 @@ DNT\WorkshopBundle\Entity\Categoria:
       targetEntity: Regla
       mappedBy: id_categoria
       cascade: [ "all" ]
+      orderBy: 
+        prioridadCat: ASC
   lifecycleCallbacks: {  }

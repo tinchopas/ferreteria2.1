@@ -30,3 +30,19 @@ function addReglaForm(collectionHolder, $newLinkLi) {
     var $newFormLi = $('<li></li>').append(newForm);
     $newLinkLi.before($newFormLi);
 }
+
+function updateOrder(sortable) {
+    $("#sortable").children().each(function(i) {
+        $(this).find("input.prioridad").val(i);
+        });
+
+}
+
+$(document).ready(function() {
+    $("#sortable").sortable({
+    update: function(event, ui) {
+        updateOrder($(this))
+        }
+    });
+});
+

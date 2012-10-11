@@ -54,5 +54,7 @@ DNT\WorkshopBundle\Entity\Proveedor:
       targetEntity: Regla
       mappedBy: id_proveedor
       cascade: [ "all" ]
+      orderBy: 
+        prioridadProv: ASC
 
   lifecycleCallbacks: {  }

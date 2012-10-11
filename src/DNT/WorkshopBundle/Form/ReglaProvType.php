@@ -18,6 +18,8 @@ class ReglaProvType extends AbstractType
                     'attr' => array('class' => 'input-medium')
                 ))
             ->add('valor', 'number', array('attr' => array('class' => 'input-small')))
+            ->add('prioridadProv', 'hidden', array('attr' => array('class' => 'prioridad input-small')))
+            ->add('prioridadCat', 'hidden', array('attr' => array('class' => 'prioridad input-small')))
             ->add('habilitado', 'checkbox', array('value' => 1, 'required' => false,'attr' => array('class' => 'input-small')))
         ;
     }

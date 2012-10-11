@@ -41,6 +41,16 @@ class Regla
     private $modificado;
 
     /**
+     * @var integer $prioridadProv
+     */
+    private $prioridadProv;
+
+    /**
+     * @var integer $prioridadCat
+     */
+    private $prioridadCat;
+
+    /**
      * @var DNT\WorkshopBundle\Entity\Proveedor
      */
     private $id_proveedor;
@@ -159,6 +169,46 @@ class Regla
     public function getModificado()
     {
         return $this->modificado;
+    }
+
+    /**
+     * Set prioridadProv
+     *
+     * @param integer $prioridadProv
+     */
+    public function setPrioridadProv($prioridadProv)
+    {
+        $this->prioridadProv = $prioridadProv;
+    }
+
+    /**
+     * Get prioridadProv
+     *
+     * @return integer 
+     */
+    public function getPrioridadProv()
+    {
+        return $this->prioridadProv;
+    }
+
+    /**
+     * Set prioridadCat
+     *
+     * @param integer $prioridadCat
+     */
+    public function setPrioridadCat($prioridadCat)
+    {
+        $this->prioridadCat = $prioridadCat;
+    }
+
+    /**
+     * Get prioridadCat
+     *
+     * @return integer 
+     */
+    public function getPrioridadCat()
+    {
+        return $this->prioridadCat;
     }
 
     /**

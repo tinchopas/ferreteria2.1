@@ -1,12 +1,12 @@
         <h3>Reglas</h3>
 
         <div class="row-fluid">
-            <div class="span6">
-            <ol class="reglas" data-prototype="{{ form_widget(edit_form.reglas.vars.prototype)|e }}">
+            <div class="span7">
+            <ol id="sortable" class="reglas" data-prototype="{{ form_widget(edit_form.reglas.vars.prototype)|e }}">
                 {# iterate over each existing tag and render its only field: name #}
                 {% for regla in edit_form.reglas %}
                 
-                    <li class="center">
+                    <li id="lista_{% if parent_form == 'supplier' %}{{regla.vars.value.prioridadProv}} {% else %} {{regla.vars.value.prioridadCat}} {% endif %}" class="center">
                         <div class="row-fluid">
                             <div class="span1">
                                 {{ form_widget(regla.habilitado) }}
@@ -14,8 +14,16 @@
                             <div class="span4">
                                 {{ form_widget(regla.operando) }}
                             </div>
-                            <div class="span3">
+                            <div class="span2">
                                 {{ form_widget(regla.valor) }}
+                            </div>
+
+                            <div style="display:none;">
+                            {% if parent_form == 'supplier' %}
+                                {{ form_widget(regla.prioridadProv) }}
+                            {% else %}
+                                {{ form_widget(regla.prioridadCat) }}
+                            {% endif %}
                             </div>
                             <div class="span2">
                                 <a class="btn btn-info" href='{{ path('regla_show', { 'id': regla.vars.value.id }) }}'><i class="icon-file icon-white"></i></a>
@@ -27,3 +35,10 @@
             </ol>
             </div>
         </div>
+
+  <script>
+  $(document).ready(function() {
+    $("#sortable").sortable();
+  });
+  </script>
+

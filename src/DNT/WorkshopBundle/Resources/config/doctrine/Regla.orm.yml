@@ -21,6 +21,12 @@ DNT\WorkshopBundle\Entity\Regla:
     habilitado:
       type: boolean
       nullable: false
+    prioridadProv:
+      type: integer
+      nullable: true
+    prioridadCat:
+      type: integer
+      nullable: true
     creado:
       type: datetime
       nullable: true
