@@ -17,7 +17,6 @@
                             <div class="span2">
                                 {{ form_widget(regla.valor) }}
                             </div>
-
                             <div style="display:none;">
                             {% if parent_form == 'supplier' %}
                                 {{ form_widget(regla.prioridadProv) }}
@@ -33,6 +32,10 @@
                     </li>
                 {% endfor %}
             </ol>
+            <p class="muted">
+                <strong>*</strong>
+                Para establecer la prioridad de las reglas puede seleccionar y arrastrar.
+            </p>
             </div>
         </div>
 
