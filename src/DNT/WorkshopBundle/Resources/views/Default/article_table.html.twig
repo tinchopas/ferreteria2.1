@@ -84,7 +84,7 @@
             var artStock = parseInt(parentTr.find('.stock').text());
             var quantity = prompt('Cantidad de "' + artName + '" a agregar a los pedidos:');
 
-            if (quantity && validateQuantity(quantity, artStock)) {
+            if (quantity && !isNaN(quantity)) {
                 var url  = '{{ path('DNTWorkshopBundle_ajax_order') }}';
                 var data = {
                     "id_article": artId,
@@ -95,6 +95,8 @@
                 $.post(url, data, function(data) {
                     validateAjaxResponse(data);
                 });
+            } else {
+                alert('Debe ingresar un número entero.');
             }
         });
 
@@ -123,6 +125,6 @@
     </script>
 </table>
 
-    {% if articles %}
-        {{ articles.render()|raw }}
-    {% endif %}
+{% if articles %}
+    {{ articles.render()|raw }}
+{% endif %}

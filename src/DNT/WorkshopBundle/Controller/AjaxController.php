@@ -69,37 +69,32 @@ class AjaxController extends Controller
             $em = $this->getDoctrine()->getEntityManager();
             $ar = $em->getRepository('DNTWorkshopBundle:Articulo')->find($idArticle);
 
-            if ($ar->getCantidad() >= $quantity) {
+            // Gets the article and provider.
+            $apArray = $ar->getArticuloProveedors();
+            $artProv = $apArray[0];
 
-                // Gets the article and provider.
-                $apArray = $ar->getArticuloProveedors();
-                $artProv = $apArray[0];
-
-                // Set the order.
-                $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
-                    'eliminado'         => 0,
-                    'confirmado'        => 0,
-                    'ArticuloProveedor' => $artProv,
-                ));
-                if ($orders) {
-                    $order = $orders[0];
-                    $order->setCantidad($quantity);
-                } else {
-                    $order = new Pedido();
-                    $order->setArticuloProveedor($artProv);
-                    $order->setEliminado(0);
-                    $order->setConfirmado(0);
-                    $order->setCantidad($quantity);
-                }
-
-                // Persist the data.
-                $em->persist($order);
-                $em->flush();
-
-                return $this->generateErrorResponse('noerrors');
+            // Set the order.
+            $orders = $em->getRepository('DNTWorkshopBundle:Pedido')->findBy(array(
+                'eliminado'         => 0,
+                'confirmado'        => 0,
+                'ArticuloProveedor' => $artProv,
+            ));
+            if ($orders) {
+                $order = $orders[0];
+                $order->setCantidad($quantity);
             } else {
-                return $this->generateErrorResponse('nostock');
+                $order = new Pedido();
+                $order->setArticuloProveedor($artProv);
+                $order->setEliminado(0);
+                $order->setConfirmado(0);
+                $order->setCantidad($quantity);
             }
+
+            // Persist the data.
+            $em->persist($order);
+            $em->flush();
+
+            return $this->generateErrorResponse('noerrors');
         }
         return $this->generateErrorResponse('sintax');
     }
