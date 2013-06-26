@@ -12,3 +12,6 @@ parameters:
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
     database_path: null
+
+    userpass: smdi4dsi7
+    adminpass: dym.es!dht
