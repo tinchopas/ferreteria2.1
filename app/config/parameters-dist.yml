@@ -11,6 +11,7 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
+    title: La casa del Tornillo
     database_path: null
 
     userpass: smdi4dsi7

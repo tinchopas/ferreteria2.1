@@ -22,6 +22,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        title: %title%
+        logo: %logo%
 
 # Assetic Configuration
 assetic:
@@ -111,3 +114,14 @@ ps_pdf:
     markdown_stylesheet_filepath: ~
     markdown_document_template_filepath: ~
     document_parser_type: ~
+
+avro_csv:
+    db_driver: orm # supports orm
+    batch_size: 15 # The batch size between flushing & clearing the doctrine object manager
+    tmp_upload_dir: "%kernel.root_dir%/../web/uploads/tmp/" # The directory to upload the csv files to
+    sample_count: 5 # The number of sample rows to show during mapping
+    objects: # the entities/documents you want to be able to import/export data with 
+        articulo:
+            class: DNT\WorkshopBundle\Entity\Articulo # The entity/document class
+            redirect_route: articulo # The route to redirect to after import
+

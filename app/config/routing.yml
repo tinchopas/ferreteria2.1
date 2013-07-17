@@ -1,6 +1,8 @@
 DNTWorkshopBundle:
     resource: "@DNTWorkshopBundle/Resources/config/routing.yml"
     prefix:   /
+AvroCsvBundle:
+     resource: "@AvroCsvBundle/Resources/config/routing.yml"
 
 # Internal routing configuration to handle ESI
 #_internal:

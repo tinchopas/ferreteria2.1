@@ -25,7 +25,9 @@ class AppKernel extends Kernel
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new ENC\Bundle\BackupRestoreBundle\BackupRestoreBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            new Ps\PdfBundle\PsPdfBundle()
+            new Ps\PdfBundle\PsPdfBundle(),
+            new Avro\CsvBundle\AvroCsvBundle(),
+            new Avro\CaseBundle\AvroCaseBundle()
 
         );
 
