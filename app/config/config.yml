@@ -24,7 +24,6 @@ twig:
     strict_variables: %kernel.debug%
     globals:
         title: %title%
-        logo: %logo%
 
 # Assetic Configuration
 assetic:
