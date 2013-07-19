@@ -7,7 +7,6 @@
     <br />
     <h2>Catalogo de Articulos</h2>
     <br />
-{#    <a href="{{ path('avro_csv_import_upload', {'alias': 'articulo'}) }}">Go to import page</a>#}
 
     {% if entities %}
     <table class="table table-striped">
@@ -41,10 +40,11 @@
         </tbody>
     </table>
 
-        {{ entities.render()|raw }}
+        {{ knp_pagination_render(entities) }}
     {% endif %}
 
     <button class="btn btn-success" onclick="location='{{ path('articulo_new') }}'"><i class="icon-plus icon-white"></i> Añadir nuevo articulo</button>
+    <button class="btn btn-success" onclick="location='{{ path('avro_csv_import_upload', {'alias': 'articulo'}) }}'"><i class="icon-plus icon-white"></i> Importar desde csv</button>
     {% javascripts '@DNTWorkshopBundle/Resources/public/js/ajax_delete.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

@@ -35,7 +35,7 @@
         </tbody>
     </table>
 
-        {{ entities.render()|raw }}
+        {{ knp_pagination_render(entities) }}
     {% endif %}
 
     <button class="btn btn-success" onclick="location='{{ path('proveedor_new') }}'"><i class="icon-plus icon-white"></i> Añadir nuevo Proveedor</button>

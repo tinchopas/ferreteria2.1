@@ -126,5 +126,5 @@
 </table>
 
 {% if articles %}
-    {{ articles.render()|raw }}
+    {{ knp_pagination_render(articles) }}
 {% endif %}
