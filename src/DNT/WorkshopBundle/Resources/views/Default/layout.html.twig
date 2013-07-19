@@ -28,6 +28,8 @@
 		                <ul {% if section is not defined or section != 'article' %}style="display: none;"{% endif %} class="menuinterno">
 		                    <li><a href="{{ path('articulo') }}">Listar Catálogo</a></li>
 		                    <li><a href="{{ path('articulo_new') }}">Agregar Articulo</a></li>
+		                    <li><a href="{{ path('avro_csv_import_upload', {'alias': 'articulo'}) }}">Importar desde csv</a></li>
+		                    <li><a href="{{ path('avro_csv_export_export', {'alias': 'articulo'}) }}">Exportar a csv</a></li>
 		                </ul>
 		            </li>
 		            <li>
