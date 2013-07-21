@@ -11,6 +11,7 @@ class RenglonType extends AbstractType
     {
         $builder
             ->add('cantidad')
+            ->add('nombreArticulo')
             ->add('precioArticulo')
             ->add('precioTotal')
             ->add('idFactura')

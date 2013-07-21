@@ -61,6 +61,7 @@ class ShopController extends Controller
                 $line->setFactura($ticket);
                 $line->setArticulo($article);
                 $line->setCantidad($quantity);
+                $line->setNombreArticulo($article->getNombre());
                 $line->setPrecioArticulo($article->getPrecioVenta());
                 $line->setPrecioTotal($quantity * $article->getPrecioVenta());
                 $line->setCreado(new \DateTime('now'));

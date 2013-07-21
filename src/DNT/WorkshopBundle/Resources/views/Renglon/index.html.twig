@@ -14,6 +14,7 @@
                 <th>Id</th>
                 <th>Cantidad</th>
                 <th>Precioarticulo</th>
+                <th>Nombrearticulo</th>
                 <th>Preciototal</th>
                 <th>Actions</th>
             </tr>
@@ -24,6 +25,7 @@
                 <td><a href="{{ path('renglon_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.cantidad }}</td>
                 <td>{{ entity.precioArticulo }}</td>
+                <td>{{ entity.nombreArticulo }}</td>
                 <td>{{ entity.precioTotal }}</td>
                 <td>
                     <ul>
