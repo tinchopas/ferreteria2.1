@@ -125,6 +125,6 @@
     </script>
 </table>
 
-{% if articles %}
-    {{ knp_pagination_render(articles) }}
+{% if articles| length > 0 %}
+{#    {{ knp_pagination_render(articles) }}#}
 {% endif %}

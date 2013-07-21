@@ -21,6 +21,11 @@ class Renglon
     private $cantidad;
 
     /**
+     * @var string $nombreArticulo
+     */
+    private $nombreArticulo;
+
+    /**
      * @var float $precioArticulo
      */
     private $precioArticulo;
@@ -79,6 +84,26 @@ class Renglon
     public function getCantidad()
     {
         return $this->cantidad;
+    }
+
+    /**
+     * Set nombreArticulo
+     *
+     * @param string $nombreArticulo
+     */
+    public function setNombreArticulo($nombreArticulo)
+    {
+        $this->nombreArticulo = $nombreArticulo;
+    }
+
+    /**
+     * Get nombreArticulo
+     *
+     * @return string 
+     */
+    public function getNombreArticulo()
+    {
+        return $this->nombreArticulo;
     }
 
     /**

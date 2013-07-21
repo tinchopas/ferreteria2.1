@@ -23,7 +23,8 @@
                 {% set total = 0 %}
                 {% for renglon in sale.getRenglones %}
                     <tr>
-                        <td>{{ renglon.getArticulo.nombre }}</td>
+
+                        <td>{{ renglon.nombreArticulo }}</td>
                         <td class="right">{{ renglon.cantidad }}</td>
                         <td class="right">${{ renglon.precioArticulo|number_format(2, '.', ' ') }}</td>
                         <td class="right"><strong>${{ renglon.precioTotal|number_format(2, '.', ' ') }}</strong></td>

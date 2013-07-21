@@ -32,7 +32,7 @@ class ArticuloType extends AbstractType
             ->add('imagen', new ImagenType(), array('label'=>false)
             )
             ->add('codigoBarra','number', array(
-                'label' => 'Codigo', 'attr' => array('class'=>"field span12"))
+                'label' => 'Codigo de barras', 'attr' => array('class'=>"field span12"))
             )
             ->add('codigoProveedor', 'number', array(
                 'label' => 'Codigo para el Proveedor', 'attr' => array('class'=>"field span12"))

@@ -15,6 +15,11 @@ DNT\WorkshopBundle\Entity\Renglon:
       length: 45
       fixed: false
       nullable: false
+    nombreArticulo:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
     precioArticulo:
       type: float
       length: 45
