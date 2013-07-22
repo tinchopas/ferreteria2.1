@@ -13,17 +13,27 @@
                     {{ form_widget(edit_form.apellido) }}
                 </div>
                 <div class="row-fluid">
-                    {{ form_label(edit_form.direccion) }}
-                    {{ form_errors(edit_form.direccion) }}
-                    {{ form_widget(edit_form.direccion) }}
+                    {{ form_label(edit_form.empresa) }}
+                    {{ form_errors(edit_form.empresa) }}
+                    {{ form_widget(edit_form.empresa) }}
                 </div>
             </div>
 
             <div class="span3">
                 <div class="row-fluid">
+                    {{ form_label(edit_form.direccion) }}
+                    {{ form_errors(edit_form.direccion) }}
+                    {{ form_widget(edit_form.direccion) }}
+                </div>
+                <div class="row-fluid">
                     {{ form_label(edit_form.telefono) }}
                     {{ form_errors(edit_form.telefono) }}
                     {{ form_widget(edit_form.telefono) }}
+                </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.mail) }}
+                    {{ form_errors(edit_form.mail) }}
+                    {{ form_widget(edit_form.mail) }}
                 </div>
                 <div class="row-fluid">
                     {{ form_label(edit_form.dolar) }}

@@ -26,6 +26,16 @@ class Proveedor
     private $apellido;
 
     /**
+     * @var string $empresa
+     */
+    private $empresa;
+
+    /**
+     * @var string $mail
+     */
+    private $mail;
+
+    /**
      * @var string $direccion
      */
     private $direccion;
@@ -114,6 +124,46 @@ class Proveedor
     public function getApellido()
     {
         return $this->apellido;
+    }
+
+    /**
+     * Set empresa
+     *
+     * @param string $empresa
+     */
+    public function setEmpresa($empresa)
+    {
+        $this->empresa = $empresa;
+    }
+
+    /**
+     * Get empresa
+     *
+     * @return string 
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string 
+     */
+    public function getMail()
+    {
+        return $this->mail;
     }
 
     /**

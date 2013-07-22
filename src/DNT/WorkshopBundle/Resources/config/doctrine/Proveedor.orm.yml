@@ -20,6 +20,16 @@ DNT\WorkshopBundle\Entity\Proveedor:
       length: 250
       fixed: false
       nullable: false
+    empresa:
+      type: string
+      length: 250
+      fixed: false
+      nullable: true
+    mail:
+      type: string
+      length: 250
+      fixed: false
+      nullable: true
     direccion:
       type: string
       length: 250

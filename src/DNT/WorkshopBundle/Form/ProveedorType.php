@@ -12,6 +12,8 @@ class ProveedorType extends AbstractType
         $builder
             ->add('nombre')
             ->add('apellido')
+            ->add('empresa')
+            ->add('mail')
             ->add('direccion')
             ->add('telefono')
             ->add('dolar')
