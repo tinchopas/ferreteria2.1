@@ -1,0 +1,30 @@
+DNT\WorkshopBundle\Entity\City:
+    type: entity
+    table: City
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: '50'
+        latitude:
+            type: decimal
+            scale: 7
+        longitude:
+            type: decimal
+            scale: 7
+        timezone:
+            type: string
+            length: '40'
+    manyToOne:
+        province:
+            targetEntity: Province
+            cascade: [ "persist" ]
+            inversedBy: cities
+            joinColumn:
+                name: id_province
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

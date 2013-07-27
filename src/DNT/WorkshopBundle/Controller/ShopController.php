@@ -74,6 +74,7 @@ class ShopController extends Controller
 
         // Clean the shopping cart and redirect to the sales page.
         $this->forward('DNTWorkshopBundle:Ajax:cleanBuy');
+        $this->container->get('session')->getFlashBag()->set('success', 'La venta se ha realizado correctamente.');
         return $this->redirect($this->generateUrl('DNTWorkshopBundle_shop'));
     }
 

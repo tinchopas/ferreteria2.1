@@ -1,0 +1,24 @@
+DNT\WorkshopBundle\Entity\Country:
+    type: entity
+    table: Country
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: '50'
+        iso_alpha2:
+            type: string
+            length: '2'
+        iso_alpha3:
+            type: string
+            length: '3'
+    oneToMany:
+        provinces:
+            targetEntity: Province
+            mappedBy: country
+            cascade: [ "all" ]
+    lifecycleCallbacks: {  }

@@ -49,7 +49,11 @@
                 alert('Debe ingresar un número entero.');
             } else if (data.error == 'nostock') {
                 alert('No existe cantidad suficiente de este artículo para agregar.');
-            }
+            } else {
+                $('.alert-success p strong').after(' El articulo se ha agregado correctamente.');
+                $('.alert-success').removeClass('none');
+                
+                }
         }
 
         // Action for when an article is added to the shopping cart.

@@ -1,0 +1,26 @@
+DNT\WorkshopBundle\Entity\Province:
+    type: entity
+    table: Province
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: '50'
+    manyToOne:
+        country:
+            targetEntity: Country
+            cascade: [ "persist" ]
+            inversedBy: provinces
+            joinColumn:
+                name: id_country
+                referencedColumnName: id
+    oneToMany:
+        cities:
+            targetEntity: City
+            mappedBy: province
+            cascade: [ "all" ]
+    lifecycleCallbacks: {  }
