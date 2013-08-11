@@ -27,8 +27,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Ps\PdfBundle\PsPdfBundle(),
             new Avro\CsvBundle\AvroCsvBundle(),
-            new Avro\CaseBundle\AvroCaseBundle()
-
+            new Avro\CaseBundle\AvroCaseBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

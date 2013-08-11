@@ -1,124 +1,37 @@
 {% extends 'DNTWorkshopBundle:Default:layout.html.twig' %}
 
-{% block subtitle %}Pedidos{% endblock %}
+{% block subtitle %}Ventas{% endblock %}
 
 {% block content %}
     <br />
-    <h2>Pedidos a Proveedores</h2>
+    <h2>Venta realizada</h2>
     <br />
-    <div class="alert alert-success none" id="confirmMsg">
-        <strong>CONFIRMADO!</strong> El pedido se confirmó con éxito.
-    </div>
-    <div class="alert alert-error none" id="deleteMsg">
-        <strong>ELIMINADO!</strong> El pedido se eliminó correctamente.
-    </div>
-    {% if articles %}
-        {% for item in articles %}
-            <div id="{{ item.provider.id }}">
-                <div class="clearfix provider">
-                    <strong>{{ item.provider.nombre }} {{ item.provider.apellido }}</strong>
-                    <button class="btn btn-mini btn-success success" id="submit"><i class="icon-ok icon-white"></i> Confirmar Pedido</button>
-                    <button class="btn btn-mini btn-danger delete" id="clean"><i class="icon-trash icon-white"></i> Eliminar Pedido</button>
-                    <button class="btn btn-mini btn-success details"><i class="icon-arrow-down icon-white"></i> <span>Mostrar Artículos</span></button>
-                </div>
-                <table class="table table-striped" style="display:none">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Código Barra</th>
-                        <th>Descripción</th>
-                        <th class="right">Cantidad</th>
-                    </tr>
-                    {% for article in item.article %}
-                        <tr>
-                            <td>{{ article.nombre }}</td>
-                            <td>{{ article.codigoBarra }}</td>
-                            <td>{{ article.descripcion }}</td>
-                            <td class="right"><strong>{{ attribute(quantity, article.id) }}</strong></td>
-                        </tr>
-                    {% endfor %}
-                </table>
+        <div>
+            <div class="clearfix provider">
+                <strong>{{ sale.creado|date('d/m/Y') }}</strong> - Factura Nro: {{ sale.nroFactura }}
             </div>
-        {% endfor %}
-    {% if articles %}
-        {{ knp_pagination_render(articles) }}
-    {% endif %}
-    {% else %}
-        <br />
-        <div class="alert alert-info alert-block">
-            <strong>No existen pedidos por realizarse.</strong>
+            <table class="table table-striped" >
+                <tr>
+                    <th>Artículo</th>
+                    <th class="right">Cantidad</th>
+                    <th class="right">Precio Artículo</th>
+                    <th class="right">Precio Total</th>
+                </tr>
+                {% set total = 0 %}
+                {% for renglon in sale.getRenglones %}
+                    <tr>
+                        <td>{{ renglon.getArticulo.nombre }}</td>
+                        <td class="right">{{ renglon.cantidad }}</td>
+                        <td class="right">${{ renglon.precioArticulo|number_format(2, '.', ' ') }}</td>
+                        <td class="right"><strong>${{ renglon.precioTotal|number_format(2, '.', ' ') }}</strong></td>
+                    </tr>
+                    {% set total = total + renglon.precioTotal %}
+                {% endfor %}
+                <tr>
+                    <td colspan="3" class="right"><strong>Total:</strong></td>
+                    <td id="total" class="right"><strong>${{ total|number_format(2, '.', ' ') }}</strong></td>
+                </tr>
+            </table>
         </div>
-    {% endif %}
 
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/messi.css') }}" />
-    <script type="text/javascript" src="{{ asset('js/messi.js') }}"></script>
-
-    <script typei="text/javascript">
-
-        $('.provider').find('button.details').click(function() {
-            var btnText  = $(this).find('span');
-            var btnImage = $(this).find('i');
-
-            btnImage.toggleClass('icon-arrow-up');
-            btnImage.toggleClass('icon-arrow-down');
-
-            var text = btnText.text() == 'Mostrar Artículos' ? 'Ocultar Artículos' : 'Mostrar Artículos';
-            btnText.text(text);
-
-            $(this).parent().parent().find('table').toggle('fast');
-        });
-
-        $('.delete').click(function() {
-            if (confirm("¿Está seguro que desea eliminar el pedido?")) {
-                var url  = '{{ path('DNTWorkshopBundle_ajax_delorder') }}';
-                var data = {
-                    "id_proveedor": $(this).parent().parent().attr('id')
-                };
-
-                $.post(url, data, function(data) {
-                    $('#' + data.id).remove();
-                    $('#deleteMsg').show('fast');
-                    setTimeout(function() { $('#deleteMsg').hide('fast'); }, 3000);
-                });
-            }
-        });
-
-        $('.success').click(function() {
-            if (confirm("¿Desea confirmar el pedido y agregar los artículos al stock?")) {
-                var url  = '{{ path('DNTWorkshopBundle_ajax_confirmorder') }}';
-                var data = { 'id_proveedor': $(this).parent().parent().attr('id') };
-
-                $.post(url, data, function(data) {
-                    if (!jQuery.isEmptyObject(data.returns)) {
-
-                        // Generate the text to show in the box.
-                        var retText = 'Existen las siguientes devoluciones por realizarse asociadas al proveedor:<br /><br /><ul>';
-                        $.each(data.returns, function(key, value) {
-                            retText = retText + '<li>' + value.name + ' (' + value.quantity + ')</li>';
-                        });
-                        retText = retText + '</ul>';
-    
-                        new Messi(retText, {
-                            title: 'Devoluciones',
-                            titleClass: 'info',
-                            buttons: [
-                                {id: 1, label: 'Posponer', val: 'N'},
-                                {id: 2, label: 'Confirmar', val: 'Y'}
-                            ],
-                            callback: function(val) {
-                                if (val == 'Y') {
-                                    var returnUrl  = '{{ path('DNTWorkshopBundle_ajax_confirmreturn') }}';
-                                    var returnData = { 'id_proveedor': data.id };
-
-                                    $.post(returnUrl, returnData, null);
-                                }
-                            }
-                        });
-                    }
-                    $('#' + data.id).remove();
-                    $('#confirmMsg').show('fast');
-                    setTimeout(function() { $('#confirmMsg').hide('fast'); }, 3000);
-                });
-            }
-        });
-    </script>
 {% endblock %}

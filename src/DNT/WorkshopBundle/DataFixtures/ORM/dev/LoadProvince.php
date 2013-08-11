@@ -12,6 +12,7 @@ class LoadProvince extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $namesProvince = array(
+            'Buenos Aires F.D.',
             'Buenos Aires',
             'Catamarca',
             'Chaco',

@@ -124,3 +124,5 @@ avro_csv:
             class: DNT\WorkshopBundle\Entity\Articulo # The entity/document class
             redirect_route: articulo # The route to redirect to after import
 
+fos_js_routing:
+    routes_to_expose: [ province_list ]

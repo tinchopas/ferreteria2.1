@@ -3,7 +3,15 @@ DNTWorkshopBundle:
     prefix:   /
 AvroCsvBundle:
      resource: "@AvroCsvBundle/Resources/config/routing.yml"
+fos_js_routing:
+        resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
+
+province_list:
+    pattern: /ajax/provincelist
+    defaults: { _controller: DNTWorkshopBundle:Ajax:provinceList }
+    options:
+        expose: true
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

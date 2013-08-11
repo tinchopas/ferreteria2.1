@@ -66,5 +66,13 @@ DNT\WorkshopBundle\Entity\Proveedor:
       cascade: [ "all" ]
       orderBy: 
         prioridadProv: ASC
+  manyToOne:
+    city:
+      targetEntity: City
+      cascade: [ "persist" ]
+      inversedBy: suppliers
+      joinColumn:
+        name: id_city
+        referencedColumnName: id
 
   lifecycleCallbacks: {  }

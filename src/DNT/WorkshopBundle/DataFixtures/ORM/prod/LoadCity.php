@@ -24,7 +24,8 @@ class LoadCity extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        $handle = @fopen("/tmp/cities", "r");
+        $handle = @fopen(__DIR__."/../../DataSources/cities.json", "r");
+
         if ($handle) {
             while (($buffer = fgets($handle, 4096)) !== false) {
                 $this->addRow($manager, json_decode($buffer));

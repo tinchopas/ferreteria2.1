@@ -27,4 +27,9 @@ DNT\WorkshopBundle\Entity\City:
             joinColumn:
                 name: id_province
                 referencedColumnName: id
+    oneToMany:
+        suppliers:
+            targetEntity: Proveedor
+            mappedBy: city
+            cascade: [ "all" ]
     lifecycleCallbacks: {  }

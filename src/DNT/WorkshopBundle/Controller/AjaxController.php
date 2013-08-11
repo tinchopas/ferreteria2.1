@@ -189,4 +189,31 @@ class AjaxController extends Controller
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
+
+
+    public function provinceListAction()
+    {
+        $country_id = $this->getRequest()->request->get('country_id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $provinces = $em->getRepository('DNTWorkshopBundle:Province')->findByCountry($country_id);
+
+        return $this->render('DNTWorkshopBundle:Ajax:provinceList.html.twig', array(
+            'provinces' => $provinces,
+        ));
+    }
+
+    public function cityListAction()
+    {
+        $province_id = $this->getRequest()->request->get('province_id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $cities = $em->getRepository('DNTWorkshopBundle:City')->findByProvince($province_id);
+
+        return $this->render('DNTWorkshopBundle:Ajax:cityList.html.twig', array(
+            'cities' => $cities
+        ));
+    }
 }

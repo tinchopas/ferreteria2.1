@@ -39,6 +39,16 @@ class City
      */
     private $province;
 
+    /**
+     * @var ArrayCollection
+     */
+    private $suppliers;
+
+
+    public function __construct()
+    {
+        $this->suppliers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -161,5 +171,40 @@ class City
     public function getProvince()
     {
         return $this->province;
+    }
+
+    /**
+     * Set Suppliers
+     *
+     * @param Doctrine\Common\Collections\ArrayCollection $suppliers
+     */
+    public function setSuppliers(\Doctrine\Common\Collections\ArrayCollection $suppliers)
+    {
+        $this->suppliers = $suppliers;
+    }
+
+    /**
+     * Add Supplier
+     *
+     * @param DNT\WorkshopBundle\Entity\Proveedor $supplier
+     */
+    public function addSupplier(\DNT\WorkshopBundle\Entity\Proveedor $supplier)
+    {
+        $this->suppliers[] = $supplier;
+    }
+
+    /**
+     * Get suppliers
+     *
+     * @return Doctrine\Common\Collections\ArrayCollection 
+     */
+    public function getSuppliers()
+    {
+        return $this->suppliers;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

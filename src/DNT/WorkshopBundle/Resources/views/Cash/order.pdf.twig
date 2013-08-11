@@ -1,0 +1,33 @@
+<pdf>
+    <dynamic-page>
+
+{% block content %}
+    <br />
+    <h2>Pedidos a Proveedores</h2>
+    <br />
+    {% if articles %}
+        {% for item in articles %}
+            <div id="{{ item.provider.id }}">
+                <table class="table table-striped" style="display:none">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Código Barra</th>
+                        <th>Descripción</th>
+                        <th class="right">Cantidad</th>
+                    </tr>
+                    {% for article in item.article %}
+                        <tr>
+                            <td>{{ article.nombre }}</td>
+                            <td>{{ article.codigoBarra }}</td>
+                            <td>{{ article.descripcion }}</td>
+                            <td class="right"><strong>{{ attribute(quantity, article.id) }}</strong></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+    </dynamic-page>
+</pdf>
+

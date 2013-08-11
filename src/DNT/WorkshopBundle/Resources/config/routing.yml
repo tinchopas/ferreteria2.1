@@ -28,6 +28,11 @@ DNTWorkshopBundle_sale:
     defaults: { _controller: DNTWorkshopBundle:Shop:sale, _format: html }
     requirements:
         _format:  html|pdf
+DNTWorkshopBundle_order:
+    pattern:  /{id}/{_format}/order
+    defaults: { _controller: DNTWorkshopBundle:Shop:order, _format: html }
+    requirements:
+        _format:  html|pdf
 
 
 ### Ajax
@@ -52,6 +57,12 @@ DNTWorkshopBundle_ajax_return:
 DNTWorkshopBundle_ajax_confirmreturn:
     pattern:  /ajax/return/confirm
     defaults: { _controller: DNTWorkshopBundle:Ajax:returnConfirm }
+DNTWorkshopBundle_ajax_provincelist:
+    pattern:  /ajax/provincelist
+    defaults: { _controller: DNTWorkshopBundle:Ajax:provinceList }
+DNTWorkshopBundle_ajax_citylist:
+    pattern:  /ajax/citylist
+    defaults: { _controller: DNTWorkshopBundle:Ajax:cityList }
 
 ### Login
 login:

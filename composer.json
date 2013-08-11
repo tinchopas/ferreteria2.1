@@ -52,7 +52,8 @@
         "knplabs/knp-paginator-bundle": "dev-master",
         "comfortablynumb/BackupRestoreBundle": "dev-master",
         "psliwa/pdf-bundle": "dev-master",
-        "avro/csv-bundle": "*"
+        "avro/csv-bundle": "*",
+        "friendsofsymfony/jsrouting-bundle": "dev-master"
 
     },
     "scripts": {

@@ -66,6 +66,11 @@ class Proveedor
     private $ArticuloProveedors;
 
     /**
+     * @var DNT\WorkshopBundle\Entity\City
+     */
+    private $city;
+
+    /**
      * @var DNT\WorkshopBundle\Entity\Regla
      */
     private $reglas;
@@ -284,6 +289,49 @@ class Proveedor
     public function getArticuloProveedors()
     {
         return $this->ArticuloProveedors;
+    }
+
+    /**
+     * Set City
+     *
+     * @param DNT\WorkshopBundle\Entity\City $city
+     */
+    public function setCity(\DNT\WorkshopBundle\Entity\City $city)
+    {
+        $city->addSupplier($this);
+        $this->city = $city;
+    }
+
+    /**
+     * Get City
+     *
+     * @return DNT\WorkshopBundle\Entity\City
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Get Province
+     *
+     * @return DNT\WorkshopBundle\Entity\Province
+     */
+    public function getProvince()
+    {
+        echo "getProvince";exit;
+        return $this->getCity()->getProvince();
+    }
+
+    /**
+     * Get City
+     *
+     * @return DNT\WorkshopBundle\Entity\Country
+     */
+    public function getCoutry()
+    {
+        echo "getCountry";exit;
+        return $this->getProvince()->getCountry();
     }
 
     /**

@@ -17,14 +17,6 @@
                     {{ form_errors(edit_form.empresa) }}
                     {{ form_widget(edit_form.empresa) }}
                 </div>
-            </div>
-
-            <div class="span3">
-                <div class="row-fluid">
-                    {{ form_label(edit_form.direccion) }}
-                    {{ form_errors(edit_form.direccion) }}
-                    {{ form_widget(edit_form.direccion) }}
-                </div>
                 <div class="row-fluid">
                     {{ form_label(edit_form.telefono) }}
                     {{ form_errors(edit_form.telefono) }}
@@ -41,14 +33,46 @@
                     {{ form_widget(edit_form.dolar) }}
                 </div>
             </div>
-        </div>
 
+            <div class="span3">
+                <div class="row-fluid">
+                    {{ form_label(edit_form.direccion) }}
+                    {{ form_errors(edit_form.direccion) }}
+                    {{ form_widget(edit_form.direccion) }}
+                </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.country) }}
+                    {{ form_errors(edit_form.country) }}
+                    {{ form_widget(edit_form.country) }}
+                </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.province) }}
+                    {{ form_errors(edit_form.province) }}
+                    {{ form_widget(edit_form.province) }}
+                </div>
+                <div class="row-fluid">
+                    {{ form_label(edit_form.city) }}
+                    {{ form_errors(edit_form.city) }}
+                    {{ form_widget(edit_form.city) }}
+                </div>
+            </div>
+        </div>
 
         {% include 'DNTWorkshopBundle:Regla:table.html.twig' with {'parent_form': 'supplier'} %}
 
     </div>
     {{ form_widget(edit_form._token) }}
 
-    {% javascripts '@DNTWorkshopBundle/Resources/public/js/nueva_regla.js' %}
+    {% javascripts 
+        '@DNTWorkshopBundle/Resources/public/js/nueva_regla.js'
+        '@DNTWorkshopBundle/Resources/public/js/ajax_city_country.js'
+         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts filter='?yui_js'
+        'bundles/fosjsrouting/js/router.js'
+        'js/fos_js_routes.js'
+    %}
+        <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
